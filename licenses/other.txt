@@ -1,0 +1,12 @@
+Licenses for Jing and Saxon can be found in the publications/jing folder.
+
+saxon-he uses the mozilla license found here: https://www.mozilla.org/en-US/MPL/2.0/
+
+The licenses for Petite Vue and Quasar are MIT and can be found here: https://github.com/quasarframework/quasar/blob/dev/LICENSE and https://opensource.org/license/mit
+
+OpenSeaDragon uses the New BSD license: https://openseadragon.github.io/license/
+
+The Laravel framework is open-sourced software licensed under the MIT license.s
+
+
+

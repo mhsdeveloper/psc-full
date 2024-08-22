@@ -1,0 +1,38 @@
+
+
+	.app {
+		padding: 1rem;
+	}
+
+
+	.errorBar {
+		position: relative;
+		padding: $gutter;
+		background-color: $warning;
+		background-color: #ffa2a7;
+		font-size: 18px;
+		border: 1px solid red;
+		border-radius: 6px;
+	}
+
+	.tight {
+		h1, h2, h3, h4 {
+			display: inline-block;
+		}
+	}
+
+
+	.Mrow {
+		margin-bottom: 1rem;
+	}
+
+
+	.Mform {
+		max-width: 600px;
+	}
+
+	.q-card .Mform {
+		margin: 1rem;
+	}
+
+	

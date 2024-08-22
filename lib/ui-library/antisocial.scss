@@ -1,0 +1,46 @@
+
+.sharing {
+   padding: 1rem 0;
+}
+
+.sharing-icon {
+   display: inline-block !important;
+   color: white !important;
+   vertical-align: middle !important;
+   padding: 4px !important;
+   border-radius: 4px !important;
+   line-height: 1;
+   
+   svg {
+      vertical-align: middle;
+	  fill: white;
+	  display: inline-block;
+	  height: 16px;
+	  width: 18px;
+   }
+   
+   b {
+	  font-weight: normal !important;
+	  font-size: 12px !important;
+	  font-family: "Helvetica", "Arial", sans-serif;
+   }
+}
+
+.sharing-icon.facebook {
+      background: #006FE2 !important;
+}
+.sharing-icon.googleplus {
+   background: #CE4F4F !important;
+       padding-right: 6px !important;
+}
+.sharing-icon.twitter {
+      background: #27afff !important;
+}
+
+.sharing-icon.pinterest {
+   background: #CA0025 !important;
+}
+
+.sharing-icon.email {
+   background: #8a8a8a!important;
+}

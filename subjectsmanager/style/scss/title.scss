@@ -1,0 +1,39 @@
+.title{
+    font-family: sans-serif;
+    font-weight: 600;
+    
+    .button{
+        cursor: pointer;
+        padding: .5rem 2rem;
+        align-self: center;
+        background-color:  #52a4b4;
+        color: white;
+        border: none;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+    .projectTopicDisplay{
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+        a {
+            font-size: small;
+            background-color:  #5da0ad;
+            border-radius: 5px;
+            margin-right: .3rem;
+            padding: .2rem .5rem;
+            line-height: 1.75rem;
+            margin-bottom: .5rem;
+            cursor: pointer;
+            display: inline-block;
+            &:hover {
+                background-color: #94b5ba;
+            } 
+        }
+    }
+
+    .noClamp{
+        display: block;
+    }
+}

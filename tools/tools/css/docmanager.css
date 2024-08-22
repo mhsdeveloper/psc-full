@@ -1,0 +1,170 @@
+.app {
+  padding: 1rem;
+}
+
+.errorBar {
+  position: relative;
+  padding: 1rem;
+  background-color: #ff525d;
+  background-color: #ffa2a7;
+  font-size: 18px;
+  border: 1px solid red;
+  border-radius: 6px;
+}
+
+.tight h1, .tight h2, .tight h3, .tight h4 {
+  display: inline-block;
+}
+
+.Mrow {
+  margin-bottom: 1rem;
+}
+
+.Mform {
+  max-width: 600px;
+}
+
+.q-card .Mform {
+  margin: 1rem;
+}
+
+.positive {
+  background: #1dc76c;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem 0;
+}
+h1 small, h2 small, h3 small {
+  display: block;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.q-card h4 {
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: 0em;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 0 !important;
+}
+
+.closeButton {
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  top: 0.5rem;
+  font-size: 24px;
+}
+
+.q-tooltip {
+  max-width: 400px !important;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.helpTool {
+  display: inline-block;
+}
+
+.expandedRow {
+  background: #dfd2e6;
+}
+.expandedRow label {
+  padding-top: 0;
+}
+
+.docManager .detailsTitle {
+  font-weight: bold;
+}
+.docManager .detailsTitle:after {
+  content: ": ";
+}
+.docManager .step {
+  display: inline-block;
+  background: #e6e6e6;
+  cursor: pointer;
+}
+.docManager .step .status {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin: 4px;
+  vertical-align: middle;
+}
+.docManager .stepArrow {
+  display: inline-block;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #e6e6e6;
+  margin-right: 0.5rem;
+  vertical-align: top;
+}
+.docManager .notes {
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+}
+.docManager .q-table tbody td {
+  max-width: 33vw;
+}
+
+.stepManager .step {
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  background: #f3f3f3;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.stepManager .step label {
+  float: left;
+  line-height: 3.4;
+  background: #bdbfbd;
+  font-size: 24px;
+  padding: 0 1rem 0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.stepManager .step h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 0;
+  padding-left: 4rem;
+}
+.stepManager .step h2 span {
+  font-size: 16px;
+}
+.stepManager .step p {
+  font-size: 14px;
+  padding-left: 4rem;
+  color: #676767;
+}
+.stepManager .step:hover {
+  background: white;
+  cursor: pointer;
+}
+.stepManager .step.editing {
+  border: 1px solid red;
+}
+
+/*# sourceMappingURL=docmanager.css.map */

@@ -1,0 +1,235 @@
+
+
+.searchBar {
+  background: #c8c8c8;
+}
+
+.noResultsMessage {
+	display: table-row;
+	height: 100px;
+	position: relative;
+	
+	p {
+		font-weight: bold;
+		position: absolute;
+		left: 50%;
+		top: 40px;
+		text-align: center;
+	}
+}
+
+.advancedSearch {
+
+} 
+
+.searchOptions {
+	justify-content: center;
+    flex-flow: column nowrap;
+    display: flex;
+    flex-direction: column;
+
+	label {
+		text-align: right;
+		margin: .25rem;
+	}
+}
+
+.searchGo {
+	display: flex;
+    align-items: center;
+}
+
+
+#loadingCanvas {
+	display: none;
+	width: 100%;
+}
+#loadingCanvas.show {
+	display: block;
+}
+
+
+.resultsWrapper {
+	border: 15px solid #e0e0e0;
+}
+
+.resultsWrapper.project {
+	border: 15px solid #1976d2;
+}
+
+.namesList{
+	display: table;
+	border-collapse: collapse;
+	width: 100%;
+
+	.cell {
+		display: table-cell;
+		padding: $whitespc 2 * $whitespc;
+	}
+
+	.cell + .cell {
+		border-left:  $fineBorder;
+	}
+
+	.header {
+		display: table-row;
+		font-weight: bold;
+		background: $grey;
+		top: 0;
+	    position: sticky;
+		z-index: 20;
+
+		.fullName {
+			.tinyLink {
+				margin-left: 2rem;
+			}
+			.tinyLink:after {
+				content: "+";
+			}
+		}
+	}
+
+	.name {
+		display: table-row;
+		// display: flex;
+		// flex-wrap: nowrap;
+		// flex-direction: row;
+		background: white;
+
+		.actions {
+			width: 30px;
+		}
+
+		.fullName {
+			width: 252px;
+			cursor: pointer;
+		}
+
+		.husc {
+			min-width: 180px;
+		}
+
+		.dates {
+			//width: 150px;
+		}
+
+		.notes {
+			//width: 200px;
+			position:relative;
+		}
+
+		.toolTipWrapper {
+			position: relative;
+			height: 2rem;
+			overflow: hidden;
+
+			.toolTip {
+				display: none;
+				background: white;
+				box-shadow: 0 0 15px rgb(0 0 0 / 30%);
+				z-index: 10;
+				padding: 10px;
+				position: absolute;
+				top: 0;
+			}
+		}
+		.toolTipWrapper:hover {
+			overflow: visible;
+
+			.toolTip {
+				display: block;
+			}
+		}
+
+		.note {
+			b {
+				text-transform: uppercase;
+			}
+		}
+
+		.husc {
+			cursor: pointer;
+		}
+
+		.husc .material-icons {
+			float: right;
+			color: $medGrey;
+		}
+	}
+
+	.name:hover {
+		background: $faintGrey;
+	}
+
+	.name + .name {
+		border-top: $fineBorder;
+	}
+
+	.name.inProject {
+		background: #f1f8ff;
+
+		.actions {
+			border-left: #1976d2 10px solid;
+		}
+	}
+
+	.name + .name.inProject {
+		border-top: 1px solid #ffffff;
+	}
+
+
+}
+
+
+.controlsBelow {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 0.25rem 1rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    bottom: 0;
+    background: #d4d4d4;
+
+	.results,
+	.checkedActions,
+	.pagination {
+
+	}
+
+
+	.hits {
+		float: left;
+		background: none;
+		font-weight: bold;
+		width: auto;
+	}
+
+	.pagination {
+		span {
+			display: inline-block;
+			padding: 0.1rem;
+			cursor: pointer;
+			background: white;
+			border-radius: 2px;
+			margin: 0.2rem;
+			width: 28px;
+			text-align: center;
+		}
+
+
+		.current {
+			cursor: default;
+			font-weight: bold;
+			border: 1px solid #909090;
+		}
+
+		.prev, .next {
+			width: auto;
+			padding: .1rem .3rem;
+		}
+	}
+
+
+
+}

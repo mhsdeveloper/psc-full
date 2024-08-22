@@ -1,0 +1,240 @@
+/* Small stuff */
+
+.closeButton {
+	cursor: pointer;
+    position: absolute;
+    right: 2rem;
+    top: .5rem;
+    font-size: 24px;
+}
+
+.error {
+	padding: $gutter;
+	background-color: #ffa2a7;
+	border: 1px solid red;
+}
+
+.q-tooltip {
+	max-width: 400px !important;
+}
+
+
+.inline {
+	display: inline-block;
+}
+
+.helpTool {
+	display: inline-block;
+}
+
+
+
+
+/* main areas */
+
+
+.documentPanels {
+	.choices {
+		a {
+			cursor: pointer;
+			display: inline-block;
+			padding: 0.5rem 1rem;
+			text-decoration: none;
+			color: black;
+			font-size: 16px;
+		}
+
+		.selected {
+			background: white;
+		}
+	}
+
+	.panel {
+		display: none;
+		background: white;
+		padding: 1rem;
+		margin-bottom: 2rem;
+	}
+	.panel.selected {
+		display: block;
+	}
+}
+
+
+
+.expandedRow {
+	background: #dfd2e6;
+
+	label {
+		padding-top: 0;
+	}
+}
+
+
+
+
+.tools {
+	padding-top: 1rem;
+}
+
+
+	*[data-status='loading'] {
+		background: #e0e0e0;
+		text-indent: -9999em;
+		overflow: hidden;
+		position: relative;
+	}
+
+	*[data-status='loading']:before {
+		content: "( + )";
+		position: absolute;
+		animation: rotation 2s infinite linear;
+		top: 0;
+		left: 100px;
+		display: block;
+		text-indent: 0;
+		color: #ffffff;
+		font-weight: bold;
+	}
+
+
+
+@keyframes rotation {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(359deg);
+	}
+  }
+
+
+
+
+.q-card {
+	h4 {
+		margin-top: 1rem;
+		font-size: 18px;
+	}
+}
+
+
+
+.dialog {
+	position: fixed;
+	z-index: 1000;
+	top: 10%;
+	left: 50%;
+	margin-left: -300px;
+	width: 400px;
+	background: #f0f0f0;
+}
+
+
+.statusLog {
+
+	.fileReport {
+		background: #f0f0f0;
+		padding: 1rem;
+		margin: 1rem 0;
+	}
+
+	.notice {
+		margin: 1rem 0;
+		padding: 8px;
+		background: #aee7ae;
+	}
+
+	.error {
+		background: #ff7d7d;
+		margin-top: 1rem;
+		padding: 8px;
+	}
+
+	.persRefWarning {
+		background: #fff583;
+		margin-top: 1rem;
+		padding: 8px;
+	}
+}
+
+
+
+.statusLog.progress {
+
+	.fileReport.logmsg {
+		display: none;
+	}
+}
+
+
+
+
+  .otherTools {
+	a, a:link, a:visited, a:active {
+		background: #3873ae;
+		text-decoration: none;
+		padding: 8px 16px;
+		color: white;
+		display: inline-block;
+		margin: 1rem;
+		border-radius: 5px;
+		box-shadow: 0 2px 4px rgba(0,0,0,.35);
+	}
+  }
+
+
+
+  .pleaseWait {
+	z-index: 2000;
+	position: fixed;
+	background: rgba(0,0,0,.5);
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+  }
+
+
+
+
+  .limitsForm {
+
+	background: #ffffff;
+    padding: 2rem;
+    margin-bottom: 1rem;
+
+	.formControl {
+		display: inline-block;
+		position: relative;
+		width: 24%;
+	}
+
+	label {
+		display: inline-block;
+		margin-right: 1rem;
+		position: absolute;
+		top:  -19px;
+		width: 90%;
+	}
+
+	input, select {
+		width: 90%;
+		margin-right: 2rem;
+	}
+
+	.limitsRow {
+		margin: 0 0 1rem 0;
+
+	}
+
+	.alignRight {
+		justify-content: right;
+		text-align: right;
+	}
+
+  }

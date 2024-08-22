@@ -1,0 +1,51 @@
+#Adding a new edition
+
+-add them to the db: psccore.projects with a mysql insert statement such as:
+
+	INSERT INTO projects SET name="Papers of Joe Smith";
+
+-add them the /html/publications/projects/projects.json; adjust any other properties there, including the id which will be assigned by MYSQL in the previous step. You can query MYSQL to find the id:
+
+	SELECT id FROM projects WHERE name="Papers of Joe Smith";
+
+-add create a folder for the project in /html/publications/projects. It should be the lowercase edition abbreviation, "pjs" in our example here.
+
+-adjust their environment.php file:
+	- set project_id from the id in mysql psccore.projects
+	- make sure the project short name is the same as the folder name
+
+-make sure the folowing folders are owned by www-data
+	[projectdir]/includes
+	[projectdir]/xml
+	[projectdir]/solrtemp 
+	[projectdir]/support-files
+
+the projects/[project shortname]/customize folder needs:
+	name-metadata-template.html
+	metadata.json
+
+the support-files folder needs a standard footer.html file with the name, (c), and Mellon and NHPRC logos.
+
+
+
+##Create a new site in WordPress
+
+1. Use the "Network Admin" -> "Sites" interface to add a new site for the edition. Give it a site address that is the lowercase of the edition abbreviation.
+
+2. Select the new site and visit it's dashboard.
+
+3. Under "Appearances" -> "Themes", set the theme to psc1
+
+
+##Build the Home page
+
+
+
+set WP>reading initial page to a static page (create a home page first)
+
+
+
+setup the menu in WP: create a primary menu named "Main Menu"
+
+
+run the tools/sync menu

@@ -1,0 +1,38 @@
+.d-flex{
+    display: flex;
+}
+
+.d-flex-centered{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.w-100{
+    width: 100%;
+}
+
+.multi-col{
+    column-count: 3;
+    -moz-column-count: 3;
+    -webkit-column-count: 3;
+
+    @media screen and (max-width: 1400px){
+        column-count: 2;
+    }
+    @media screen and (max-width: 600px){
+        column-count: 1;
+    }
+}
+
+.multi-col > div {
+    margin: 0;
+    padding-top: 1rem;
+    page-break-inside: avoid;         
+    break-inside: avoid-column;
+    display:table;  
+}

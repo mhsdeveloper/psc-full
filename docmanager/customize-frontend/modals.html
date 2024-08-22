@@ -1,0 +1,47 @@
+
+<q-dialog v-model="showNameLookup">
+	<q-card style="min-width: 350px">
+
+		<div v-if="currentName">
+			<q-card-section class="q-pt-none">
+				<h4>{{currentName.title}}
+					{{currentName.given_name}}
+					{{currentName.maiden_name}}
+					{{currentName.family_name}}
+					{{currentName.suffix}}
+				</h4>
+				<a class="tinyLink" href="#">find docs w/ this name</a>
+
+				<p>{{currentName.name_key}}</p>
+
+				<p>{{ (currentName.birth_ca != "0" ? "ca." : "") + " " + currentName.date_of_birth + (currentName.birth_era == "bce" ? " BCE " : "") + "-" + currentName.date_of_death + " " + (currentName.death_era == "bce" ? "B.C.E." : "")}}</p>
+				<p>
+					first mentioned: <b>{{currentName.first_mention}}</b><br/>
+					identified by: <b>{{currentName.identifier}}</b>
+				</p>
+			</q-card-section>
+		</div>
+
+		<div v-else>
+			<p>Unable to find a name for HUSC: {{currentHusc}}</p>
+		</div>
+
+		<q-card-actions align="right" class="text-primary">
+			<q-btn unelevated color="positive" label="close" v-on:click="currentHusc = false; showNameLookup = false;"></q-btn>
+		</q-card-actions>
+	</q-card>
+</q-dialog>
+
+
+
+<q-dialog v-model="showStatus">
+	<q-card style="min-width: 500px" class="auditDialog">
+		<q-card-section class="q-pt-none">
+			<h3>{{auditTitle}}<br/><b>{{auditFilename}}</b></h3>
+			<p v-html="auditText"></p>
+		</q-card-section>
+	</q-card>
+</q-dialog>
+
+
+

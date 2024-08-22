@@ -1,0 +1,7 @@
+MAINTENANCE MODE FOR BACKEND
+
+BEST WAY: see the publications/mhs/file server-env.php
+
+To put in maintenance mode, set one of the maintenance consts to a string with a specific helpful message. Set to false to stop maintenance mode and reopen access.
+
+OLD BLUNT WAY: Edit the file publications/lib/classes/publications/staffuser.php and set const MAINTENANCE = true; then add your username to the const WHITELIST array

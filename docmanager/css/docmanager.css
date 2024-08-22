@@ -1,0 +1,482 @@
+.app {
+  padding: 1rem;
+}
+
+.errorBar {
+  position: relative;
+  padding: 1rem;
+  background-color: #ff525d;
+  background-color: #ffa2a7;
+  font-size: 18px;
+  border: 1px solid red;
+  border-radius: 6px;
+}
+
+.tight h1, .tight h2, .tight h3, .tight h4 {
+  display: inline-block;
+}
+
+.Mrow {
+  margin-bottom: 1rem;
+}
+
+.Mform {
+  max-width: 600px;
+}
+
+.q-card .Mform {
+  margin: 1rem;
+}
+
+.positive {
+  background: #1dc76c;
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem 0;
+}
+h1 small, h2 small, h3 small {
+  display: block;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.q-card h4 {
+  font-size: 1.8rem;
+  line-height: 1;
+  letter-spacing: 0em;
+}
+
+h6 {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 0 !important;
+}
+
+/* Small stuff */
+.closeButton {
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  top: 0.5rem;
+  font-size: 24px;
+}
+
+.error {
+  padding: 1rem;
+  background-color: #ffa2a7;
+  border: 1px solid red;
+}
+
+.q-tooltip {
+  max-width: 400px !important;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.helpTool {
+  display: inline-block;
+}
+
+/* main areas */
+.documentPanels .choices a {
+  cursor: pointer;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+.documentPanels .choices .selected {
+  background: white;
+}
+.documentPanels .panel {
+  display: none;
+  background: white;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+.documentPanels .panel.selected {
+  display: block;
+}
+
+.expandedRow {
+  background: #dfd2e6;
+}
+.expandedRow label {
+  padding-top: 0;
+}
+
+.tools {
+  padding-top: 1rem;
+}
+
+*[data-status=loading] {
+  background: #e0e0e0;
+  text-indent: -9999em;
+  overflow: hidden;
+  position: relative;
+}
+
+*[data-status=loading]:before {
+  content: "( + )";
+  position: absolute;
+  animation: rotation 2s infinite linear;
+  top: 0;
+  left: 100px;
+  display: block;
+  text-indent: 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.q-card h4 {
+  margin-top: 1rem;
+  font-size: 18px;
+}
+
+.dialog {
+  position: fixed;
+  z-index: 1000;
+  top: 10%;
+  left: 50%;
+  margin-left: -300px;
+  width: 400px;
+  background: #f0f0f0;
+}
+
+.statusLog .fileReport {
+  background: #f0f0f0;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.statusLog .notice {
+  margin: 1rem 0;
+  padding: 8px;
+  background: #aee7ae;
+}
+.statusLog .error {
+  background: #ff7d7d;
+  margin-top: 1rem;
+  padding: 8px;
+}
+.statusLog .persRefWarning {
+  background: #fff583;
+  margin-top: 1rem;
+  padding: 8px;
+}
+
+.statusLog.progress .fileReport.logmsg {
+  display: none;
+}
+
+.otherTools a, .otherTools a:link, .otherTools a:visited, .otherTools a:active {
+  background: #3873ae;
+  text-decoration: none;
+  padding: 8px 16px;
+  color: white;
+  display: inline-block;
+  margin: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+.pleaseWait {
+  z-index: 2000;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.limitsForm {
+  background: #ffffff;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+.limitsForm .formControl {
+  display: inline-block;
+  position: relative;
+  width: 24%;
+}
+.limitsForm label {
+  display: inline-block;
+  margin-right: 1rem;
+  position: absolute;
+  top: -19px;
+  width: 90%;
+}
+.limitsForm input, .limitsForm select {
+  width: 90%;
+  margin-right: 2rem;
+}
+.limitsForm .limitsRow {
+  margin: 0 0 1rem 0;
+}
+.limitsForm .alignRight {
+  justify-content: right;
+  text-align: right;
+}
+
+.docManager .detailsTitle {
+  font-weight: bold;
+}
+.docManager .detailsTitle:after {
+  content: ": ";
+}
+.docManager .step {
+  display: inline-block;
+  background: rgb(230, 230, 230);
+  cursor: pointer;
+  position: relative;
+  margin-right: 16px;
+  margin-bottom: 6px;
+}
+.docManager .step .status {
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  margin: 4px;
+  vertical-align: middle;
+}
+.docManager .step::after {
+  display: inline-block;
+  position: relative;
+  right: -10px;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 10px solid #e6e6e6;
+  vertical-align: top;
+}
+.docManager .notes {
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+}
+.docManager .q-table tbody td {
+  max-width: 33vw;
+}
+
+.stepManager .step {
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  background: #f3f3f3;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.stepManager .step label {
+  float: left;
+  line-height: 3.4;
+  background: #bdbfbd;
+  font-size: 24px;
+  padding: 0 1rem 0;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.stepManager .step h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 0;
+  padding-left: 4rem;
+}
+.stepManager .step h2 span {
+  font-size: 16px;
+}
+.stepManager .step p {
+  font-size: 14px;
+  padding-left: 4rem;
+  color: #676767;
+}
+.stepManager .step:hover {
+  background: white;
+  cursor: pointer;
+}
+.stepManager .step.editing {
+  border: 1px solid red;
+}
+
+body.documentManager {
+  background: #e6e6e6;
+}
+
+.documentList {
+  background-color: #f5f5f5;
+  margin-bottom: 4rem;
+}
+
+.document {
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.headings.rowish .drawerToggle {
+  visibility: hidden;
+}
+
+.rowish {
+  width: 100%;
+  flex-direction: row;
+  flex-flow: no-wrap;
+  display: flex;
+}
+.rowish:hover {
+  background: #e0e0e0;
+}
+.rowish div {
+  padding: 0.5rem;
+}
+.rowish .drawerToggle {
+  width: 30px;
+  position: relative;
+  background: #59aed9;
+  color: white;
+  font-size: 26px;
+  padding: 13px 8px;
+  line-height: 0;
+  margin-right: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-top-right-radius: 11px;
+}
+.rowish .drawerToggle:before {
+  display: block;
+  content: "+";
+}
+.rowish .filename {
+  width: 21%;
+  cursor: pointer;
+  padding-top: 0;
+}
+.rowish .filename .date {
+  width: auto;
+  font-weight: bold;
+  padding: 0;
+  font-size: 18px;
+}
+.rowish .filename h2 {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
+.rowish .steps {
+  width: 36%;
+}
+.rowish .docTools {
+  width: 46%;
+}
+.rowish .checked_out {
+  width: 10%;
+}
+.rowish .view {
+  width: 12%;
+}
+.rowish .docLinks {
+  cursor: pointer;
+}
+.rowish .docLinks .list {
+  position: absolute;
+  background: white;
+  width: 50%;
+  right: 0;
+  z-index: 1;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+.rowish .docLinks .list a {
+  display: inline-block;
+  margin: 0.5rem;
+}
+.rowish .docLinks.closed .list {
+  display: none;
+}
+.rowish .published {
+  width: 6%;
+}
+
+.open .rowish .drawerToggle {
+  background: #a0a0a0;
+}
+
+.open .rowish .drawerToggle:before {
+  content: "-";
+  font-size: 44px;
+}
+
+.drawer {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+  background: #bee3f5;
+}
+.drawer .persRefs {
+  width: 80%;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+.drawer .other {
+  width: 20%;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.open .drawer {
+  max-height: 250px;
+}
+
+.persRef {
+  display: inline-block;
+  padding: 0.15rem 0.25rem;
+  margin: 0 0.25rem;
+}
+
+.view a:link,
+.view a:visited {
+  display: inline-block;
+  margin-right: 10px;
+  text-decoration: none;
+  background: #d0d0d0;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: black;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
+}
+
+/*# sourceMappingURL=docmanager.css.map */

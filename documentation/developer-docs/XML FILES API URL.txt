@@ -1,0 +1,59 @@
+XML FILES API URL:
+
+GET	https://www.primarysourcecoop.org/docmanager/api/documents
+
+Params:
+	dateOfChange	: iso date, either YYYY-MM-DD or YYYY-MM-DD HH:MM:SS
+	start			: integer, zero-indexed, start of return results
+	count			: how many results to return
+
+
+Sort order:
+	most recently changed first, then most recently published first, and then by filename
+
+Requires a Bearer token in the header format:
+	Authorization: Bearer [token value]
+
+
+Sample JSON output:
+
+for url: www.primarysourcecoop.org/docmanager/api/documents?dateOfChange=2000-01-01&start=0&count=4
+{
+    "data": {
+        "documents": [
+            {
+                "filename": "RBT00001.xml",
+                "updated_at": "2023-05-11 13:29:26",
+                "publish_date": "2023-05-11 13:21:38",
+                "published": "1",
+                "project_abbr": "rbt"
+            },
+            {
+                "filename": "CMS00001.xml",
+                "updated_at": "2023-05-09 18:29:46",
+                "publish_date": "2023-05-09 18:29:49",
+                "published": "1",
+                "project_abbr": "cms"
+            },
+            {
+                "filename": "RBT00003.xml",
+                "updated_at": "2000-01-01 00:00:00",
+                "publish_date": "2023-05-11 13:21:41",
+                "published": "1",
+                "project_abbr": "rbt"
+            },
+            {
+                "filename": "RBT00002.xml",
+                "updated_at": "2000-01-01 00:00:00",
+                "publish_date": "2023-05-11 13:21:40",
+                "published": "1",
+                "project_abbr": "rbt"
+            }
+        ]
+    },
+    "errors": [],
+    "messages": [],
+    "html": "",
+    "urlScheme": "https://www.primarysourcecoop.org/publications/projects/${project_abbr}/xml/${filename}",
+    "status": "OK"
+}

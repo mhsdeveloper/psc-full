@@ -1,0 +1,134 @@
+
+
+				<template>
+					<div class="q-pa-md">
+						<q-table
+							title="XML Files"
+							:data="documents"
+							:columns="docColumns"
+							row-key="id"
+							:filter="docFilter"
+							:pagination="docPagination"
+							:visible-columns="visibleColumns"
+						>
+						<template v-slot:top-right>
+							<q-input filled dense debounce="300" v-model="docFilter" placeholder="Filter" clearable class="q-ma-sm">
+							<template v-slot:append></template>
+							</q-input>
+							<q-btn round flat icon="refresh" @click="allDocs" class="q-ma-sm">
+							<q-tooltip>Refresh List</q-tooltip>
+							</q-btn>
+						</template>
+
+						<template v-slot:header="props">
+							<q-tr :props="props">
+								<q-th auto-width></q-th>
+								<q-th
+									v-for="col in [props.cols[0], props.cols[1]]"
+									:key="col.name"
+									:props="props"
+								>
+									{{ col.label }}
+								</q-th>
+								<q-th style="text-align: left">Check in/out</q-th>
+								<q-th style="text-align: left">View</q-th>
+								<q-th style="text-align: right">Workflow <a class="q-ma-sm" href="/tools/docmanager/index.php/steps">edit steps</a>
+								</q-th>
+								<q-th
+									v-for="col in [props.cols[2]]"
+									:key="col.name"
+									:props="props"
+								>
+									{{ col.label }}
+								</q-th>
+								<q-th style="text-align: left">Status</q-th>
+							</q-tr>
+						</template>
+
+						<template v-slot:body="props">
+							<q-tr :props="props" v-bind:data-id="props.row.id">
+								<q-td auto-width>
+									<q-btn size="sm" color="accent" round dense @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'"></q-btn>
+								</q-td>
+								<q-td
+									v-for="col in [props.cols[0], props.cols[1]]"
+									:key="col.name"
+									:props="props"
+								>
+									{{ col.value }}
+								</q-td>
+								<q-td>
+									<template v-if="props.row.checked_out">
+										<span>checked out
+											<span>{{props.row.checked_outin_by}} : {{props.row.checked_outin_date}}</span><br/>
+											<q-btn size="sm" v-if="username == props.row.checked_outin_by" unelevated label="Checkin" color="negative" @click="checkinBegin"></q-btn>
+										</span>
+									</template>
+									<template v-else>
+										<q-btn size="sm" unelevated label="Checkout" @click="checkout" color="positive"></q-btn>
+									</template>
+								</q-td>
+								<q-td>
+									<q-btn size="sm" unelevated color="accent" @click="view">VIEW</q-btn>
+								</q-td>
+								<q-td style="text-align: right">
+									<template v-for="step in props.row.steps">
+										<span class="step" v-on:click="toggleStepStatus" v-bind:data-stepid="step.id" v-bind:data-status="step.status">
+											<span class="status" v-if="step.status" v-bind:style="'background: ' + step.color"><q-icon name="done" style="color: #fff; font-size: 1.3rem"></q-icon></span>
+											<span class="status" v-if="!step.status" v-bind:style="'opacity: .35; background: ' + step.color"></span>
+											{{step.short_name}}
+											<q-tooltip anchor="bottom middle" content-style="max-width: 300px; font-size: 16px" self="top middle" :offset="[10, 10]">
+												<b>Last changed by {{step.username}}</b><br/>
+												<b>{{step.name}}</b><br/>
+												{{step.description}}
+											</q-tooltip>
+										</span><span class="stepArrow"> </span>
+									</template>
+								</q-td>
+								<q-td
+									v-for="col in [props.cols[3]]"
+									:key="col.name"
+									:props="props"
+								>
+									{{ col.value }}
+								</q-td>
+								<q-td>
+									<!--<div class="" v-if="!props.row.published">unpublished</div>-->
+									<q-btn v-if="!props.row.published" size="sm" unelevated label="publish" color="primary" @click="publishDialog = true"></q-btn>
+
+									<div class="" v-if="props.row.published"><q-icon name="done" class="positive" style="color: #fff; font-size: 1.3rem"></q-icon> Published!</div>
+								</q-td>
+							</q-tr>
+
+
+							<q-tr class="expandedRow" v-show="props.expand" :props="props" v-bind:data-id="props.row.id">
+								<q-td colspan="4" style="white-space: normal">
+									<div class="row">
+										<div class="detailsTitle q-mb-md">{{props.row.title}}</div>
+										<div class="teaser q-mb-md"><q-icon name="format_quote" size="md"></q-icon>{{props.row.teaser}}</div>
+									</div>
+								</q-td>
+								<q-td colspan="1" style="white-space: normal">
+									<q-btn  size="sm" unelevated color="primary">REVISIONS</q-btn>
+									<q-separator></q-separator>
+									<q-btn  size="sm" unelevated color="primary" @click="viewXML">XML</q-btn>
+								</q-td>
+								<q-td colspan="1" style="white-space: normal">
+									<h6 class="q-ma-sm q-pa-sm">Notes</h6>
+									<q-input type="textarea" @keyup.enter.stop outlined v-on:change="saveNotes" class="q-pa-md" v-model="props.row.notes"></q-input>
+								</q-td>
+
+								<q-td colspan="1" style="white-space: normal">
+								</q-td>
+
+								<q-td colspan="1" style="white-space: normal">
+									<q-btn v-if="props.row.published" size="sm" unelevated label="unpublish" color="negative" @click="publishDialog = true"></q-btn>
+									<q-btn v-if="role == 'admin'" size="sm" unelevated label="delete" color="negative" @click="deleteFile"></q-btn>
+								</q-td>
+							</q-tr>
+						</template>
+
+						</q-table>
+					</div>
+				</template>
+

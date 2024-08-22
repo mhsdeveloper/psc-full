@@ -1,0 +1,262 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css">
+		<script>
+			window.addEventListener("DOMContentLoaded", () =>{
+				let toc = document.getElementsByClassName("toc")[0];
+				let content = document.getElementsByClassName("content")[0];
+				let sections = content.getElementsByTagName("section");
+
+				for(let s=0; s<sections.length;s++){
+					let sec = document.createElement("div");
+					sec.className = "tocSection";
+					toc.appendChild(sec);
+
+					let h2 = sections[s].getElementsByTagName("h2")[0];
+					h2.id = "h2" + s;
+					let a = document.createElement("a");
+					a.textContent = h2.textContent;
+					a.href = "#" + h2.id;
+					sec.appendChild(a);
+				}
+
+				let lightbox = document.getElementById("lightbox");
+				lightbox.addEventListener("click", function(){
+					this.className = "";
+				});
+
+				//clickable images
+				let imgs = document.getElementsByClassName("lightboxMe");
+				for(let i of imgs){
+					i.addEventListener("click", function(){
+						lightbox.getElementsByTagName("img")[0].src = this.src;
+						lightbox.className="open";
+
+					});
+				}	
+
+			});
+		</script>
+	</head>
+	<body>
+		<h1>Website Guide</h1>
+
+		<div class="sidebar">
+			<div class="toc">
+			</div>
+
+			<div class="legend">
+				<h4>Symbols/ Abbreviations used in this document</h4>
+				<dl>
+					<dt>WPE</dt><dd>Word Press Editor</dd>
+				</dl>
+			</div>
+		</div>
+
+
+		<div class="content">
+
+
+			<section id="editingInWP">
+				<h2>Overview of the Word Press Editor</h2>
+
+				<h3>Quick Visual Reference</h3>
+				<p>Click the image below to see an overview of the various components of the Word Press Editor (WPE).</p>
+				<img src="quick-guide1.png" style="max-width: 200px" class="lightboxMe"/>
+
+
+				<h3>Blocks and Groups</h3>
+
+				<p>Content in WPE is organized into blocks and groups. Examples of blocks are a paragraph, an image, a bullet list. Groups are simply containers that group together one or more blocks.</p>
+				
+				
+				
+				<h3>Creating Blocks</h3>
+				
+				<img src="blocks.png" class="placeRight"/>
+				<p>Blocks are easy to create, in fact all content is in some sort of block. Paragraphs are the most common block: as you type and hit enter, new paragraphs are created, much like in MS Word. Paragraphs can be changed into lists, quotes, or other block types by clicking the ¶ button and choosing a new block type; see the image at right. Another way to create blocks is to move your cursor careful between two blocks: this reveals a long blue line with a blue [+] that you can click to insert a new block:<br/>
+					<img src="newblock.png"/> <br/>
+				</p>
+
+
+				<h3>Block Toolbar Reference</h3>
+				<p>Click the image below to see a guide to the buttons on the block toolbar.</p>
+				<img src="quick-guide-tools.png"  style="max-width: 200px" class="lightboxMe"/>
+			</section>
+
+
+
+			<section id="menusFooter">
+				<h2>Editing Menus and the Footer</h2>
+
+				<h3>Menu items</h3>
+				<p>The Menu editing page is found using the WP Tool bar on the left, under "Appearance >> Menus".</p>
+				<p>A full description is beyond the scope of this document. But in brief, you choose  to add a menu item using the first column, and then edit, reorder, or delete menu items using the "Menu structure" column on the right.</p>
+				<p>Coop specific pages are created using "Custom Links": for the "read" page, set the URL to "/publications/[project abbreviation]/read"; for example "/publications/jqa/read". For the "Search" page, set the URL to "/publications/[project abbreviation]/search".</p>
+
+				<p>To create a "Date" menu item that displays a date browsing tool, create a new custom link, and set the URL to "#date". The text of the link can be anything you like.</p>
+
+				<p><b>IMPORTANT:</b> after changing any part of the header, menus or footer, including your Project's official title, you must use the "Processes" link found on the dashboard. On that page, click "Sync header/menu"; this makes sure those elements are synchronized between the Word Press pages and the Coop dynamic pages, such as document views and search results.</p>
+			</section>
+<!-- 
+
+			<section id="creatingPages">
+				<h2>Creating Pages</h2>
+			</section> -->
+
+
+			<section id="creatingSections">
+				<h2>Creating Groups (page sections)</h2>
+				
+				<img src="create-group.png" class="placeRight"/>
+				<p>By collecting blocks into Groups, we create sections that can be styled; for example a sidebar or callout box. To create a group, place your cursor in a block, such as in the text of a paragraph. The toolbar for that block should appear above the top of the block. Then click the triple dot menu at the end of the toolbar and choose <b>Group</b>, as shown in the screenshot at right.</p>
+
+
+
+				<h3>Navigating Groups</h3>
+
+				<p>When your block is in a group, the very first button of the toolbar changes to look like a pair of boxes: <img src="new-group.png"/>. Clicking this new button will draw a blue box around all the blocks in  a group; use this to help you see what the group contains. You can also see the structure of groups and their blocks as an outline using the <b>List view</b>. To see the list view, open it with the left-most button in the top-most WPE toolbar on the page <img src="wpe-toolbar.png"/>; it is to the right of the (i) info button and looks like three lines in a stair step layout.</p>
+
+				<h3>List view</h3>
+				<img src="listview.png" class="placeRight"/>
+				<p>The list view is a great tool for organizing the content on your page. You can use it to see how blocks are grouped, and as you click on elements in the list view, the main content view jumps to focus on the group or block you select. You can also drag and drop blocks to rearrange them, for example if you have a paragraph in the wrong group. Each item in the list view also has a triple dot menu to the right; click this for more options, such as to duplicate a block, delete a block, or create a new group.</p>
+			</section>
+
+
+
+
+			<section id="stylingSections">
+				<h2>Styling Groups</h2>
+
+				<p>You can affect the layout and style of different sections of your page by grouping blocks together and then assigning classes to that group. Classes are simply the internal labels that designers use to tell the browser how to style things. You can only use classes that have been setup by the Coop's designers, or that might be customized in your projects own stylesheets.</p>
+
+				<p><b>NOTE:</b> to style the home and about pages, see the next section.</p>
+
+				<p>To enter a class for a group, you first need to group together blocks (see the section "Creating Groups").</p>
+						
+				<h3>Classes for enhancing WPE Groups</h3>
+			
+				<h3>Layouts</h3>
+				<ul>
+					<li><b>boxes</b> This layout builds boxes that are placed side by side. It works like this: for each H3 heading it finds, it grabs all the blocks after that heading until the next H3 and wraps those blocks in a box. The H3 becomes the heading for the box. You can hide the H3 heading itself by giving it the class "hidden".</li>
+					<li><b>full-bleed</b> If you insert an image as the first block in this group, the image will be used as a full bleed background for the group.</li>
+					<li><b>feature-image-left</b> This layout takes the first image in the group and places it on the left, so that following text floats up next to it on the right-hand side.</li>
+				</ul>
+
+				<h3>Colors</h3>
+				<ul>
+					<li><b>soft</b> this colors the background of the entire group with a light gray. Text remains black.</li>
+					<li><b>dark</b> this colors the background of the entire group in a very dark gray or black. Text becomes white.</li>
+					<li><b>accent-light</b> this colors the background of the entire group in a light color of a hue that fits the theme. Text remains black.</li>
+					<li><b>accent-dark</b> this colors the background of the entire group in a dark color of a hue that fits the theme. Text becomes white.</li>
+				</ul>
+			
+			
+				<h3>Styling Blocks</h3>
+
+				<p>Blocks can be styled just like groups, also using the "advanced" section of the Word Press Editor sidebar.</p>
+			
+				<p>To create a set of links that are button-like, arranged horizontally, create a list block, and give it the class "biglinks". Each item in the bullet list should be a link.</p>
+			</section>
+
+
+			<section id="commonSections">
+				<h2>Home Page &amp; About Page Group Settings</h2>
+
+				<p>The following graphics show how the blocks for the home and about pages should be grouped. It also indicates what css classes the groups or blocks should have in order to create the basic Coop style and layout.</p>
+
+				<div class="columns">
+					<div class="column">
+						<h3>Home Page</h3>
+						<img src="home-page-group-layout.svg"  style="max-width: 200px" class="lightboxMe"/>
+					</div>
+
+					<div class="column">
+						<h3>About Page</h3>
+						<img src="about-page-group-layout.svg"  style="max-width: 200px" class="lightboxMe"/>
+					</div>
+				</div>
+
+			</section>
+<!-- 
+			<section id="stylingSections">
+				<h2>Adding Metadata to Pages</h2>
+			</section>
+
+
+			<section id="otherCommands">
+				<h2>Commands for adding other components</h2>
+			</section>
+
+ -->
+
+
+
+
+
+			<section id="pageTemplate">
+				<h2>Page settings</h2>
+
+				<img src="page-settings.png" class="placeRight"/>
+
+				<p>Along the right-hand side of each page is a panel that has settings, including for the whole page, as shown in the screenshot at right. There are a few important settings to, um, set, before getting too far along in adding content.</p>
+
+				<h3>Page template</h3>
+				<p>Use the drop-down in the settings panel to select a template. The <b>default template</b> template is good for most pages, but for pages that focus on a person, use the <b>Person Page Template</b>. The <b>Home Page Template</b> should only be used for the single homepage of your project.</p>
+
+				<h3>URL Slug</h3>
+
+				<p>Don't know why WPE calls it a slug, but this setting is the part of the URL for your page after www.primarysourcecoop.org/[your project initials]/ . You can see how the link will appear in the browser location bar right below where you enter the "slug".</p>
+
+			</section>
+
+
+
+<!-- 
+
+			<section id="general">
+				<h2>General Website Settings</h2>
+
+				<h3>Logo/header graphic</h3>
+				<p>Use the WP appearance >> customize menu to change the logo under the "site identity" section</p>
+
+			</section> -->
+
+
+
+			<!-- <section id="urls">
+				<h2>Important URLs</h2>
+
+				<p>There as some URLs you will likely need to link to at various places in your site, in static, curated pages, or in blog posts.</p>
+
+				<ul>
+					<li>/publications/[project initials]/read</li>
+				</ul>
+			</section>
+ -->
+
+
+			<section id="tips & tricks">
+				<h2>Tips & Tricks</h2>
+
+				<p><b class="HI">Inserting Blocks</b> If you need to insert a block, one way is to add it at the end of your page, and then use the toolbar arrows to move it up or down as needed.</p>
+
+
+				<p>In the WPE you can SHIFT-click to select multiple blocks, and group them from the : menu.</p>
+
+				<p>You can <b class="HI">Create new blocks</b> using the blue square [+] button top left; NOTE that most of the block types and patterns under the blue square [+] have not been tested with our design. If you want to try these, better to try them on a test page first.
+			</section>
+
+
+
+		</div>		
+
+
+		<div id="lightbox">
+			<a tabindex="0" class="closer">×</a>
+			<img src=""/>
+		</div>
+	</body>
+</html>

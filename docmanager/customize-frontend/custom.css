@@ -1,0 +1,48 @@
+
+.auditDialog {
+
+
+
+}
+
+.auditDialog .report p {
+	margin: 0;
+}
+
+.auditDialog .report h3 {
+	margin: 0;
+	line-height: 1.35;
+}
+
+.auditDialog .report .notice {
+	color: rgb(255, 0, 0);
+	font-weight: bold;
+}
+
+.auditDialog .report svg {
+	position: relative;
+	top: 6px;
+	width: 25px;
+}
+
+.auditDialog .report .ok svg {
+    color: #62d300;
+}
+
+
+.auditDialog .report .bad svg {
+    color: red;
+}
+
+
+
+.open .drawer {
+	max-height: 500px;
+}
+
+.drawer .textPreview,
+.drawer .persRefs,
+.drawer .subjects {
+	width: 33%;
+	padding: .5rem;
+}

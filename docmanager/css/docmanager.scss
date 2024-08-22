@@ -1,0 +1,21 @@
+
+// src/css/quasar.variables.sass
+
+$primary   : #496985;
+$secondary : #e6c525;
+$accent    : #9C27B0;
+
+$dark      : #214161;
+
+$positive  : #00ccff;
+$negative  : #ad2600;
+$info      : #a7d642;
+$warning   : #ff525d;
+
+$gutter: 1rem;
+
+
+@import "layout";
+@import "typography";
+@import "components";
+@import "documents";

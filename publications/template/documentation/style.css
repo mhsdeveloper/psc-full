@@ -1,0 +1,118 @@
+			body {
+				margin: 0;
+				padding: 1rem;
+				background: #dbdbdb;
+				font-family: sans-serif;
+				font-size: 20px;
+				line-height: 1.35;
+			}
+
+			body * {
+				box-sizing: border-box;
+			}
+
+			.sidebar {
+				float: left;
+				position: sticky;
+				top: 0;
+				width: 270px;
+				padding: 1rem;
+			}
+
+
+			.toc a {
+				display: block;
+				margin-bottom: 1rem;
+			}
+
+
+			.content {
+				margin-left: 285px;
+			}
+
+			section {
+				background: #e5e5e5;
+				margin-bottom: 2rem;
+				padding: 2rem;
+				border-radius: 10px;
+				overflow: hidden;
+			}
+
+			.columns {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				justify-content: space-around;
+			}
+
+			.column {
+				width:40%;
+			}
+
+			h2 {
+				font-size: 40px;
+				margin: 1rem 0;
+				font-weight: 300;
+				text-transform: none;
+				color: black;
+				padding: 1rem;
+				background: white;
+				width: calc(100% + 4rem);
+				left: -2rem;
+				position: relative;
+				top: -3rem;
+				margin-bottom: -3rem;
+				clear: both;
+			}
+
+
+			h3 {
+				margin-top: 3rem;
+				text-transform: uppercase;
+				font-size: 23px;
+				clear: both;
+			}
+
+			img {max-width: 100%;}
+
+			.placeRight {
+				float: right;
+				margin: 0 0 1rem 1rem;
+			}
+
+
+
+			.HI {
+				display: inline-block;
+				padding: 4px 8px;
+				background: yellow;
+			}
+
+
+
+			#lightbox {
+				position: fixed;
+				top: 8%;
+				left: 8%;
+				width: 85%;
+				height: 85%;
+				background: white;
+				z-index: 100;
+				cursor: pointer;
+				display: none;
+				padding: 2rem;
+				box-shadow: 0 0 100px rgba(0,0,0,.5);
+			}
+
+			#lightbox img {max-width: 100%}
+
+			#lightbox.open {
+				display: block;
+			}
+
+			#lightbox a.closer {
+				position: absolute;
+				right: 13px;
+				top: -3px;
+				font-size: 40px;
+			}

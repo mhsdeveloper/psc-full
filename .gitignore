@@ -1,0 +1,38 @@
+#just incase these get added in testing
+
+phpmyadmin
+datab0w3ls
+tools/excel
+
+#logs
+errors.txt
+sniff_out.txt
+sniffout.txt
+
+#install specifics
+
+mhs-api/.env
+
+projects/
+
+publications/pub/schema
+
+publications/template/configs
+publications/template/images
+publications/template/views
+publications/template/css
+
+
+#wordpress stuff
+wp-admin
+wp-content
+wp-includes
+wp*.php
+xmlrpc.php
+index.php
+
+
+#legacy development stuff
+syncwpfiles.sh
+install/server\ test\ install\ notes.txt
+

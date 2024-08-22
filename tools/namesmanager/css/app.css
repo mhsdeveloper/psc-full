@@ -1,0 +1,106 @@
+a {
+  text-decoration: none;
+}
+
+
+select {
+  padding: 4px;
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+}
+
+
+.q-field--labeled .q-field__native, .q-field--labeled .q-field__prefix, .q-field--labeled .q-field__suffix {
+  padding-top: 24px;
+  padding-bottom: 0;
+  font-size: 17px;
+  color: black;
+}
+
+.q-field--with-bottom {
+  padding-bottom: 0;
+}
+
+.q-tooltip--style {
+  font-size: 14px;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  box-shadow: 0 0 15px rgb(0 0 0 / 27%);
+  max-width: 50vw;
+}
+
+
+.q-table--no-wrap td.notes {
+  white-space: normal;
+  vertical-align: top;
+}
+
+.groupsSection div {
+  padding: 0 0 0 4px;
+}
+
+
+
+.searchBar {
+  background: #c8c8c8;
+}
+
+.advancedSearch {
+
+} 
+
+
+.notes span {
+  display: block;
+}
+
+
+.pscLabel {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+
+.descriptions {
+  margin: 1rem 0 2rem 0;
+  background: #f0f0f0;
+  padding: 0.5rem;
+}
+
+.descriptions .pscLabel {
+  display: inline-block;
+}
+
+
+.descTabs {
+  display: inline-block;
+}
+
+.descTabs span {
+  display: inline-block;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+.descTabs span.selected {
+  font-weight: bold;
+}
+
+
+.pscHR {
+  margin: 0 0 .5rem 0;
+  height: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+
+.descNotes div {
+  display: none;
+}
+
+.descNotes div.selected {
+  display: block;
+}

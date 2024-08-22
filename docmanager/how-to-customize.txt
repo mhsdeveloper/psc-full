@@ -1,0 +1,74 @@
+HOW TO CUSTOMIZE THE DOCMANAGER INSTALL
+
+
+first, look at the index.php bootloader; there are comments marked "IMPLIMENTATION" that specify setting up things like
+the user access, routes, custom classes, and server-side hooks. There are also a few php constants defined at top that
+might need adjusting.
+
+Then, you probably want to customize the "customize/settings.php" file, which has the install path, labels, and  other
+things so you can alter what buttons etc are called, and other settings that get passed to JS via php-created HTML.
+
+
+
+
+
+CLIENT SIDE VUE.JS APP CUSTOMIZATION AND WIRING
+
+You can add event listeners to tie into the various actions that happen in the app. We'll call these appEventListeners,
+to destinguish them from vue events and DOM events. 
+Add them this way. First, wrap everything in scripts.js in a function named docManagerCustomizer, vue expects it, and
+will call it in vue's on mounted life cycle:
+
+window.docManagerCustomizer = function(){
+
+	App.addAppEventListener("postUpload", (response) => {
+		//here your logic will receive the response from the server after the initial
+		//upload.
+	}, false);
+
+}
+
+	The last argument to addAppEventListener is the "interrupt". Setto true if you want the normal
+	flow of the app to wait, or be "interrupted" for some outcome from your listener. In that case, the app will
+	 call the listener with an additional argument, which is the callback f() with which to continue. If you
+	 send the callback true it will continue; false it will stop. 
+	 You can log an error with App.logError([string or array of msgs])
+	 You can log a msg with App.log([string or array of msgs])
+	
+
+Here are the expected signatures for the listeners for each event:
+
+	postUpload: (response, interruptContinueCallback) => {
+		//do something with response, like ask server to check for elements in the xml.
+		// then continue:
+		interruptContinueCallback();
+	}
+
+
+	parseReturnedSolrField: (fieldName, value) => {
+		//return the value and change, process etc.
+		//Note: this function does not accept the option for interrupting
+		return value
+	}
+	
+
+
+
+
+
+UI CUSTOMIZATION
+
+Use CSS to reorder, or hide elements. You can add html to the head of the output page by editing customize-frontend/head.php
+In head.php, use <? echo PATH_ABOVE_WEBROOT;?> to  start any script src attributes or link href attributes. So:
+<link rel="stylesheet" href="<? echo PATH_ABOVE_WEBROOT;?>customize-frontend/custom.css"/>
+
+
+Customizing the individual document listing
+
+	- you can add attributes that vue (or other HMTL/JS) might need via the customize-frontend/document-element-attributes.php 
+	  file. This file is included within the opening <dm-document tag.
+
+	- you can augment the template for the drawer for a <dm-document> by setting a window global in scripts.js:
+
+		window.docManagerCustomDrawerTemplate = `<span> something here, vue will see it</span>`;
+

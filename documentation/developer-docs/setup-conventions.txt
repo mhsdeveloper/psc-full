@@ -1,0 +1,90 @@
+****************************************************
+SETUP CONVENTIONS FOR EACH PUBLICATION PROJECT
+****************************************************
+
+
+WHAT IT TAKES FOR AN XML FILE TO BE ABLE TO BE DELIVERED WITH THIS SYSTEM 
+
+	- have an rng schema that can be placed on the same server as system
+	- be TEI-like (can be custom version of TEI)
+	- allow @published="yes|no" on root element
+	- be setup such that there are clear xpaths to individual metadata elements (author, recipient, dates, titles)
+	- write an XSLT to transform files into SOLR <add><doc> style XML
+	- write an XSLT to transform files for html delivery (only need to transform certain elements, see our example)
+
+
+
+
+**************************
+XML file names 
+**************************
+
+	1) should be structured as:
+		[uppercase initials of project]-[unique identifiers, such as YYYY-MM-DD date]-[other identifiers].xml
+
+	2) Use only letters, numbers, and dashes, no spaces, underscore, or other symbols or punctuation.
+		Case matters, so be consistent.
+
+	3) Must be unique across the entire system, thus initials of the project/edition at the beginning is strongly encouraged
+
+	4) File names must begin with a letter, so that they can be directly used as part of the @xml:id
+	(see below)
+
+
+	Good examples:  JQADiaries-v23-1821-01.xml
+	                PWF-diaries-1682-04.xml
+
+	5)file names must not change at any point after entering the system; they are a critical identifying element for all the documents.
+
+
+
+A "document" is defined as the xml fragment within /TEI/text/body, usually  a <div>, that represents
+a distinct granular object, the smallest object that the search engine will zero in on, or that a display
+will present. It is how the presentation of the content will chunk out parts.
+Examples are a diary entry, a letter, an account. But it might also be sections of a pamphlet, or chapters
+of a book. Or if the chapters are very long, some other logical subdivision. It should almost never be tied
+to the medium of the document, such as pages or leaves.
+
+
+
+
+**************************
+XML IDS
+**************************
+
+The <div> that is the encoding of the "document", should have an @xml:id that begins with the filename, but
+without the .xml extension. That should be followed by a dash, and then some other unique identifier, such
+as a date, or simple incremental integer. some examples:
+	for a filename BFG-1922-v23.xml this would be a valid @xml:id  BFG-1922-v23-001   or BFA-1922-v23-entry1
+	using the date as the unique id: BFG-1922-v23-18131104 (for nov 4, 1813) so no dashing in the date part
+	There should be only one dash after the filename, so that they system can easily infer the filename by removing the last
+	dash-separated part.
+
+The following are special strings used in IDs to signal to the system to perform certain tasks or look for XML differently.
+Avoid using these in your ids:
+
+ [some id]--entry[n]  this signals the delivery system to find the filename based on the id before the "-entry" part, and then
+ use the whole id to find the fragment. This is how a single xml file can have multiple documents, such as for a month's worth
+ of diary entries a la DJQA.
+
+
+
+
+
+******************************
+Project Template processing
+******************************
+
+
+Use find and set to replace strings across files:
+
+find ./ -type f -exec sed -i 's/JQAD/Cotton/g' {} \;
+
+
+
+******************************
+Page VIew Image Naming Conventions
+******************************
+
+first page of document: [xml filename (no ext)].jpg
+other pges: [xml filename (no ext)]p[@n].jpg

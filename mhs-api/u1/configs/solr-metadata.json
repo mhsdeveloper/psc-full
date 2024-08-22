@@ -1,0 +1,18 @@
+{
+    "fields": [
+		{
+			"name": "status",
+			"value": "published",
+			"type": "text",
+			"required": true
+		}
+    ],
+    "displayFields": ["person_keyword", "index", "subject", "date_when", "title", "doc_beginning", "resource_uri"],
+    "facetFields": ["person_keyword", "date_year", "subject"],
+    "sortFields": [
+        {
+            "name": "date_when",
+            "sort": "asc" 
+        }
+    ]
+}

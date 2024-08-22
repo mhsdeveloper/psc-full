@@ -1,0 +1,39 @@
+/* This file expects to be included via SASS for compiling */
+
+// To use, create a container with a class, and SASS it like:
+//		.container {@include hds_fieldset}
+
+
+@mixin hds_fieldset {
+	
+	fieldset {
+		padding: 0em; border: none;
+		margin-bottom: 0;
+	}
+	
+	fieldset.field_inline {
+		display: inline-block;
+		display: -moz-inline-box; /* FF 2 support */
+	}
+	
+	fieldset.label_below {
+		display: inline-block;
+		display: -moz-inline-box; /* FF 2 support */
+		vertical-align: top;
+		border: none;
+		padding: 0;
+		margin: 0;
+		text-align: left;
+	}
+	
+	
+	fieldset.label_below input,
+	fieldset.label_below select,
+	fieldset.label_below label{
+		display: block; float: none;
+		padding: 0; margin: 0;
+	}
+	fieldset.label_below label {
+		font-size: 90%; font-style: italic;
+	}
+}

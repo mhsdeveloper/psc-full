@@ -1,0 +1,63 @@
+
+.app {
+	padding: 1rem;
+}
+
+
+
+.filelist {
+	max-width: 800px;
+    margin: 2rem auto;
+    background: #a5a5a5;
+    padding: 2rem;
+
+
+	.file {
+		background: #f0f0f0;
+		padding: 1rem;
+		border-left: 8px solid #f0f0f0;
+
+		button {
+			float: right;
+			margin-left: 1rem;
+		}
+	}
+
+	.file:nth-child(even) {
+		background: white;
+		border-left: 8px solid white
+	}
+
+	.file:hover {
+		border-left: 8px solid var(--action-color);
+	}
+
+	.file::after {
+		clear: both;
+		display: block;
+		content: "";
+	}
+}
+
+
+
+.editorCont {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: #e0e0e0;
+	z-index: 100;
+
+	.toolbar {
+		padding: 2rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.ql-container {
+		height: 80%;
+	}
+}

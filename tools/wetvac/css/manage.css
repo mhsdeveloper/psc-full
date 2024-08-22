@@ -1,0 +1,176 @@
+body {
+  background: #f0f0f0;
+  text-align: center;
+  font-family: "Roboto";
+}
+
+.masterc {
+  max-width: 1400px;
+  margin: auto;
+}
+
+.operations {
+  padding: 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+.operations .history {
+  background: white;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+}
+.operations .item {
+  border-top: 1px solid black;
+  margin-top: 1rem;
+}
+.operations .item p {
+  margin: 0.25rem;
+}
+
+h1 {
+  font-size: 200px;
+  margin: 0;
+  color: #ff00a4;
+  transform: scale(1, 0.75);
+  letter-spacing: -0.5rem;
+  margin-top: -5%;
+}
+
+h1 b {
+  display: block;
+  font-size: 2vw;
+  vertical-align: baseline;
+  letter-spacing: normal;
+  transform: scale(1, 1.5);
+}
+
+h1 strong {
+  display: block;
+  margin-top: 1rem;
+  font-size: 25%;
+  letter-spacing: normal;
+}
+
+h2, h3 {
+  color: #ff00a4;
+}
+
+#autoDownload {
+  border: none;
+  height: 0;
+  width: 0;
+}
+
+#filedrag {
+  display: block;
+  background: black;
+  color: white;
+  margin: 1rem;
+  font-size: 20px;
+  padding: 0.5rem;
+  border-radius: 16px;
+  margin: auto;
+}
+
+.dragDropBox2 {
+  padding: 8px;
+  text-align: center;
+  transition: all 0.4s ease;
+  width: 505px;
+  position: absolute;
+  bottom: -60px;
+  left: 58%;
+  margin-left: -29%;
+  border: 2px solid black;
+  border-radius: 87px;
+  height: 100px;
+  background: black;
+  z-index: 10;
+}
+
+.dragDropBox2:hover {
+  width: 625px;
+  bottom: -94px;
+  left: 49%;
+  height: 131px;
+}
+
+.vegan {
+  position: absolute;
+  background: #ff00a4;
+  color: white;
+  padding: 3px 7px;
+  transform: rotate(-15deg);
+  font-size: 16px;
+  font-weight: bold;
+  left: 21%;
+  top: 53%;
+  z-index: 25;
+}
+
+.particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  font-size: 40px;
+  z-index: 100;
+}
+
+#particlePoint {
+  position: absolute;
+  left: 64%;
+  top: auto;
+  z-index: 1;
+  bottom: 44px;
+}
+
+.DialogBox {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.7333333333);
+  border-radius: 0;
+  z-index: 1000;
+  color: white;
+  padding: 25%;
+  font-family: "sans-serif";
+  font-size: 27px;
+}
+
+.DialogBox .toolbar {
+  display: none;
+}
+
+.DialogBox ul.errors {
+  display: block;
+  text-align: left;
+  padding: 0;
+}
+
+.DialogBox .errors li {
+  background: #ffdbdb;
+  list-style-type: none;
+  padding: 11px 20px;
+  margin-bottom: 9px;
+  border-radius: 10px;
+  border: 1px solid red;
+}
+
+#saveMilestones {
+  background: #ff00a4;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 16px;
+  padding: 0.51rem 2rem;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=manage.css.map */

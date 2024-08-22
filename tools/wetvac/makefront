@@ -1,0 +1,13 @@
+#!/bin/bash
+cd css
+
+NAME=manage
+
+rm -f $NAME.css
+
+#run $SASS and convert scss to css
+$SASS manage.scss:$NAME.css
+
+cd ..
+
+/space/www/admin/bin/inc-version.sh "./views/manage-head.php"

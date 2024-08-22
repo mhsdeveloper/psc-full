@@ -1,0 +1,31 @@
+@import "layout.scss";
+@import "typography.scss";
+
+
+:root {
+	--action-color: rgb(44, 130, 196);
+}
+
+
+.actionStyle {
+	background-color: var(--action-color);
+	color: white;
+}
+
+.noticeStyle {
+	background: red;
+	color: white;
+	font-weight: bold;
+}
+
+.darkStyle {
+	background: black;
+	color: white;
+}
+
+
+#editor {
+	background: white;
+    width: 80%;
+    margin: auto;
+}

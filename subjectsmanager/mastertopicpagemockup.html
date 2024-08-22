@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+        }
+
+        h1, h2{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        h4{
+            padding: 0 1rem;
+            letter-spacing: .5px;
+        }
+       
+        .regular, h3, h4, p, li{
+            font-family: sans-serif;
+        }
+
+        li{
+            margin: 1rem 0;
+            letter-spacing: 1px;
+        }
+
+        .termtitle{
+            letter-spacing: 1px;
+            font-size:medium;
+            font-weight: 600;
+        }
+
+        .title{
+            background-color: rgb(0, 107, 128);
+            color: white;
+        }
+
+        .flex{
+            display: flex;
+        }
+
+        .sidebar{
+            width: 20vw;
+            background-color: #e0f0f5;
+            height: 100vh;
+        }
+
+            
+        .accordion {
+            background-color: #e0f0f5;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            border-bottom: 1px solid rgb(205, 218, 224);
+        }
+
+        .p-1{
+            padding: 1rem 1rem 0;
+        }
+
+        .p-2{
+            padding: 1rem
+        }
+
+        .px-1{
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .py-0{
+            padding-top:  0;
+            padding-bottom: 0;
+        }
+        
+        .m-0{
+            margin: 0;
+        }
+
+        .accordion:after {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 8px;
+            color: #67acb5;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+
+      
+        .active, .accordion:hover {
+            background-color: #badede;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: #e0f0f5;
+            display: none;
+            overflow: hidden;
+
+        }
+
+        .content{
+            width: 80vw;
+        }
+
+        .projects-container{
+            padding: 0 1rem;
+        }
+
+        .project{
+            padding: .5rem 1rem;
+            border: 1px solid #b2dde3;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+        }
+        .consensus{
+            max-width: 80vw;
+        }
+
+        .project-image{
+            width: 20%;
+            height: auto;
+            max-height: 200px;
+            padding: .5rem 1rem .5rem 0;
+            object-fit: cover;
+        }
+
+        .public-note{
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+
+        .main-container{
+            display: flex;
+        }
+        @media screen and (max-width: 600px) {
+            .main-container{
+                flex-direction: column;
+            }
+
+            .sidebar{
+                width: 100vw;
+                height: min-content;
+            }
+
+            .content{
+                width: 100vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="p-2 title">
+            <h1>Topic: Christianity</h1>
+            <p class="consensus"> <b>Consensus Defintion of Term</b> Lorem ipsum dolor sit amet, consectetur adipisc. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <div class="main-container">
+            <div class="sidebar">
+                <h3 class="px-1">You may also be interested in: </h3>
+                <button class="accordion termtitle">Broader Topics</button>
+                <div class="panel">
+                    <ul>
+                        <li>Religion</li>
+                    </ul>
+                </div>
+
+                <button class="accordion termtitle">Narrower Topics</button>
+                <div class="panel">
+                    <ul>
+                        <li>Catholicism</li>
+                        <li>Church of Jesus Christ of Latter-Day Saints</li>
+                        <li>Second Great Awakening</li>
+                        <li>Unitarianism</li>
+                    </ul>
+                </div>
+
+                <button class="accordion termtitle">Related Topics</button>
+                <div class="panel">
+                    <ul>
+                        <li>Second Great Awakening</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="px-1">
+                    <h2 class="">Editorial Projects Using This Term</h2>
+                </div>
+                <div class="projects-container">
+                    <div class="project flex">
+                        <img class="project-image" src="./imageplaceholder.jpg" alt="">
+                        <div>
+                            <h3>Example Project</h3>
+                            <p class="public-note"><b>Project's Note for public users for this term</b> Egestas integer eget aliquet nibh praesent. Nullam non nisi est sit amet. Id neque aliquam vestibulum morbi. Eget lorem dolor sed viverra ipsum nunc aliquet. Consectetur a erat nam at lectus urna. Eget lorem dolor sed viverra ipsum nunc. Vehicula ipsum a arcu cursus. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Et netus et malesuada fames ac turpis. </p>
+                        </div>
+                    </div>
+
+                    <div class="project flex">
+                        <img class="project-image" src="./imageplaceholder.jpg" alt="">
+                        <div>
+                            <h3>Example Project 2</h3>
+                            <p class="public-note"><b>Project's Note for public users for this term</b> Egestas integer eget aliquet nibh praesent. Nullam non nisi est sit amet. Id neque aliquam vestibulum morbi. Eget lorem dolor sed viverra ipsum nunc aliquet. Consectetur a erat nam at lectus urna. Eget lorem dolor sed viverra ipsum nunc. Vehicula ipsum a arcu cursus. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Et netus et malesuada fames ac turpis. </p>
+                        </div>
+                    </div>
+
+                    <div class="project flex">
+                        <img class="project-image" src="./imageplaceholder.jpg" alt="">
+                        <div>
+                            <h3>Example Project 3</h3>
+                            <p class="public-note"><b>Project's Note for public users for this term</b> Egestas integer eget aliquet nibh praesent. Nullam non nisi est sit amet. Id neque aliquam vestibulum morbi. Eget lorem dolor sed viverra ipsum nunc aliquet. Consectetur a erat nam at lectus urna. Eget lorem dolor sed viverra ipsum nunc. Vehicula ipsum a arcu cursus. In nulla posuere sollicitudin aliquam ultrices sagittis orci. Et netus et malesuada fames ac turpis. </p>
+                        </div>
+                    </div>
+
+
+                </div>
+        
+
+            </div>
+        </div>
+        
+    </div>
+    <script>
+        addEventListener("DOMContentLoaded", (event) => {
+            const acc = document.getElementsByClassName("accordion");
+
+            for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
+
+                /* Toggle between hiding and showing the active panel */
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                panel.style.display = "none";
+                } else {
+                panel.style.display = "block";
+                }
+            });
+            }
+        });
+
+    </script>    
+</body>
+
+</html>

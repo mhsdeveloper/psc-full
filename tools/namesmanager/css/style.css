@@ -1,0 +1,296 @@
+a {
+  text-decoration: none;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  list-height: 1;
+}
+
+select {
+  padding: 4px;
+  border: 1px solid #a0a0a0;
+  border-radius: 4px;
+}
+
+.tinyLink {
+  cursor: pointer;
+  font-size: 11px !important;
+  font-weight: normal !important;
+}
+
+.huscList .husc {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+.huscList .husc + .husc {
+  margin-left: 1rem;
+}
+
+.q-field--labeled .q-field__native, .q-field--labeled .q-field__prefix, .q-field--labeled .q-field__suffix {
+  padding-top: 24px;
+  padding-bottom: 0;
+  font-size: 17px;
+  color: black;
+}
+
+.q-field--with-bottom {
+  padding-bottom: 0;
+}
+
+.q-tooltip--style {
+  font-size: 14px;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.27);
+  max-width: 50vw;
+}
+
+.q-table--no-wrap td.notes {
+  white-space: normal;
+  vertical-align: top;
+}
+
+.groupsSection div {
+  padding: 0 0 0 4px;
+}
+
+.notes span {
+  display: block;
+}
+
+.pscLabel {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.descriptions {
+  margin: 1rem 0 2rem 0;
+  background: #f0f0f0;
+  padding: 0.5rem;
+}
+
+.descriptions .pscLabel {
+  display: inline-block;
+}
+
+.descTabs {
+  display: inline-block;
+}
+
+.descTabs span {
+  display: inline-block;
+  margin: 0 1rem;
+  cursor: pointer;
+}
+
+.descTabs span.selected {
+  font-weight: bold;
+}
+
+.pscHR {
+  margin: 0 0 0.5rem 0;
+  height: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.descNotes div {
+  display: none;
+}
+
+.descNotes div.selected {
+  display: block;
+}
+
+.searchBar {
+  background: #c8c8c8;
+}
+
+.noResultsMessage {
+  display: table-row;
+  height: 100px;
+  position: relative;
+}
+.noResultsMessage p {
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  text-align: center;
+}
+
+.searchOptions {
+  justify-content: center;
+  flex-flow: column nowrap;
+  display: flex;
+  flex-direction: column;
+}
+.searchOptions label {
+  text-align: right;
+  margin: 0.25rem;
+}
+
+.searchGo {
+  display: flex;
+  align-items: center;
+}
+
+#loadingCanvas {
+  display: none;
+  width: 100%;
+}
+
+#loadingCanvas.show {
+  display: block;
+}
+
+.resultsWrapper {
+  border: 15px solid #e0e0e0;
+}
+
+.resultsWrapper.project {
+  border: 15px solid #1976d2;
+}
+
+.namesList {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+}
+.namesList .cell {
+  display: table-cell;
+  padding: 5px 10px;
+}
+.namesList .cell + .cell {
+  border-left: 1px solid #f0f0f0;
+}
+.namesList .header {
+  display: table-row;
+  font-weight: bold;
+  background: #d9d9d9;
+  top: 0;
+  position: sticky;
+  z-index: 20;
+}
+.namesList .header .fullName .tinyLink {
+  margin-left: 2rem;
+}
+.namesList .header .fullName .tinyLink:after {
+  content: "+";
+}
+.namesList .name {
+  display: table-row;
+  background: white;
+}
+.namesList .name .actions {
+  width: 30px;
+}
+.namesList .name .fullName {
+  width: 252px;
+  cursor: pointer;
+}
+.namesList .name .husc {
+  min-width: 180px;
+}
+.namesList .name .notes {
+  position: relative;
+}
+.namesList .name .toolTipWrapper {
+  position: relative;
+  height: 2rem;
+  overflow: hidden;
+}
+.namesList .name .toolTipWrapper .toolTip {
+  display: none;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+}
+.namesList .name .toolTipWrapper:hover {
+  overflow: visible;
+}
+.namesList .name .toolTipWrapper:hover .toolTip {
+  display: block;
+}
+.namesList .name .note b {
+  text-transform: uppercase;
+}
+.namesList .name .husc {
+  cursor: pointer;
+}
+.namesList .name .husc .material-icons {
+  float: right;
+  color: #a0a0a0;
+}
+.namesList .name:hover {
+  background: #f0f0f0;
+}
+.namesList .name + .name {
+  border-top: 1px solid #f0f0f0;
+}
+.namesList .name.inProject {
+  background: #f1f8ff;
+}
+.namesList .name.inProject .actions {
+  border-left: #1976d2 10px solid;
+}
+.namesList .name + .name.inProject {
+  border-top: 1px solid #ffffff;
+}
+
+.controlsBelow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+  margin-bottom: 2rem;
+  position: sticky;
+  bottom: 0;
+  background: #d4d4d4;
+}
+.controlsBelow .hits {
+  float: left;
+  background: none;
+  font-weight: bold;
+  width: auto;
+}
+.controlsBelow .pagination span {
+  display: inline-block;
+  padding: 0.1rem;
+  cursor: pointer;
+  background: white;
+  border-radius: 2px;
+  margin: 0.2rem;
+  width: 28px;
+  text-align: center;
+}
+.controlsBelow .pagination .current {
+  cursor: default;
+  font-weight: bold;
+  border: 1px solid #909090;
+}
+.controlsBelow .pagination .prev, .controlsBelow .pagination .next {
+  width: auto;
+  padding: 0.1rem 0.3rem;
+}
+
+.noticeMessageBox {
+  background: #5e5555;
+  padding: 1rem;
+  color: white;
+  font-size: 18px;
+}
+
+/*# sourceMappingURL=style.css.map */

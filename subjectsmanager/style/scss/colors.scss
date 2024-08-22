@@ -1,0 +1,25 @@
+.red-bg{
+    background-color: rgb(149, 13, 13);
+}
+
+
+
+.light-blue-bg{
+    background-color: #b2dde3;
+    
+}
+
+.button{
+    &.red-bg{
+        color: white;
+        &:hover{
+            background-color: rgb(110, 9, 9);
+        }
+    }
+
+    &.light-blue-bg{
+        &:hover{
+        background-color: #94b5ba;
+        }
+    }
+}

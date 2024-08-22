@@ -1,0 +1,10 @@
+
+export default {
+	
+	prop: "",
+
+
+	mounted(){
+
+	}
+}

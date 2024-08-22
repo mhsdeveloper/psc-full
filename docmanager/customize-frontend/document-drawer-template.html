@@ -1,0 +1,18 @@
+<div class="textPreview">
+	<h4>Text</h4>
+	<p>{{buildDocTextPreview(document)}}...</p>
+</div>
+<div class="persRefs">
+	<h4>Names:</h4>
+	<span tabindex="0" class="persRef" v-for="p in document.person_keyword" v-on:click="nameLookup(p)">{{p}}</span>
+</div>
+
+<div class="subjects">
+	<h4>Topics:</h4>
+	<span tabindex="0" class="persRef" v-for="s in document.subject">{{s}}</span>
+</div>
+<div class="other">
+	<q-btn unevelated style="background: black; color: white" label="Reindex" @click="reindexOne(document.filename)" @keydown.enter="reindexOne(document.filename)"></q-btn>
+	<br/><br/>
+	<q-btn v-if="userLevel > 3" unevelated color="negative" label="DELETE" v-on:click="deleteFile(document)"></q-btn>
+</div>

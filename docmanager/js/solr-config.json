@@ -1,0 +1,53 @@
+{
+    "url": "/tools/docmanager/search",
+    "fields": [
+        {
+            "name": "text",
+            "param": "text",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": true
+        },
+        {
+            "name": "filename",
+            "param": "filename",
+            "type": "text",
+            "phraseLike": false,
+            "required": false,
+            "highlight": false,
+			"wholeFieldRequired": true
+        },
+        {
+            "name": "index",
+			"param": "index",
+			"type": "text",
+            "required": true,
+			"highlight": false
+        },
+		{
+            "name": "person_keyword",
+			"param": "p",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "topic_keywords",
+			"param": "s",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        }
+    ],
+    "displayFields": ["date_when", "index", "upload_date", "filename", "date_to", "author", "recipient", "person_keyword", "subject", "resource_uri_start", "doc_beginning"],
+    "facetFields": [],
+    "sortFields": [
+        {
+            "name": "date_when",
+            "sort": "asc" 
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+#!/bin/bash
+cd css
+
+NAME=style
+
+rm -f $NAME.css
+
+#run $SASS and convert scss to css
+$SASS $NAME.scss:$NAME.css
+
+cd ..
+
+/space/www/admin/bin/inc-version.sh "./views/supportfiles.php"

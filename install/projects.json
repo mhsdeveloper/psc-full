@@ -1,0 +1,29 @@
+{
+	"0": {
+		"name": "All Editions", "abbr": "coop", "docListShowDate": 1
+	},
+	"1": {
+		"name": "John Quincy Adams Digital Diary", "abbr": "jqa", "docListShowDate": 0
+	},
+	"2": {
+		"name": "Catharine Maria Sedgwick Online Letters", "abbr": "cms", "docListShowDate": 1
+	},
+	"3": {
+		"name": "Papers of Roger Brooke Taney", "abbr": "rbt", "docListShowDate": 1
+	},
+	"4": {
+		"name": "Ellen Swallow Richards Papers", "abbr": "esr", "docListShowDate": 1
+	},
+	"5": {
+		"name": "Goatopia Farms", "abbr": "goat", "docListShowDate": 1
+	},
+
+	"nameToID": {
+		"coop": 0,
+		"jqa": 1,
+		"cms": 2,
+		"rbt": 3,
+		"esr": 4,
+		"goat": 5
+	}
+}

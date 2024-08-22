@@ -1,0 +1,9 @@
+UPLOADING DOCS EN MASS
+
+This assumes you want them all published
+
+1) use Oxygen to string replace all the files and make them published="yes"
+
+2) Upload to project's xml folder using scp, sftp, or similar
+
+2) use admin option "re-sync docmanager to xml"
