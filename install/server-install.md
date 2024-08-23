@@ -34,7 +34,7 @@ As you can see, really all you need is Ubuntu 24.04 LTS, and the rest are all pr
 
 Login to your server using your main login, especially a login you use for managing website files. Needless to say, do not login as root directly.
 
-Use your system's package manager to install nginx, PHP fpm, MYSQL, and Open JDK. These are the versions the PSC has tested and uses on its server, you may be able to use newer versions with little or no change. On Ubuntu, the commands are as follows:
+Use your system's package manager to install services. These are the versions the PSC has tested and uses on its server, you may be able to use newer versions with little or no change. On Ubuntu, the commands are as follows:
 
 	sudo apt install nginx
 	sudo apt install php8.3-fpm
@@ -129,20 +129,32 @@ Solr stores its config, index, and other data in /var/solr/data/publications/. I
 	sudo rm /var/solr/data/publications/conf/managed-schema
 	sudo cp /psc/www/html/install/server-configs/schema.xml /var/solr/data/publications/conf/
 
-Adjust solrconfig.xml:
-search for "<updateRequestProcessorChain" and see that in this line, autoCreateFields is false:
-	<updateRequestProcessorChain name="add-unknown-fields-to-the-schema" default="${update.autoCreateFields:false}" ...
+Adjust solrconfig.xml with our script:
 
-Remove any ManagedIndexSchemaFactory definition if it exists.
+	cd /psc/www/html/install
+	sudo bash ./scripts/configure-solr.sh
 
-Add a ClassicIndexSchemaFactory definition:  
-	​<schemaFactory class="ClassicIndexSchemaFactory"/>
-
-### Restart SOLR
+Restart SOLR:
 
 	sudo service solr restart
 
-IMPORTANT SECURITY NOTE, FIREWALL SETUP: you should make sure your host/network is blocking external access to port 8983, which SOLR uses. That way, only the server itself (PHP) can access SOLR directly, but the outside world can not. It is also possible to configure your OS to block that port if your host ISP does not offer this service.
+### IMPORTANT SECURITY NOTE, FIREWALL SETUP
+
+You should make sure your host/network is blocking external access to port 8983, which SOLR uses. That way, only the server itself (PHP) can access SOLR directly, but the outside world cannot. THIS IS A VITAL STEP: leaving the Solr Admin UI and API open means that anyone that happens upon your site could change or delete your data. It may also expose your server to vulnerabilities via Solr.  It is also possible to configure your OS to block that port if your host ISP does not offer this service.
+
+To see if you're host is blocking that port, try to connect by using your browser to go to your server's url on port 8983. For example, if you server's domain name is mywebsite.org, you would enter this url: http://www.mywebsite.org:8983 If you see the Solr Admin interface, then the port is not being blocked, and you need to configure your firewall.
+
+The following is optional, if your host does not block port 8983. For that, we can use ufw:
+
+	sudo apt install ufw
+	sudo ufw enable
+
+Then, to block access to Solr from the outside world:
+
+	sudo ufw deny 8983
+
+
+
 
 
 

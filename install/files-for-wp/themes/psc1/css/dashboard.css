@@ -1,0 +1,33 @@
+
+
+.coopTool,
+.coopTool:visited,
+.coopTool:hover {
+    display: inline-block;
+    margin: 1rem 0.5rem;
+    background: #338dd7;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+	text-align: center;
+    font-size: 16px;
+    /* font-weight: bold; */
+    border-radius: 3px;
+    box-shadow: 0 0 6px rgb(0 0 0 / 30%);
+}
+
+.coopTool:hover {
+	color: white;
+	box-shadow: none;
+}
+
+.coopTool b {
+	text-transform: uppercase;
+	display: block;
+	font-size:22px;
+}
+
+
+.coopTool.alt {
+	background: #3e973e;
+}

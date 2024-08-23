@@ -1,0 +1,1 @@
+<?php die( "error content-page.php should not be used.");
