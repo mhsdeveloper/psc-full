@@ -1,0 +1,145 @@
+
+
+header {
+	@include outerWrapper;
+	background: var(--psc-header-bg);
+	color: var(--psc-header-light-color);
+
+	a, a:link, a:visited {
+		color: var(--psc-color-text-light);
+	}
+
+	overflow: hidden;
+
+	.iwrapper {
+		position: relative;
+	}
+
+	.iwrapper::after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+
+	.mhsLink {
+		float: left;
+		display: block;
+		padding: 1px;
+		img {
+			width: 139px;
+			margin: 61px 33px 7px 0;
+			display: block;
+		}
+		border-right: 2px solid #909090;
+	}
+
+
+	.coopHome {
+		padding-top: var(--psc-whitespace-less);
+		width: 295px;
+		float: left;
+		padding: 10px 0 0 0;
+		max-width: 85%;
+	}
+
+
+
+	h1, p {
+		position: relative;
+	}
+
+	h1 {
+		float: left;
+		font-size: 34px;
+		margin-bottom: 0;
+
+		@media(max-width: 1000px){
+			float: none;
+			clear: both;
+			padding: 2rem 0 0 0;
+		}
+
+		@media(max-width: 900px){
+			padding-bottom: 1.5rem;
+		}
+
+		em, i {
+			display:block;
+			font-style: normal;
+			font-size: 21px;
+			color: #b0afaf;
+			text-transform: uppercase;
+			font-family: var(--psc-font-main);
+
+		}
+	}
+
+	.site-logo {
+		display: none;
+	}
+
+	.site-description {
+		display: none;
+	}
+
+
+	nav {
+		float: right;
+	}
+}
+
+
+@media(max-width: 500px){
+	.innerPage header h1 {
+		font-size: 22px;
+	}
+}
+
+
+
+
+// home pages
+
+.home header {
+
+	.iwrapper {
+	}
+
+	.mhsLink {
+		img {
+			width: 186px;
+			margin: 61px 68px 0 61px;
+		}
+	}
+
+
+	.site-logo {
+		width: 100px;
+
+		.custom-logo-link {
+			display: block;
+			margin: 0;
+			padding: 0;
+		}
+		img {
+			display: block;
+		}
+	}
+
+}
+
+[class*='coophome-'] header,
+.coophome header,
+.coop header {
+	h1 {
+		display: none;
+	}
+
+	.mhsLink {
+		img {
+			width: 274px;
+			margin: 61px 68px 0 61px;
+		}
+	}
+
+}

@@ -1,0 +1,49 @@
+
+
+	.metadataSet {
+		margin-top: var(--psc-whitespace-flow);
+		margin-bottom: var(--psc-whitespace-flow);
+
+		.document {
+			margin-bottom: var(--psc-whitespace-flow);
+		}
+
+		.title,
+		.date_when,
+		.doc_beginning {
+			display: block;
+			padding: 0;
+		}
+
+		.date_when {
+			padding-bottom: 0;
+		}
+
+		.title {
+			font-size: var(--psc-font-size-medium);
+			font-weight: bold;
+		}
+
+		.doc_beginning {
+			font-family: var(--psc-font-doc-teaser);
+		}
+		.doc_beginning::after {
+			content: "...";
+		}
+
+		.subject {
+			margin-bottom: var(--psc-whitespace-flow-sm);
+
+			.name {
+				display: inline-block;
+				font-weight: bold;
+				font-family: var(--psc-font-heading-small);
+				font-size: var(--psc-font-size-medium);
+			    margin-right: 1rem;
+			}
+
+			.count {
+				display: inline-block;
+			}
+		}
+	}

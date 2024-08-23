@@ -1,0 +1,52 @@
+
+.teiFragment {
+
+	
+	title {
+		@include gutters;
+		@include maxReadingWidth;
+		margin-bottom: 2rem;
+		display: block;
+		font-weight: bold;
+		font-family: var(--psc-font-main); /* this is not stricky the historical text, so use sans serif font */
+	}
+
+
+	header, bibl {
+		display: none;
+	}
+
+
+//------ BIG SECTIONS
+	div1, div2, div3, div4, div5 {
+		@include gutters;
+		@include structuralSection;
+	}
+
+
+	div[type="docbody"]
+	 {
+		display: block;
+	}
+
+	div[type="docbody"] + div[type="docbody"],
+	div[type="entry"] + div[type="entry"],
+	doc + doc {
+		margin-top: 4rem;
+	}
+	
+
+
+	*[type="docbody"] {
+		line-height: 1.5;
+	}
+
+
+
+
+	@import "tei-block-level";
+	@import "tei-fragment-inline-elements";
+	@import "tei-fragment-rendition";
+	@import "tei-fragment-front-back-matter";
+
+} //teifragment group

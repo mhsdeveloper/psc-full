@@ -1,0 +1,29 @@
+{
+    "fields": [
+        {
+            "name": "person_keyword",
+			"value": "*",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "date_when",
+			"value": "*",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        }
+
+    ],
+    "displayFields": ["person_keyword", "index"],
+    "facetFields": ["person_keyword", "date_year", "subject"],
+    "sortFields": [
+        {
+            "name": "id",
+            "sort": "asc" 
+        }
+    ]
+}

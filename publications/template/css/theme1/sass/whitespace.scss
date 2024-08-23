@@ -1,0 +1,257 @@
+// ALL RULES THAT EFFECT GUTTERS AND SEPARATION BETWEEN BLOCKS GO HERE!!
+// well ... only for large things like fullwidth blocks, or column-like items ...
+// ... BUT NOT
+//  whitespace for typography rules on basic elements like h1, p, blockquote etc.
+//  nor things like the whitespace in and around buttons, lists?
+
+.iwrapper {
+	max-width: calc($maxWidth + 8rem);
+	margin: auto;
+}
+
+
+.basicGutter {
+	padding: 0 4rem 4rem 4rem;
+
+	@media(max-width: 1000px) {
+		padding: 0 2rem 2rem 2rem;
+	}
+}
+
+
+header {
+	.iwrapper {
+		max-width: calc($maxWidth + 8rem);
+		margin: auto;
+		padding: 0 3rem;
+
+		@media(max-width: 900px){
+			max-width: 100%;
+			padding: 0 2rem;
+		}
+	}
+
+
+	h1, p {
+		padding-top: var(--psc-whitespace-less);
+	}
+
+	h1 {
+		@include leftRightGutter;
+		padding-left: 4rem;
+	}
+}
+
+
+
+
+
+
+
+
+
+.coop-homepage {
+	.intro {
+		padding: 4rem;
+
+		@media(max-width: 1000px){
+			padding: 2rem 2rem 0 2rem;
+		}
+	}
+}
+
+.homepage .intro {
+	padding: 0 4rem;
+}
+
+
+.herotitle {
+
+	margin: 0;
+	padding: 4rem 4rem 4rem 0;
+
+	@media(max-width: 1000px){
+		padding: 2rem 2rem 2rem 0;
+	}
+
+	h1 {
+		padding-top: 4rem;
+	}
+}
+
+
+.searchbox {
+	padding: 4rem;
+}	
+
+
+
+
+
+
+
+
+
+.title {
+	padding: 4rem 4rem;
+	margin-bottom: 0;
+
+	@media(max-width: 1000px){
+		padding: 2rem;
+	}
+}
+
+
+
+p.intro {
+	width: calc(100% - 8rem);
+	padding: 0 4rem 4rem 4rem;
+
+	@media(max-width: 1000px){
+		padding: 0 2rem;
+		width: 100%;
+	}
+}
+
+
+
+.page-template-default article {
+	padding: 0 4rem 4rem 4rem;
+	@include maxInnerWidth;
+
+	@media(max-width: 1000px){
+		padding: 0 2rem 2rem 2rem;
+	}
+}
+
+
+.inner-container,
+.wp-block-group__inner-container {
+	@include maxInnerWidth;
+}
+
+
+.fullwidth .wp-block-group__inner-container {
+	padding: 0 4rem;
+
+	@media(max-width: 800px){
+		padding: 0;
+	}
+}
+
+
+
+.hasfeatures .wp-block-group__inner-container,
+.hasfeatures .wp-block-group__inner-container,
+.boxes > div {
+	@include maxInnerWidth;
+	padding: 2rem 0;
+}
+
+blockquote,
+.feature,
+.box {
+	padding: 2rem 4rem;
+	width: 33.333%;	
+	
+	@media(max-width: 1130px){
+		padding: 2rem;
+	}
+
+	@media(max-width: 900px){
+		width: 49%;
+	}
+
+	@media(max-width: 720px){
+		width: 100%;
+	}
+}
+
+.boxes > div {
+	h2 {
+		padding-left: 4rem;
+		padding-right: 4rem;
+		@media(max-width: 900px){
+			padding-left: 2rem; padding-right: 2rem;
+		}
+	}
+}
+
+
+.hascards {
+	@include maxInnerWidth;
+	padding: 4rem;
+}
+
+.card {
+	padding: 0;
+}
+
+
+.hassidebar {
+	padding: 4rem;
+}
+
+.sidebar {
+	margin-left: 4rem;
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+
+
+.column25 + .column25,
+.column33 + .column33,
+.column66 + .column33,
+.column33 + .column66,
+.column + .column {
+	margin-left: var(--psc-whitespace);
+}
+
+
+
+
+
+// ----------------------------------------------------------
+//  overrides
+// ----------------------------------------------------------
+
+
+
+.aboutPage {
+
+	.iwrapper h1.title {
+		padding-bottom: 0;
+	}
+
+	.wp-block-group__inner-container {
+		padding: 4rem;
+
+		@media(max-width: 990px){
+			padding: 2rem;
+		}
+	}
+
+}
+
+
+.page-template-default {
+
+	.biblio {
+		margin-top: 4rem;
+	}
+
+
+	.image {
+		display: block;
+
+		img {
+			display: block;
+			margin: auto;
+		}
+	}
+
+	.center {
+		text-align: center;
+	}
+}

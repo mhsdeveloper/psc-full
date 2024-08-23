@@ -1,0 +1,357 @@
+//our editions will create a full-bleed block with detailed h1/image/intro,
+//so hide the page-by-page header
+.homepage header {
+	.iwrapper {
+		.site-logo,
+		h1 {
+			display: none;
+		}
+	}
+}
+
+.homepage .entry-content {
+	position: relative;
+}
+
+
+
+
+@mixin whiteBlock {
+	background: white;
+}
+
+@mixin blockWhitespace {
+	padding: 4rem;
+	margin: 0;
+}
+
+
+.homepage {
+
+	background: var(--psc-header-bg);
+
+
+	article {
+		padding-bottom: 0;
+	}
+
+	.wp-block-group:nth-child(n + 2){
+		background: white;
+	}
+
+
+	.wp-block-group__inner-container {
+		position: relative;
+	}
+
+	@mixin nextToImg {
+		width: calc(100% - 475px - 4rem);
+	}
+
+	figure {
+		width: 450px;
+		position: absolute;
+		bottom: -75px;
+		right: 4rem;
+		z-index: 5;
+		figcaption {
+			display: none;
+		}
+	}
+
+
+	figure + p {
+		position: absolute;
+		bottom: -90px;
+		right: 136px;
+		background: none;
+		text-align: center;
+		z-index: 10;
+		
+		a:link, a:visited, a:active, a:hover {
+			display: inline-block;
+			margin: auto;
+			border-radius: 36px;
+			background: var(--psc-color-background-dark);
+			text-transform: uppercase;
+			font-weight: bold;
+			letter-spacing: .1rem;
+			font-size: 24px;
+			padding: 12px 40px;
+			color: white;
+		}
+	}
+
+
+	h1 {
+		@include blockWhitespace;
+		padding: 4rem 4rem 0 4rem;
+		font-size: 54px;
+		font-weight: 400;
+		color: white;
+		@include nextToImg;
+
+		em {
+			display: block;
+			font-style: normal;
+			text-transform: uppercase;
+			font-family: var(--psc-font-main);
+			font-size: 35px;
+			letter-spacing: .05em;
+		}
+	}
+
+
+
+	.introText {
+		@include blockWhitespace;
+		@include nextToImg;
+
+		font-size: 24px;
+		color: white;
+	}
+
+	.searchbox {
+		@include blockWhitespace;
+		@include nextToImg;
+
+		.wp-block-group__inner-container {
+			width: 100%;
+		}
+
+
+		strong {
+			color: white;
+			text-transform: uppercase;
+			font-size: 17px;
+			padding-left: 27px;
+		}
+
+		.formRow {
+			width: 100%;
+		}
+
+
+		.searchTerms {
+			width: 100%;
+			border-radius: 30px;
+			border: none;
+			padding: 19px 16px;
+		}
+
+		.searchGo {
+			position: absolute;
+			right: 12px;
+			top: 10px;
+			width: 51px;
+			background: none;
+			border: none;
+		}
+	
+	}
+	
+	
+	.moreInfo {
+		@include blockWhitespace;
+		@include whiteBlock;
+		@include nextToImg;
+
+		font-size: 20px;
+	}
+
+
+	.boxes {
+		@include whiteBlock;
+		clear: both;
+	}
+
+	.soft {
+		background: var(--psc-color-background-soft);
+	}
+
+
+	.box {
+		ul {
+			li {
+				text-transform: uppercase;
+			}
+		}
+
+		p:last-child {
+			a:link, a:visited, a:active, a:hover {
+				@include blueButtonStyle;
+			}
+		}
+	}
+}
+
+
+
+
+@media(max-width: 1600px) {
+	.homepage {
+		h1 {
+			width: calc(68% - 4rem);
+			font-size: calc( 23px + 1.4vw);
+		}
+
+		.introText,
+		.searchbox {
+			width: calc(68% - 4rem);
+			font-size: 22px;
+		}
+
+		.figure {
+			width:32%;
+		}
+
+	}
+}
+
+
+@media(max-width: 1399px) {
+	.homepage {
+
+		.wp-block-group.is-layout-constrained:first-child {
+			padding-bottom: 2rem;
+			overflow: hidden;
+		}
+
+
+		h1,
+		.introText,
+		.searchbox {
+			width: calc(71% - 4rem);
+		}
+
+		figure {
+			width: 29%;
+			top: -30px;
+			bottom: auto;
+		}
+
+		figure + p {
+			bottom: 0;
+			right: calc(13% - 4rem);
+
+			a:link, a:active, a:visited {
+				padding: 9px 37px;
+    			letter-spacing: 0;
+			}
+		}
+
+		.introText {
+			padding-bottom: 1rem;
+			font-size: 18px;
+		}
+
+		.searchbox {
+			padding-top: 0;
+			padding-bottom: 0;
+
+			.searchTerms {
+				padding: 15px 18px;
+				font-size: 18px;
+			}
+
+			.searchGo {
+				width: 42px;
+			}
+		}
+
+		.moreInfo {
+			width: 100%;
+			padding: 4rem 4rem 1rem 4rem;
+			font-size: 18px;
+		}
+
+
+
+		.box p:last-child a:link,
+		.box p:last-child a:visited, 
+		.box p:last-child a:active,
+		.box p:last-child a:hover {
+			font-size: 20px;
+			border-radius: 30px;
+			padding: 0.5rem 2rem;
+			margin: 0.5rem;
+		}
+
+	}
+}
+
+
+//when nav folders under
+@media(max-width: 1100px){
+	.homepage {
+
+		h1 {
+			padding-top: 1rem;
+		}
+
+	}
+}
+
+
+
+//mobile and hamburger showing
+@media(max-width: 899px){
+
+
+	.homepage {
+
+		figure + p {
+			bottom: 1rem;
+			right: calc(18% - 4rem);
+		
+			a:link,
+			a:visited {
+				font-size: 20px;
+				letter-spacing: 0;
+				bottom: 1rem;
+				padding: 11px 24px;
+			}
+		}
+	}
+}
+
+
+@media(max-width: 720px){
+	.homepage {
+
+		.wp-block-group.is-layout-constrained:first-child {
+			padding-bottom: 0;
+			overflow: hidden;
+		}
+
+		h1,
+		.introText,
+		.searchbox {
+			width: 100%;
+			padding: 2rem;
+		}
+
+
+		figure {
+			position: relative;
+			width: 100%;
+			right: auto;
+			bottom: auto;
+			top: auto;
+		}
+
+		figure + p {
+			right: auto;
+			width: 50%;
+			margin: auto;
+			position: absolute;
+			bottom: 50px;
+			left: 25%;
+		}
+
+		.moreInfo {
+			padding: 2rem;
+		}
+	}
+
+}

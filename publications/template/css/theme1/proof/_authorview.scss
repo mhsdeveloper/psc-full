@@ -1,0 +1,313 @@
+
+
+
+
+/* GLOBAL */
+pb {
+font-family: arial, helvetica, sans-serif;
+
+color: green;
+content: "{page "attr(n)"}";
+}
+
+
+/* TEI Header */ 
+ publicationStmt, publicationStmt date, publisher, seriesStmt, title, editor, sourceDesc, sourceDesc, sourceDesc date, author, recipient, 
+ repository, collection, textClass, keywords
+   {
+display: block;
+font-family:arial, helvetica, sans-serif;
+
+margin-left: 2em;
+}
+
+titleStmt title {
+font-family: garamond, times, serif;
+
+margin-top: 1em;
+text-align:center;
+}
+
+respStmt {
+font-family: arial, helvetica, sans-serif;
+
+text-align:left;    
+margin-left: 3.5em;
+}
+
+respStmt note {
+
+}
+
+respStmt date {
+content: attr(when);
+}
+
+publisher {
+content: "Publisher: ";    
+}
+
+publicationStmt date {
+content: "Publication Year: ";
+}
+licence {
+display: none;
+}
+availability {
+display: none;
+}
+revisionDesc {
+display:none;
+}
+
+sourceDesc date[type="creation"] { 
+content: "Written: "attr(when);
+font-weight: 700;
+}
+
+sourceDesc author { 
+content: "Author: ";
+}
+
+sourceDesc recipient {
+ content: "Recipient: ";
+}
+sourceDesc title {
+content: "Head: ";
+}
+
+msIdentifier repository {
+ content: "Repository: ";   
+}
+msIdentifier collection {
+content: "Collection: ";
+}
+
+seriesStmt title {
+    content: "Edition: ";
+}
+seriesStmt editor {
+    content: "Editors: ";
+}
+
+encodingDesc {
+display:none;  
+}
+
+keywords {
+content: "Keywords:";
+}
+keywords item {
+    display: block;
+    font-family: arial, helvetica, sans-serif;
+    
+    color: var(--keywordItem);
+    margin-left: 3em;
+}
+
+sourceDesc idno, sourceDesc ab {
+display: none;
+}
+
+/* BLOCKS */
+div[type="docbody"], postscript, salute, dateline, closer, note {
+display: block;
+font-family: Garamond, "Times New Roman", serif;
+padding:.5em;
+}
+
+salute, closer {
+
+}
+
+dateline {
+text-align: right;
+}
+
+div[type="docbody"]>p {
+display: block;
+font-family: Garamond, "Times New Roman", serif;
+
+padding:.5em;
+}
+
+div[type="insertion"]{
+ display: block;
+font-family: Garamond, "Times New Roman", serif;
+
+padding:.5em;   
+content: "Insertion: ";
+} /* come back to figure out numbering for insertions, like for footnotes */
+
+div[type="docback"], note {
+display: block;
+font-family: arial, helvetica, sans-serif;
+
+padding:.5em;
+counter-reset: footnotes;
+}
+
+note[type="source"] {
+display: block;
+font-family: arial, helvetica, sans-serif;
+
+padding:.5em;
+} 
+
+note[type="doctype"] {
+content: "Document Type:";
+} 
+
+note[type="repository"] {
+content: "Repository:";    
+}
+
+note[type="collection"] {
+content: "Collection:";
+}
+
+note[type="condition"] {
+content: "Condition:";
+} 
+
+note[type="address"] {
+content: "Address:";
+} 
+
+note[type="endorsement"] {
+content: "Endorsement:";
+} 
+
+note[type="notation"] {
+content: "Notation:";    
+}
+
+note[type="fn"]::before {
+content: "Note "attr(xml\:id)":";
+
+font-style: italic;
+text-decoration: underline;
+} 
+/* come back to this for numbering footnotes! */
+
+
+/* INLINES */
+del, add, hi, persRef, unclear, gap, ptr, space, reg, expan
+{
+display: inline;
+}
+
+del {
+color: red;
+text-decoration: line-through;
+}
+
+del unclear {
+content: "illegible deletion";
+text-decoration: line-through;
+color: red;
+}
+
+add:before {
+content: "^";
+color: var(--add);
+}
+
+add {
+color: var(--add);
+}
+
+add:after {
+content: "^";
+color: var(--add);
+}
+
+hi[rend="underline"] {
+text-decoration: underline;
+}
+
+hi[rend="superscript"] {
+vertical-align:text-top;
+
+}
+
+hi[rend="italic"] {
+font-style:italic;    
+}
+
+persRef {
+color: var(--persRef);
+content: "["attr(ref)"] " ;
+}
+
+unclear {
+color: var(--unclear);
+}
+
+unclear:before {
+content: "[";
+}
+
+unclear:after {
+content: "]";
+}
+
+unclear[cert="low"]:after {
+color: var(--unclear);
+content: "?]";
+}
+
+unclear:empty {
+content:"illegible";
+font-family: arial, helvetica, sans-serif;
+
+font-style:italic;
+}
+
+gap {
+color: grey;
+font-family: arial, helvetica, sans-serif;
+
+}
+
+ptr[type="fn"] {
+content: "[note " attr(n)"]";
+color:navy;
+vertical-align:+1rem;
+font-family:arial, helvetica, sans-serif;
+
+text-decoration: underline dotted navy;
+}
+
+space {
+content: "[author left blank]";
+font-family:arial, helvetica, sans-serif;
+
+color:teal;
+}
+
+reg {
+color: orange;    
+}
+
+reg:before {
+content:" <";
+}
+
+reg:after {
+content:">";
+}
+
+expan {
+color: orange;    
+}
+
+expan:before {
+content:" <";
+}
+
+expan:after {
+content:">";
+}
+
+

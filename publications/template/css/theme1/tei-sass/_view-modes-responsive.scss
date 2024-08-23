@@ -1,0 +1,49 @@
+
+
+@media(min-width: 1150px){
+
+	.prevYear {
+		width: 25%;
+		.context {
+			width: 60%;
+		}
+	}
+
+	.nextYear {
+		margin-left: 75%;
+		.context {
+			width: 60%;
+		}
+	}
+
+}
+
+
+
+@media(max-width: 767px){
+	.prevDocs,
+	.nextDocs {
+		position: fixed;
+	}
+}
+
+
+
+
+@media(max-width: 600px){
+
+	.teiFragment.panelMode.reading {
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		overflow: auto;
+
+
+		doc {
+		    padding: 1.25rem;
+		}
+	}
+}

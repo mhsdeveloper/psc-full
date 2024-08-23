@@ -1,0 +1,981 @@
+@namespace "http://www.w3.org/1999/xhtml";
+@namespace mhs "http://www.masshist.org/ns/1.0";
+:root {
+  --psc-color-prime: #2e7e98;
+  --psc-color-second: #000000;
+  --psc-color-link: #0087b3;
+  --psc-color-background: #ffffff;
+  --psc-color-background-soft: #dcedf3;
+  --psc-color-background-dark: #1e6178;
+  --psc-color-background-muted: #2e7e98;
+  --psc-color-background-vivid:#2e7e98;
+  --psc-color-text-dark: #000000;
+  --psc-color-text-light: #ffffff;
+  --psc-color-text-vivid: #2e7e98;
+  --psc-gutter: 1rem;
+  --psc-gutter-dbl: 2rem;
+  --psc-whitespace-flow: 4rem;
+  --psc-whitespace-flow-md: 1.5rem;
+  --psc-whitespace-flow-sm: 1rem;
+  --psc-tei-whitespace: 1.5rem;
+  --psc-whitespace: 3rem;
+  --psc-whitespace-less: 2rem;
+  --psc-whitespace-small: 1rem;
+  --psc-font-main: "Roboto", "Arial", sans-serif;
+  --psc-font-title: "Source Serif Pro", "Libre Baskerville", serif;
+  --psc-font-roman: "Source Serif Pro", "Libre Baskerville", serif;
+  --psc-font-headings: "Roboto", "Arial", sans-serif;
+  --psc-font-headings-small: "Roboto", "Arial", sans-serif;
+  --psc-font-doc-teaser: "Source Serif Pro", "Libre Baskerville", serif;
+  --psc-font-size: 14px;
+  --psc-font-size-medium: 18px;
+  --psc-font-size-large: 22px;
+  --psc-font-size-headline: 44px;
+  --psc-max-reading-width: 900px;
+  --psc-header-bg: #272318;
+  --psc-header-light-color: #ffffff;
+  --psc-tei-font: "Source Serif Pro", "Times New Roman", serif;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.CHECK {
+  font-size: 10px;
+  border: 2px solid red;
+}
+
+tei {
+  display: flex;
+  flex-direction: column;
+}
+tei [type=docbody] {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--psc-max-reading-width);
+  margin: auto;
+}
+
+teiheader {
+  display: block;
+  position: relative;
+  padding: 0 var(--psc-whitespace) 0 var(--psc-whitespace);
+  font-family: var(--psc-font-main);
+  background: #efefef;
+}
+teiheader name {
+  display: inline-block;
+}
+teiheader .teiHeaderWrapper {
+  padding-left: var(--psc-tei-whitespace);
+  padding-right: var(--psc-tei-whitespace);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--psc-max-reading-width);
+}
+teiheader title {
+  display: block;
+}
+teiheader filedesc,
+teiheader encodingdesc,
+teiheader profiledesc,
+teiheader revisiondesc,
+teiheader titlestmt,
+teiheader publicationstmt,
+teiheader seriesstmt,
+teiheader sourcedesc {
+  display: none;
+  padding: var(--psc-whitespace-small);
+}
+teiheader .tab {
+  cursor: pointer;
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.25rem 0.75rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+teiheader .tab .svg {
+  position: relative;
+  top: 4px;
+  transition: transform 0.24s ease;
+}
+teiheader .tab.selected {
+  background: #bfdcf5;
+}
+teiheader .tab.selected .svg {
+  transform: rotate(180deg);
+}
+teiheader .tab + .tab {
+  margin-left: 0.5rem;
+}
+teiheader filedesc.selected,
+teiheader profiledesc.selected {
+  display: block;
+}
+teiheader keywords:before {
+  font-family: var(--psc-font-main);
+  font-weight: bold;
+  top: 0;
+  padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+  content: "Subjects (keywords element)";
+}
+teiheader list {
+  display: block;
+  padding-left: var(--psc-whitespace);
+}
+teiheader list item {
+  display: block;
+}
+
+.teiFragment title {
+  padding-left: var(--psc-tei-whitespace);
+  padding-right: var(--psc-tei-whitespace);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--psc-max-reading-width);
+  margin-bottom: 2rem;
+  display: block;
+  font-weight: bold;
+  font-family: var(--psc-font-main); /* this is not stricky the historical text, so use sans serif font */
+}
+.teiFragment header, .teiFragment bibl {
+  display: none;
+}
+.teiFragment div1, .teiFragment div2, .teiFragment div3, .teiFragment div4, .teiFragment div5 {
+  padding-left: var(--psc-tei-whitespace);
+  padding-right: var(--psc-tei-whitespace);
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+}
+.teiFragment div[type=docbody] {
+  display: block;
+}
+.teiFragment div[type=docbody] + div[type=docbody],
+.teiFragment div[type=entry] + div[type=entry],
+.teiFragment doc + doc {
+  margin-top: 4rem;
+}
+.teiFragment *[type=docbody] {
+  line-height: 1.5;
+}
+.teiFragment *[type=entry] > header,
+.teiFragment *[type=doc] > header {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+  background: none;
+  font-size: 140%;
+}
+.teiFragment *[type=entry] > header,
+.teiFragment *[type=doc] > header {
+  font-size: 120%;
+}
+.teiFragment opener {
+  display: block;
+  margin-top: var(--psc-tei-whitespace);
+  margin-bottom: var(--psc-tei-whitespace);
+}
+.teiFragment opener dateline {
+  text-align: right;
+  display: block;
+  padding-right: 1rem;
+}
+.teiFragment opener address {
+  text-align: center;
+}
+.teiFragment opener salute {
+  display: block;
+  text-align: left;
+}
+.teiFragment address {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+}
+.teiFragment address addrLine {
+  display: block;
+}
+.teiFragment epigraph {
+  text-align: left;
+  width: 75%;
+  display: block;
+  margin: 1.5rem auto;
+}
+.teiFragment epigraph p {
+  text-indent: 0;
+}
+.teiFragment header {
+  display: block;
+  background: none;
+  color: black;
+}
+.teiFragment ab {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+}
+.teiFragment quote {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+  display: block;
+  margin: 2rem;
+  font-size: 90%;
+}
+.teiFragment floatingText {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+  display: block;
+}
+.teiFragment p {
+  display: block;
+  text-indent: 2rem;
+  font-weight: 400;
+}
+.teiFragment signed {
+  display: block;
+  text-align: right;
+  clear: right;
+}
+.teiFragment signed name[type=witness] {
+  text-align: left;
+}
+.teiFragment closer,
+.teiFragment postscript {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+  display: block;
+}
+.teiFragment closer {
+  text-align: right;
+  margin-bottom: 2rem;
+}
+.teiFragment closer address {
+  margin: 0;
+}
+.teiFragment lg {
+  display: block;
+  margin: 2rem auto;
+  width: 75%;
+}
+.teiFragment l {
+  display: block;
+  text-indent: 2rem;
+}
+.teiFragment l.indent {
+  text-indent: 6rem;
+}
+.teiFragment table {
+  display: block;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  clear: both;
+  display: table;
+  table-layout: auto;
+  border-collapse: collapse;
+  border-spacing: 1rem 0.25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.teiFragment tr {
+  display: table-row;
+}
+.teiFragment th {
+  font-weight: normal;
+}
+.teiFragment td {
+  padding: 0.25rem;
+  vertical-align: top;
+  display: table-cell;
+  line-height: 1.3;
+}
+.teiFragment td.currency {
+  vertical-align: bottom;
+  text-align: right;
+}
+.teiFragment td[rendition="#line-below"] {
+  border-bottom: 1px solid black;
+}
+.teiFragment td[rendition="#line-above"] {
+  border-top: 1px solid black;
+}
+.teiFragment list {
+  display: block;
+  margin: 0 0 1.5rem 0;
+}
+.teiFragment list label {
+  display: block;
+  clear: both;
+  float: left;
+  width: 25%;
+  margin-bottom: 0.5rem;
+}
+.teiFragment list item {
+  display: block;
+  margin: 0.5rem 1rem;
+}
+.teiFragment list label + item {
+  float: left;
+  width: 75%;
+}
+.teiFragment list:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+.teiFragment column {
+  display: table-cell;
+  box-sizing: border-box;
+}
+.teiFragment column + column {
+  padding-left: 0.5rem;
+}
+.teiFragment .columns2 {
+  display: table;
+  width: 100%;
+}
+.teiFragment .columns2 column {
+  width: 50%;
+}
+.teiFragment .columns3 {
+  display: table;
+  width: 100%;
+}
+.teiFragment .columns3 column {
+  width: 33.33%;
+}
+.teiFragment div[type=docback] {
+  background: #f0f0f0;
+}
+.teiFragment div[type=docback] note {
+  padding: 0 0 1rem 0;
+}
+.teiFragment div[type=docback] note[type=source] {
+  padding: 0 1rem 1rem 1rem;
+}
+.teiFragment div[type=docback] note[type=doctype]::before {
+  content: "Document type";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=repository]::before {
+  content: "Repository";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=collection]::before {
+  content: "Collection";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=condition]::before {
+  content: "Condition";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=address]::before {
+  content: "Address";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=endorsement]::before {
+  content: "Endorsement";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=notation]::before {
+  content: "Notation";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: var(--psc-color-link);
+  font-weight: bold;
+}
+.teiFragment div[type=docback] note[type=fn] {
+  padding: 0 1rem 1rem 1rem;
+}
+.teiFragment div[type=docback] note[type=fn] label {
+  float: left;
+}
+.teiFragment div[type=docback] note[type=fn] p {
+  margin-left: 2rem;
+}
+.teiFragment header a, .teiFragment header a:link, .teiFragment header a:active, .teiFragment header a:visited {
+  color: var(--psc-color-link);
+}
+.teiFragment abbr {
+  display: inline;
+}
+.teiFragment add:before {
+  content: "^";
+  font-style: normal;
+}
+.teiFragment add:after {
+  content: "^";
+  font-style: normal;
+}
+.teiFragment expan {
+  font-family: sans-serif;
+  display: inline;
+  font-size: 90%;
+}
+.teiFragment expan:before {
+  content: "[";
+}
+.teiFragment expan:after {
+  content: "]";
+}
+.teiFragment del {
+  text-decoration: line-through;
+}
+.teiFragment gap {
+  display: inline;
+  text-indent: 0;
+}
+.teiFragment gap:before {
+  content: "[damage]";
+}
+.teiFragment hi {
+  text-indent: 0;
+  margin: 0;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+.teiFragment lb {
+  display: block;
+  height: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.teiFragment name {
+  display: block;
+}
+.teiFragment space {
+  display: inline-block;
+  padding: 0 2.3rem;
+}
+.teiFragment unclear:before {
+  content: "[";
+}
+.teiFragment unclear:after {
+  content: "]";
+}
+.teiFragment unclear[cert=low]:after {
+  content: "?]";
+}
+.teiFragment .pb {
+  display: none;
+}
+.teiFragment .pb[type=ms] {
+  font-size: 80%;
+  color: #999999;
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 0 0.5rem;
+  border: 1px solid #bbbbbb;
+  text-indent: 0;
+}
+.teiFragment .pb::before {
+  content: "p";
+}
+.teiFragment .noteRef {
+  font-size: 80%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.1rem 0.5rem 0.1rem;
+  text-indent: 0;
+}
+.teiFragment .center {
+  text-align: center;
+}
+.teiFragment .italic {
+  font-style: italic;
+}
+.teiFragment .small-caps {
+  text-transform: uppercase;
+  font-size: 80%;
+}
+.teiFragment .super {
+  font-size: 80%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.2rem 0.5rem 0.2rem;
+}
+.teiFragment .italic {
+  font-style: italic;
+}
+.teiFragment .superscript {
+  font-size: 85%;
+  line-height: 1.3;
+  vertical-align: top;
+}
+.teiFragment .strikethrough {
+  text-decoration: line-through;
+}
+.teiFragment .underline {
+  text-decoration: underline;
+}
+.teiFragment *[rendition*="#all-small-caps"] {
+  text-transform: uppercase;
+  font-size: 85%;
+}
+.teiFragment *[rendition*="#center"] {
+  display: block;
+  text-align: center;
+}
+.teiFragment *[rendition*="#italic"] {
+  font-style: italic;
+}
+.teiFragment *[rendition*="#script"] {
+  font-style: italic;
+}
+.teiFragment *[rendition*="#halflinespace"] {
+  line-height: 1.25;
+}
+.teiFragment *[rendition*="#indent"] {
+  text-indent: 2rem;
+}
+.teiFragment *[rendition*="#left"] {
+  text-align: left;
+}
+.teiFragment *[rendition*="#line-through"] {
+  text-decoration: line-through;
+}
+.teiFragment *[rendition*="#lineabove"] {
+  border-top: 1px solid black;
+}
+.teiFragment *[rendition*="#line-above"] {
+  border-top: 1px solid black;
+}
+.teiFragment *[rendition*="#linebelow"] {
+  border-bottom: 1px solid black;
+}
+.teiFragment *[rendition*="#line-below"] {
+  border-bottom: 1px solid black;
+}
+.teiFragment *[rendition*="#right"] {
+  text-align: right;
+}
+.teiFragment *[rendition*="#small-caps"] {
+  text-transform: uppercase;
+  font-size: 85%;
+}
+.teiFragment *[rendition*="#float-left"] {
+  float: left;
+  width: 25%;
+  margin-right: 1rem;
+}
+.teiFragment *[rendition*="#float-right"] {
+  float: right;
+  width: 25%;
+  margin-right: 1rem;
+}
+.teiFragment *[rendition*="#bracket-left"] {
+  padding-left: 1rem;
+  border-left: 2px solid black;
+}
+.teiFragment *[rendition*="#bracket-right"] {
+  padding-left: 1rem;
+  border-right: 2px solid black;
+}
+.teiFragment *[rendition*=center],
+.teiFragment *[rend*=center] {
+  text-align: center;
+}
+.teiFragment *[type=colophon] p {
+  text-align: center;
+}
+.teiFragment *[type=dedication] p {
+  text-align: center;
+}
+.teiFragment *[type=illus] header, .teiFragment *[type=illus] th {
+  font-size: 120%;
+  text-transform: uppercase;
+}
+.teiFragment *[type=illus] th {
+  padding-top: 2rem;
+}
+.teiFragment *[type=illus] *[type=credit] {
+  font-style: italic;
+}
+.teiFragment *[type=docback] {
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 90%;
+  padding: 1rem;
+}
+.teiFragment note {
+  display: block;
+  padding: 0.25rem 2rem;
+}
+.teiFragment note bibl {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+}
+.teiFragment note .label {
+  float: left;
+  margin-left: -2rem;
+  margin-right: 0.25rem;
+}
+.teiFragment note p {
+  text-indent: 0;
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .teiFragment lg {
+    margin: 2rem 0;
+    width: auto;
+  }
+  .teiFragment l {
+    text-indent: 0;
+  }
+  .teiFragment l.indent {
+    text-indent: 2rem;
+  }
+}
+/* css for display elements in support of tei, no the tagset itself.
+	for example: making pb block-level and full width when in page mode
+*/
+.contextualTitle {
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.contextualTitle.stuck {
+  padding: 0.5rem;
+  background: white;
+  z-index: 100;
+}
+
+#displayConfig {
+  display: none;
+}
+
+.tooltip {
+  cursor: pointer;
+  position: absolute;
+  display: inline-block;
+  line-height: 0.5;
+  border: 1px solid #999999;
+  background: yellow;
+  padding: 4px;
+  font-size: 10px;
+  top: -1rem;
+  right: -0.66rem;
+  color: black;
+  font-family: sans-serif;
+  font-style: normal;
+}
+
+.toolTipBox {
+  position: absolute;
+  z-index: 1000;
+  background: white;
+  font-size: 11px;
+  font-family: sans-serif;
+  color: black;
+  padding: 4px;
+  display: none;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.35);
+}
+
+.toolTipBox.open {
+  display: block;
+}
+
+.prevNextNav {
+  display: table;
+  width: 100%;
+}
+.prevNextNav div {
+  width: 50%;
+  display: table-cell;
+}
+.prevNextNav div label {
+  font-size: 80%;
+  display: block;
+}
+.prevNextNav div a {
+  display: block;
+}
+.prevNextNav div a h3 {
+  font-family: serif;
+  font-weight: normal;
+  margin: 0;
+}
+.prevNextNav div a .date {
+  font-size: 80%;
+}
+.prevNextNav div + div {
+  text-align: right;
+}
+
+.prevDocs, .nextDocs {
+  font-size: 14px;
+  background: white;
+  position: fixed;
+  top: 41%;
+  overflow: hidden;
+  width: 280px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.35);
+}
+.prevDocs .arrow, .nextDocs .arrow {
+  z-index: 1;
+  background: url(/publications/lib/images/next-arrow.svg) no-repeat;
+  font-size: 0;
+  position: absolute;
+  padding: 0 12px;
+  background-position: 50%;
+  height: 100%;
+}
+.prevDocs .arrow.leftArrow, .nextDocs .arrow.leftArrow {
+  right: 5px;
+  transform: rotate(180deg);
+}
+.prevDocs .arrow.rightArrow, .nextDocs .arrow.rightArrow {
+  left: 5px;
+}
+.prevDocs .docLink, .nextDocs .docLink {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.prevDocs:after, .nextDocs:after {
+  content: " ";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+}
+
+.prevDocs {
+  padding-right: 32px;
+  left: -248px;
+  transition: left 0.35s ease;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.nextDocs {
+  padding-left: 32px;
+  right: -248px;
+  transition: right 0.35s ease;
+  text-align: right;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.prevDocs.open {
+  left: 0;
+  transition: left 0.35s ease;
+}
+
+.nextDocs.open {
+  right: 0;
+  transition: right 0.35s ease;
+}
+
+/* some display in general for the way we like things, like readability issues,
+ * not so specific to interpreting TEI
+ */
+.teiFragment:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+a.scanPage {
+  font-size: 15px;
+}
+
+.unavailable {
+  cursor: default;
+  color: #a0a0a0;
+  font-size: 15px;
+}
+
+/*	PAGE-BASED VIEWING TWEAKS
+ *
+ */
+.page .stuck {
+  display: block;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.page .teiFragment .pb {
+  display: block;
+  background: black;
+  width: 110%;
+  margin: 1em -2em 1em -4em;
+  text-align: center;
+  color: white;
+}
+
+/* app-style doc display ca. 2017
+ */
+.teiFragment.panelMode {
+  position: relative;
+  box-sizing: border-box;
+  display: none;
+  width: 100%;
+  max-width: none;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+}
+.teiFragment.panelMode div[type=entry],
+.teiFragment.panelMode div[type=doc],
+.teiFragment.panelMode doc {
+  max-width: 650px;
+  padding: 2rem;
+  margin: 0 auto;
+}
+.teiFragment.panelMode .close {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5rem 1rem;
+  font-size: 32px;
+  color: #777777;
+  z-index: 10;
+}
+
+.teiFragment.panelMode.reading {
+  display: block;
+}
+
+@media (min-width: 1px) {
+  .dual .wrapper {
+    display: flex;
+    align-items: flex-start;
+    background: black;
+  }
+  .dual article {
+    width: 64%;
+    margin: 0 auto 0 0;
+    border-right: 10px solid #a0a0a0;
+    padding: 0;
+  }
+  .dual article.resizable {
+    cursor: col-resize;
+  }
+  .dual .teiFragment .page {
+    background: white;
+    padding: 2rem;
+  }
+  .dual .teiFragment .page + .page {
+    margin-top: 1rem;
+  }
+  .dual .teiFragment div[type=entry], .dual .teiFragment div[type=doc] {
+    font-size: 75%;
+    color: #707070;
+    margin: 0;
+  }
+  .dual .teiFragment div[type=doc] + div[type=doc],
+  .dual .teiFragment div[type=entry] + div[type=entry],
+  .dual .teiFragment doc + doc {
+    margin-top: 0;
+  }
+  .dual .teiFragment div[type=entry].selected,
+  .dual .teiFragment div[type=doc].selected {
+    max-height: none;
+    font-size: 100%;
+    color: #000000;
+  }
+  .dual .pageImages {
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+    width: 36%;
+    background: #e9e9e9;
+  }
+  .dual .pageImages img {
+    max-width: 100%;
+  }
+  .dual .dragging {
+    cursor: col-resize;
+  }
+  .dual .dragging article {
+    -webkit-user-select: none; /* Chrome all / Safari all */
+    -moz-user-select: none; /* Firefox all */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none;
+  }
+}
+@media (min-width: 1150px) {
+  .prevYear {
+    width: 25%;
+  }
+  .prevYear .context {
+    width: 60%;
+  }
+  .nextYear {
+    margin-left: 75%;
+  }
+  .nextYear .context {
+    width: 60%;
+  }
+}
+@media (max-width: 767px) {
+  .prevDocs,
+  .nextDocs {
+    position: fixed;
+  }
+}
+@media (max-width: 600px) {
+  .teiFragment.panelMode.reading {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+  }
+  .teiFragment.panelMode.reading doc {
+    padding: 1.25rem;
+  }
+}
+
+/*# sourceMappingURL=tei.css.map */

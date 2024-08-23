@@ -1,0 +1,172 @@
+
+	article {
+		position: relative;
+		padding-bottom: 4rem;
+		clear: both;
+	}
+
+
+
+	.fullwidth,
+	.hascards,
+	.wp-block-group::after {
+		display: block;
+		clear: both;
+		content: "";
+	}
+
+
+	article	.entry-content::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+
+	// .fullGutter {
+	// 	padding: 0 4rem;
+	// }
+
+
+	.columns::after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+	.column25 {
+		width: 23.5%;
+	}
+
+	.column75 {
+		width: 76.5%;
+		padding-bottom: 4rem;
+	}
+
+	.column33 {
+		width: 32%;
+	}
+
+	.column66 {
+		width: 58%;
+		padding-bottom: 4rem;
+	}
+
+	.column,
+	.column25,
+	.column33,
+	.column66,
+	.column75 {
+		min-width: 200px;
+		float: left;
+	}
+
+
+
+	.sidebar {
+		float: left;
+		width: 33%;
+	}
+
+	.withSidebar {
+		float: left;
+		width: 65%;
+	}
+
+
+
+	.wptheme .site-content:after {
+		clear: both;
+		content: " ";
+		display: block;
+	}
+
+	.wptheme article {
+		float: left;
+		width: 65%;
+	}
+
+	// .wptheme aside {
+	// 	float: left;
+	// 	margin-left: var(--psc-whitespace);
+	// 	width: 30%;
+	// }
+
+
+	.comments-area,
+	.widget-area {
+		display: none;
+	}
+
+
+
+
+
+	.darkFullBleed {
+		background: var(--psc-color-prime);
+		color: white;
+
+		.title {
+			padding: 2rem 4rem;
+		}
+
+		a, a:link, a:visited, a:active, a:hover {
+			color: white;
+		}
+	}
+
+
+	.lightFullBleed {
+		background: var(--psc-color-background-soft);
+	}
+
+
+
+
+	@media(max-width: 774px){
+		.column25 {
+			width: 23.5%;
+		}
+	
+		.column75 {
+			width: 100%;
+		}
+	
+		.column33 {
+			width: 100%;
+		}
+	
+		.column66 {
+			width: 100%;
+		}
+	
+		.column,
+		.column25,
+		.column33,
+		.column66,
+		.column75 {
+			min-width: none;
+			float: none;
+		}
+	
+	
+	
+		body .sidebar {
+			float: none;
+			width: 100%;
+			margin: 0;
+			padding: 4rem 0 4rem 0;
+		}
+	
+		.withSidebar {
+			float: none;
+			width: 100%;
+		}
+	
+	
+		.wptheme article {
+			float: none;
+			width: 100%;
+		}	
+
+	}

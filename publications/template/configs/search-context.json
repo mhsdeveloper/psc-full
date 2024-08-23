@@ -1,0 +1,68 @@
+{
+	"fields": [
+		{
+			"name": "text_merge",
+			"param": "terms",
+			"type": "text",
+			"phraseLike": true,
+			"required": true,
+			"highlight": true
+		},
+		{
+            "name": "person_keyword",
+			"param": "p",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "date_when",
+			"param": "ds",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "subject",
+			"param": "s",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "author",
+			"param": "a",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "recipient",
+			"param": "r",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "date_year",
+			"param": "y",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        }
+	],
+	"displayFields": ["date_when", "index", "filename", "title", "date_to", "date_year", "author", "recipient", "resource_uri_start", "doc_beginning"],
+	"facetFields": ["person_keyword", "subject", "date_year", "author", "recipient"],
+	"sortFields": [
+		{
+			"name": "date_when",
+			"sort": "asc" 
+		}
+	]
+}

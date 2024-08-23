@@ -1,0 +1,260 @@
+:root {
+	--add:#00b8ff;
+	--keywordItem: #00b900;
+	--persRef: #e90ee9;
+	--unclear: fuchsia;
+}
+
+
+//@import "authorview";
+@mixin ElementLabel {
+	font-family: var(--psc-font-main);
+	font-weight: bold;
+	top: 0;
+	padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+}
+
+.proofNotice {
+	padding: 1rem;
+    background: orange;
+}
+
+
+tei {
+	display: block;
+}
+
+
+.proof .teiFragment {
+
+	.documentID {
+		padding: var(--psc-whitespace);
+	}
+
+
+	teiheader:before {
+		@include ElementLabel;
+		content: "<TEIHEADER>";
+	}
+
+	teiheader {
+		display: block;
+		position: relative;
+		padding: 0 var(--psc-whitespace) var(--psc-whitespace) var(--psc-whitespace);
+
+		font-family: var(--psc-font-main);
+		background: #efefef;
+
+		name {display: inline-block;}
+
+		
+		//fixes over HTML defaults
+		title {
+			display: block;
+		}
+			
+		filedesc,
+		encodingdesc,
+		profiledesc,
+		revisiondesc,
+		titlestmt,
+		publicationstmt,
+		seriesstmt,
+		sourcedesc {
+			display: block;
+		}
+	
+		.tab {
+			cursor: pointer;
+			display: inline-block;
+			background: #f0f0f0;
+			padding: 0.25rem 0.75rem;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+		}
+		.tab.selected {
+			background: #bfdcf5;
+		}
+		.tab + .tab {
+			margin-left: .5rem;
+		}
+	
+		filedesc.selected,
+		profiledesc.selected {
+			display: block;
+		}
+	
+		keywords:before {
+			@include ElementLabel;
+			content: "Subjects (keywords element)";
+		}
+
+		list {
+			display: block;
+			padding-left: var(--psc-whitespace);
+
+			item {
+				display: block;
+			}
+		}
+	}
+
+
+	respstmt {
+
+		resp,
+		name {
+			display: inline-block;
+		}
+	}
+
+
+	text {
+		display: block;
+	    padding: var(--psc-whitespace);
+	}
+
+	text:before {
+		@include ElementLabel;
+		content: "<TEXT>";
+	}
+
+
+	add:before,
+	del:before,
+	hi:before,
+	.pb:before,
+	.persRef:before {
+		content: " ";
+		display: inline-block;
+		width: 7px;
+		height: 12px;
+		background: url(/publications/lib/images/open-tag.png) no-repeat;
+	}
+
+	add:after,
+	del:after,
+	hi:after,
+	.pb:after,
+	.persRef:after {
+		content: " ";
+		display: inline-block;
+		width: 7px;
+		height: 12px;
+		background: url(/publications/lib/images/close-tag.png) no-repeat;
+		margin-right: 7px;
+	}
+
+	del {
+		color: red;
+	}
+
+	add {
+		color: blue;
+	}
+
+
+	note {
+		padding: 0;
+	}
+
+
+	.persRef {
+		color: rgb(197, 5, 197);
+		border-bottom: none;
+	}
+	.persRef:before {
+		background: url(/publications/lib/images/open-tag-purple.png) no-repeat;
+	}
+	.persRef:after {
+		background: url(/publications/lib/images/close-tag-purple.png) no-repeat;
+	}
+
+
+	.pb {
+		font-family: var(--psc-font-main);
+		border: none;
+		color: green;
+		margin: 0;
+		padding: 0;
+	}
+	.pb:before {
+		content: "{Page";
+		padding-left: 9px;
+		width: 3.5em;
+	}
+	.pb:after {
+		background-position: 100%;
+		content: "}";
+		padding-right: 15px;
+		width: .5em;
+	}
+
+	.underline {
+		text-decoration: underline;
+	}
+
+
+	div[type="docback"] {
+		note[type="source"] {
+			margin-bottom: 1rem;
+			padding: .5rem;
+			border: 1px solid #606060;
+		}
+
+		note[type="source"]:before {
+			@include ElementLabel;
+			content: "<note type=source>";
+		}
+
+		@mixin SmallLabel {
+			display: inline-block;
+			font-size: 14px;
+		}
+
+		note[type="doctype"]:before {
+			content: "Document Type: ";
+			@include SmallLabel;
+		}
+		note[type="repository"]:before {
+			content: "Repository: ";
+			@include SmallLabel;
+		}
+		note[type="Collection"]:before {
+			content: "Collection: ";
+			@include SmallLabel;
+		}
+		note[type="condition"]:before {
+			content: "Condition: ";
+			@include SmallLabel;
+		}
+		note[type="address"]:before {
+			content: "Address: ";
+			@include SmallLabel;
+		}
+		note[type="notation"]:before {
+			content: "Notation: ";
+			@include SmallLabel;
+		}
+
+		note[type="fn"] {
+			margin-top: .75rem;
+		}
+
+		note {
+			b {
+				font-weight: normal;
+			}
+			b:after {content: "."}
+
+			p {
+				display: inline-block;
+			}
+		}
+
+	}
+}
+
+
+
+	

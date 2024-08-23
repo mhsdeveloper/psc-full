@@ -1,0 +1,535 @@
+
+/* DOCUMENT SPECIFIC */
+
+
+
+.document {
+
+	article {
+		//background: var(--psc-color-background-soft);
+		position: relative;
+		background: #dbdbdb;
+
+		.iwrapper {
+			margin: auto;
+			padding-top: 0;
+			padding-bottom: 0;
+			// display: flex;
+			// flex-direction: row;
+			// flex-wrap: wrap;
+			// justify-content: stretch;
+		}
+
+		.iwrapper:after {
+			content: "";
+			display: block;
+			height: 0;
+			clear: both;
+		}
+	}
+
+	article:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+	
+	
+
+	.col1, .col3 {
+		width: 23%;
+		padding: 1rem;
+		float: left;
+	}
+
+
+	.col1 {
+//		background: var(--psc-color-background-vivid);
+//		box-shadow: 0 0 21px rgb(0 71 99 / 68%) inset;
+//		color: var(--psc-color-text-light);
+		a, a:link, a:active, a:hover {
+//			color: var(--psc-color-text-light);
+		}
+		position: sticky;
+		top: 0;
+		padding-top: 0;
+		padding-bottom: 4rem;
+		border-bottom-right-radius: 45px;
+
+
+		.pageImages {
+			margin: 1rem 2rem 2rem 2rem;
+			color: black;
+
+			.caption {
+				margin: 0 0 2rem 0;
+				text-align: center;
+			}
+		}
+
+		.docContext {
+			color: var(--psc-color-text-light);
+			a, a:link, a:active, a:hover {
+				color: var(--psc-color-text-light);
+			}
+
+			a svg {
+				width: 18px;
+				display: inline-block;
+				position: relative;
+				top: 4px;
+			}
+		}
+
+		.name .nameDetails {display: none}
+		.name.open .nameDetails { display: block}
+		.name.open svg {
+			transform: rotate(90deg);
+		}
+
+	}
+
+	.nextPrev {
+		width: 100%;
+		background: white;
+		padding-bottom: 2rem;
+	}
+
+
+	.innerNavTools {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: none;
+		margin: auto;
+		justify-content: stretch;
+	}
+
+
+	.navTools {
+		left: 0;
+		width: 100%;
+		top: 0;
+		color: var(--psc-color-text-dark);
+		a, a:link, a:active, a:hover {
+			color: var(--psc-color-link);
+		}
+
+
+		.docChoices {
+
+			h4 {
+				font-size: 18px;
+			}
+
+			a:link, a:visited, a:active {
+				font-size: 18px;
+				line-height: 1.25;
+				display: block;
+				//font-family: var(--psc-font-roman);
+				margin-bottom: .25rem;
+				color: #3b3b3b;
+				font-weight: bold;
+			}
+		}
+
+
+		.previous, .next {
+			width: 23%;
+			padding: 2rem 2rem 1rem 2rem;
+			h4 {
+				font-size: 20px;
+				margin-bottom: 0.5rem;
+
+				//this is the label "next" or "prev"
+				p {
+					text-transform: uppercase;
+					font-weight: normal;
+					color: #606060;
+					margin-bottom: .5rem;
+				}
+			}
+
+			svg {
+				width: 29px;
+				height: 28px;
+				vertical-align: bottom;
+				padding: 0;
+				margin: 0;
+				display: inline-block;
+				position: relative;
+			}
+
+			a:link, a:visited {
+				font-weight: normal;
+				color: var(--psc-color-link);
+				text-shadow: 0 0 3px rgb(87 107 115 / 18%);
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+
+			p:first-child {
+				position: relative;
+				left: -30px;
+			}
+		}
+
+		.previous h4 {
+			margin-left: -29px;
+		}	
+
+		.next {
+			text-align: right;
+
+			h4 {
+				margin-right: -29px;
+			}
+
+			p:first-child {
+				left: auto;
+				right: -30px;
+			}
+		}
+
+
+		.docTitle {
+			font-size: 24px;
+			font-family: var(--psc-font-title);
+			width: 54%;
+			padding: 1.5rem 2.5rem .5rem 2.5rem;
+
+			h2 {
+				font-size: 28px;
+				margin: 0;
+				font-weight: normal;
+			}
+
+			.docDate {
+				font-size: 24px;
+				margin-bottom: 0.5rem;
+
+
+				i {
+					font-size: 14px;
+				}
+			}
+
+			h4 {
+				font-family: var(--psc-font-main);
+				font-weight: normal;
+				margin: 1rem 0;
+			}
+
+			.otherDocs {
+				padding:  .5rem 1rem 0 0;
+
+				div {
+					border-left: 1px solid grey;
+					margin-left: .5rem;
+					padding-left: .5rem;
+				}
+
+				a:link {
+				}
+			}
+
+			.otherDocs.inlineBlock {
+
+				h4,
+				div,
+				a:link, a:active, a:hover, a:visited {
+					display: inline-block;
+					border-left: none;
+				}
+
+				a:link, a:active, a:hover, a:visited {
+					padding: .5rem;
+					font-weight: normal;
+					color: var(--psc-color-link);
+				}
+				a:hover {
+					text-decoration: underline;
+				}
+				a:link + a:link {
+					border-left: 1px solid #dbdbdb;
+				}
+			}
+
+			svg {
+				background: none;
+				border: none;
+				width: 35px;
+				height: 30px;
+				vertical-align: middle;
+			}
+
+			.showing svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+
+	.cxtControls {
+		text-align: center;
+		font-size: 14px;
+		padding: 1rem;
+
+
+		background: #007f98;
+		color: white;
+		font-size: 16px;
+		font-weight: bold;
+
+		a, a:link, a:active, a:hover, a:visited {
+			color: white;
+			font-weight: bold;
+			text-decoration: underline;
+		}
+	}
+
+
+
+	.highlight {
+		background: yellow;
+	}
+
+
+	.docSection {
+		padding: var(--psc-whitespace);
+		background: white;
+		position: relative;
+		top: -16px;
+//z-index fix		z-index: 20;
+		box-shadow: 0 0 41px rgba(0,0,0, .1);
+		min-height: 50vh;
+
+		float: left;
+		@include contentTopGutter;
+		line-height: 1.3;
+		font-family: var(--psc-tei-font);
+		overflow: visible;
+		width: 54%;
+		position: relative; //important that no children are pos rel, will mess up contextualizer
+	}
+
+	.col3 {
+		position: relative; //important that no children are pos rel, will mess up contextualizer
+	}
+
+}
+
+
+.topics {
+	margin: var(--psc-tei-whitespace);
+
+	a,a:link, a:visited {
+		display: inline-block;
+		font-family: var(--psc-font-main);
+		background: var(--psc-color-link);
+		color: white;
+		font-size: 17px;
+		padding: 4px 16px;
+		margin: 8px;
+		border-radius: 14px;
+	}
+
+	a:hover {
+		color: white;
+		text-decoration: none;
+	}
+}
+
+
+a.persRef {
+	border-bottom: 3px solid #3eaccf26;
+}
+a.persRef:hover {
+	text-decoration: none;
+	background: #3eaccf26;
+}
+
+
+
+
+a.insRef {
+	font-family: sans-serif;
+    padding: 0 8px;
+	color: #ff8e00;
+
+	svg {
+		height:13px;
+		color: #ff8e00;
+	}
+}
+a.insRef:hover {
+	text-decoration: none;
+}
+
+.insertion {
+	display: none;
+	padding: 0 var(--psc-tei-whitespace);
+	color: black;
+	font-family: var(--psc-tei-font);
+
+	h3 {
+		text-indent: 0;
+		font-family: sans-serif;
+		font-size: 16px;
+		font-weight: normal;
+		text-transform: uppercase;
+		color: #ff8e00;
+	}
+}
+.insRef.open .insertion {
+	display: block;
+}
+
+
+
+
+.document.dragsterDragging * {
+	-webkit-user-select: none; /* Safari */
+	user-select: none; /* Standard syntax */
+}
+
+
+
+
+#osdButtons {
+	// position: absolute;
+	// z-index: 100;
+	// top: 0;
+	// left: 0;
+
+
+	svg {
+		width: 40px; height: 40px;
+		margin-right: 1rem;
+		display: inline-block;
+	}
+
+
+	.imageMetadata {
+		display: inline-block;
+		vertical-align: baseline;
+		line-height: 1;
+		position: relative;
+		top: -13px;
+		font-size: 20px;
+	}
+}
+
+
+
+
+
+@media(max-width: 900px){
+	
+	.document {
+		.innerNavTools {
+			flex-direction: column;
+			flex-wrap: nowrap;
+		}
+
+		#documentVue {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			position: relative;
+
+			.docSection {
+				order: 1;
+				width: 100%;
+				padding: var(--psc-whitespace-small);
+			}
+
+			.col1 {
+				display: none;
+			}
+
+			.col1, .col3{
+				padding: 0;
+				background: none;
+				margin: 0;
+				width: 100%;
+				float: none;
+
+				.textSizing {
+					display:none;
+				}
+			}
+
+
+			.sidebarContextualizer {
+				z-index: 1000;
+				bottom: -10vh;
+				transition: bottom .5s ease;
+				top: auto !important;
+				position: fixed;
+				left: 0;
+				box-shadow: 0 0 10px rgba(0,0,0, .35);
+				width: 100%;
+				border: none;
+
+				.closer {
+					display: block;
+					font-size: 45px;
+					border: none;
+					right: 4px;
+					position: absolute;
+				}
+			}
+			.sidebarContextualizer.showing {
+				bottom: 0;
+			}
+		}
+
+
+		.nextPrev {
+			padding-bottom: 1rem;
+		}
+	}
+}
+
+
+
+@media(max-width: 900px){
+.document {
+
+		.innerNavTools {
+			flex-direction: column;
+			flex-wrap: nowrap;
+		}
+
+
+		.navTools {
+
+			.previous, .next {
+				width: 100%;
+				padding: 1rem;
+				background: #f0f0f0;
+
+				h4 {
+					font-size: 18px;
+				}
+			}
+
+			.previous h4 {
+				margin-left: -19px;				
+			}	
+
+			.next {
+				h4 {
+					margin-right: -19px;
+				}
+			}
+
+
+			.docTitle {
+				width: 100%;
+				padding: 1rem;
+				order: -1; //move to top of doc nav context
+			}
+		}
+	}
+}

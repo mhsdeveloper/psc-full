@@ -1,0 +1,26 @@
+/* This file is used for ALL pages, including WP tie-in.
+	It should override WP theme parts in order to make them uniform with publications pages
+*/
+
+@import "beginnings";
+@import "reset";
+@import "layout";
+@import "whitespace";
+@import "typography";
+@import "blocks";
+@import "header";
+@import "nav";
+@import "metadata";
+@import "components";
+@import "wp-layout";
+@import "wp-a11y";
+@import "homepage";
+@import "footer";
+@import "person";
+@import "search";
+@import "search-adv";
+@import "document";
+@import "topics";
+@import "coop-overrides";
+@import "date-picker";
+@import "specific-pages";

@@ -1,0 +1,141 @@
+
+//------ INLINE RENDERING
+
+
+	.persRef {
+	}
+
+	header a, header a:link, header a:active, header a:visited {
+		color: var(--psc-color-link);
+	}
+
+	abbr {
+		display: inline;
+	}
+	
+	add {
+		// font-family: $nonRoman;
+		// font-style: italic;
+		// font-size: 80%;
+	}
+
+	add:before { content: "^"; font-style: normal;}
+	add:after { content: "^"; font-style: normal;}
+
+	expan {
+		font-family: sans-serif;
+		display: inline;
+		font-size: 90%;
+	}
+	expan:before {
+		content: "[";
+	}
+	expan:after {
+		content: "]";
+	}
+
+	del {
+		text-decoration: line-through;
+	}
+
+	gap {
+		display: inline;
+		text-indent: 0;
+	}
+
+	gap:before {
+		content: "[damage]";
+	}
+
+	hi {
+		@include reset;
+	}
+
+	lb {
+		display: block;
+		height: 0;
+		width: 100%;
+		margin: 0; padding: 0;
+	}
+
+	name {
+		display: block;
+	}
+
+	space {
+		display: inline-block;
+		padding: 0 2.3rem;
+	}
+
+	unclear:before { content: "["; }
+	unclear:after { content: "]"; }
+	unclear[cert="low"]:after { content: "?]"; }
+
+
+
+
+	.pb {
+		display: none;
+	}
+
+	.pb[type='ms'] {
+		font-size: 80%;
+		color: $ghosted;
+		display: inline-block;
+		margin: 0 .5rem;
+		padding: 0 .5rem;
+		border: 1px solid #bbbbbb;
+		text-indent: 0;
+	}
+	.pb::before {
+		content: "p";
+	}
+
+
+	.noteRef {
+		font-size: 80%;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 .1rem .5rem .1rem;
+		text-indent: 0;
+	}
+
+
+	.center {
+		text-align: center;
+	}
+
+
+	.italic {
+		font-style:italic;
+	}
+
+	.small-caps {
+		text-transform: uppercase;
+		font-size: 80%;
+	}
+
+	.super {
+		font-size: 80%;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 .2rem .5rem .2rem;
+	}
+
+	.italic {
+		font-style: italic;
+	}
+
+	.superscript {
+		font-size: 85%;
+		line-height: 1.3;
+		vertical-align: top;
+	}
+
+	.strikethrough {
+		text-decoration: line-through;
+	}
+
+	.underline {
+		text-decoration: underline;
+	}

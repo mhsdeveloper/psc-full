@@ -1,0 +1,65 @@
+
+@namespace "http://www.w3.org/1999/xhtml";
+@namespace mhs "http://www.masshist.org/ns/1.0";
+
+@import "../sass/beginnings.scss";
+
+
+// color for ghosted text
+$ghosted: #999999;
+
+//color for sections that are not part of original,physical doc, such as end notes
+$sectionShade: #e9e9e9;
+
+
+//------FONTS
+
+$roman: "Georgia", serif;
+$nonRoman: "Helvetica", "Arial", sans-serif;
+
+
+$indent: 2rem;
+
+
+
+//------ SOME GLOBAL STYLES
+
+// this reset for TEI els that don't get it from our classic Meyer reset
+@mixin reset {
+	text-indent: 0;
+	margin: 0;
+	border: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+
+@mixin structuralSection {
+	display: block;
+	margin: 0 0 2rem 0;
+	padding: 0;
+	clear: both;
+}
+
+
+@mixin gutters {
+	padding-left: var(--psc-tei-whitespace);
+	padding-right: var(--psc-tei-whitespace);
+}
+
+@mixin maxReadingWidth {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: var(--psc-max-reading-width);
+}
+
+
+
+@import "layout";
+@import "tei-header";
+@import "tei-fragment";
+@import "tei-fragment-responsive";
+
+@import "view-modes";
+@import "view-modes-responsive";

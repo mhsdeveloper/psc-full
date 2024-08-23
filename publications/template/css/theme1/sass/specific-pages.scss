@@ -1,0 +1,103 @@
+
+.timePeriodXML {
+	padding: 0 4rem 0 4rem;
+
+
+	@media(max-width: 950px){
+		padding: 0 2rem 0 2rem;
+	}
+}
+
+
+.timePeriodXML:after {
+	clear: both;
+	content: "";
+	display:block;
+}
+
+#timePeriodHeadings {
+	float: left;
+	width: 30%;
+	position: sticky;
+	top: 0;
+
+	@media(max-width: 767px){
+		float: none;
+		width: 100%;
+		position: relative;
+		margin-bottom: 4rem;
+	}
+
+
+	button {
+		border: none;
+		display: block;
+		font-size: 18px;
+		margin: 0 0 1rem 0;
+		color: var(--psc-color-background-vivid);
+		padding: 8px 16px;
+		border-radius: 24px;
+		text-align: left;
+		background: none;
+
+		.dates {
+			display: block;
+			color: black;
+			font-size: 14px;
+		}
+	}
+}
+
+
+timeperiods {
+	float: left;
+	width: 66%;
+	margin-left: 4%;
+	display: block;
+
+	@media(max-width: 767px){
+		float: none;
+		width: 100%;
+		position: relative;
+		margin-left: 0;
+	}
+
+	period {
+		display:  block;
+		padding-bottom: 4rem;
+	}
+
+
+	heading {
+		display: block;
+		font-size: 29px;
+		font-weight: bold;
+		font-family: var(--psc-font-title);
+		padding: 0 0 1rem 0;
+	}
+
+	startdate,
+	enddate {
+		font-weight: bold;
+		display: inline-block;
+	}
+
+	enddate:before {
+		content: "-";
+	}
+
+
+	shortdescription {
+		display: block;
+		padding-top: 1rem;
+	}
+
+	.searchLink {
+		background: var(--psc-color-background-vivid);
+		color: white;
+		padding: 8px 16px;
+		border-radius: 21px;
+		display: inline-block;
+		margin-top: .5rem;
+	}
+}

@@ -1,0 +1,104 @@
+// For the explore topics 
+// page
+
+.popularTopics {
+	column-count: 3;
+	column-gap: 2rem;
+
+	@media(max-width: 1000px){
+		column-count: 2;
+	}
+
+	@media(max-width: 600px){
+		column-count: 1;
+	}
+
+}
+
+.topicsList {
+	column-count: 3;
+	column-gap: 2rem;
+
+	@media(max-width: 1000px){
+		column-count: 2;
+	}
+
+	@media(max-width: 600px){
+		column-count: 1;
+	}
+
+
+	.letterGroup {
+		margin: 0 0 2rem 0;
+		break-inside: avoid;
+	}
+
+}
+
+
+
+.topic {
+	display: block;
+	color: black;
+	margin: 0;
+	padding: .25rem;
+	font-size: 18px;
+	cursor: pointer;
+
+	.count {
+		font-size: 14px;
+		color: #717171;
+	}
+}
+
+.topic:hover {
+	text-decoration: none;
+	background: var(--psc-color-background-soft);
+}
+
+
+.coop .mostFrequent {
+	display: none;
+}
+
+
+
+
+.topicsPage {
+	.lookupRow {
+		display: none;
+	}
+
+	.lookupTopic {
+		button.backLink {
+			display: none;
+		}
+	}
+}
+
+
+
+
+.mostEditions {
+	//don't show on most pages
+	display: none;
+
+	.topic + h3 {
+		margin-top: 2rem;
+		break-after: avoid;
+	}
+
+	span.edition {
+		display: inline-block;
+		padding: 0 .25rem;
+		color: #707070;
+		font-size: 14px;
+	}
+}
+
+//only show on coop-wide version of topics page
+.coop .mostEditions {
+	display: block;
+}
+
+

@@ -1,0 +1,86 @@
+
+@mixin ElementLabel {
+	font-family: var(--psc-font-main);
+	font-weight: bold;
+	top: 0;
+	padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+}
+
+teiheader {
+	display: block;
+	position: relative;
+	padding: 0 var(--psc-whitespace) 0 var(--psc-whitespace);
+
+	font-family: var(--psc-font-main);
+	background: #efefef;
+
+	name {display: inline-block;}
+
+
+	.teiHeaderWrapper {
+		@include gutters;
+		@include maxReadingWidth;
+	}
+
+	
+	//fixes over HTML defaults
+	title {
+		display: block;
+	}
+		
+	filedesc,
+	encodingdesc,
+	profiledesc,
+	revisiondesc,
+	titlestmt,
+	publicationstmt,
+	seriesstmt,
+	sourcedesc {
+		display: none;
+		padding: var(--psc-whitespace-small);
+	}
+
+	.tab {
+		cursor: pointer;
+		display: inline-block;
+		background: #f0f0f0;
+		padding: 0.25rem 0.75rem;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+
+		.svg {
+			position: relative;
+			top: 4px;
+			transition: transform .24s ease;
+		}
+	}
+	.tab.selected {
+		background: #bfdcf5;
+
+		.svg {
+			transform: rotate(180deg);
+		}
+	}
+	.tab + .tab {
+		margin-left: .5rem;
+	}
+
+	filedesc.selected,
+	profiledesc.selected {
+		display: block;
+	}
+
+	keywords:before {
+		@include ElementLabel;
+		content: "Subjects (keywords element)";
+	}
+
+	list {
+		display: block;
+		padding-left: var(--psc-whitespace);
+
+		item {
+			display: block;
+		}
+	}
+}

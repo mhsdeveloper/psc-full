@@ -1,0 +1,83 @@
+
+
+
+footer {
+	background: #dbdbdb;
+	padding: 4rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+	@media(max-width: 900px){
+		padding: 2rem;
+	}
+
+	h1, h2 {
+		padding: 1rem 2rem;
+		text-align: center;
+	}
+
+	h1, h2 {
+		font-size: 33px;
+		width: 100%;
+	}
+
+	h3 {
+		font-size: 26px;
+		font-family: var(--psc-font-roman);
+		width: 100%;
+		text-align: center;
+		margin: 2rem;
+		color: #757575;
+	}
+
+	img {
+		max-height: 300px;
+		mix-blend-mode: darken;
+		@media(max-width: 800px){
+			max-width: 100%;
+		}	
+	}
+
+	p, h4 {
+		align-self: center;
+		width: 350px;
+		font-family: var(--psc-font-roman);
+		text-align: center;
+		font-size: 22px;
+		margin: 0 2rem 3rem 2rem;
+		color: #757575;
+
+		img {
+			margin: 0 auto .5rem auto;
+			display: block;
+		}
+	}
+
+	p {
+		font-size: 16px;
+	}
+
+
+	.copyright {
+		margin-top: 2rem;
+		width: 100%;
+		max-width: none;
+		text-align: center;
+		color: #000000;
+	}
+
+	.funders {
+		padding: 4rem 0;
+
+		img {
+			display: inline-block;
+			vertical-align: top;
+			max-height: 250px;
+		}
+
+		.nhprc {
+			border: 10px solid white;
+		}
+	}
+}

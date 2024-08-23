@@ -1,0 +1,215 @@
+:root {
+  --add:#00b8ff;
+  --keywordItem: #00b900;
+  --persRef: #e90ee9;
+  --unclear: fuchsia;
+}
+
+.proofNotice {
+  padding: 1rem;
+  background: orange;
+}
+
+tei {
+  display: block;
+}
+
+.proof .teiFragment .documentID {
+  padding: var(--psc-whitespace);
+}
+.proof .teiFragment teiheader:before {
+  font-family: var(--psc-font-main);
+  font-weight: bold;
+  top: 0;
+  padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+  content: "<TEIHEADER>";
+}
+.proof .teiFragment teiheader {
+  display: block;
+  position: relative;
+  padding: 0 var(--psc-whitespace) var(--psc-whitespace) var(--psc-whitespace);
+  font-family: var(--psc-font-main);
+  background: #efefef;
+}
+.proof .teiFragment teiheader name {
+  display: inline-block;
+}
+.proof .teiFragment teiheader title {
+  display: block;
+}
+.proof .teiFragment teiheader filedesc,
+.proof .teiFragment teiheader encodingdesc,
+.proof .teiFragment teiheader profiledesc,
+.proof .teiFragment teiheader revisiondesc,
+.proof .teiFragment teiheader titlestmt,
+.proof .teiFragment teiheader publicationstmt,
+.proof .teiFragment teiheader seriesstmt,
+.proof .teiFragment teiheader sourcedesc {
+  display: block;
+}
+.proof .teiFragment teiheader .tab {
+  cursor: pointer;
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.25rem 0.75rem;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.proof .teiFragment teiheader .tab.selected {
+  background: #bfdcf5;
+}
+.proof .teiFragment teiheader .tab + .tab {
+  margin-left: 0.5rem;
+}
+.proof .teiFragment teiheader filedesc.selected,
+.proof .teiFragment teiheader profiledesc.selected {
+  display: block;
+}
+.proof .teiFragment teiheader keywords:before {
+  font-family: var(--psc-font-main);
+  font-weight: bold;
+  top: 0;
+  padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+  content: "Subjects (keywords element)";
+}
+.proof .teiFragment teiheader list {
+  display: block;
+  padding-left: var(--psc-whitespace);
+}
+.proof .teiFragment teiheader list item {
+  display: block;
+}
+.proof .teiFragment respstmt resp,
+.proof .teiFragment respstmt name {
+  display: inline-block;
+}
+.proof .teiFragment text {
+  display: block;
+  padding: var(--psc-whitespace);
+}
+.proof .teiFragment text:before {
+  font-family: var(--psc-font-main);
+  font-weight: bold;
+  top: 0;
+  padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+  content: "<TEXT>";
+}
+.proof .teiFragment add:before,
+.proof .teiFragment del:before,
+.proof .teiFragment hi:before,
+.proof .teiFragment .pb:before,
+.proof .teiFragment .persRef:before {
+  content: " ";
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  background: url(/publications/lib/images/open-tag.png) no-repeat;
+}
+.proof .teiFragment add:after,
+.proof .teiFragment del:after,
+.proof .teiFragment hi:after,
+.proof .teiFragment .pb:after,
+.proof .teiFragment .persRef:after {
+  content: " ";
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  background: url(/publications/lib/images/close-tag.png) no-repeat;
+  margin-right: 7px;
+}
+.proof .teiFragment del {
+  color: red;
+}
+.proof .teiFragment add {
+  color: blue;
+}
+.proof .teiFragment note {
+  padding: 0;
+}
+.proof .teiFragment .persRef {
+  color: rgb(197, 5, 197);
+  border-bottom: none;
+}
+.proof .teiFragment .persRef:before {
+  background: url(/publications/lib/images/open-tag-purple.png) no-repeat;
+}
+.proof .teiFragment .persRef:after {
+  background: url(/publications/lib/images/close-tag-purple.png) no-repeat;
+}
+.proof .teiFragment .pb {
+  font-family: var(--psc-font-main);
+  border: none;
+  color: green;
+  margin: 0;
+  padding: 0;
+}
+.proof .teiFragment .pb:before {
+  content: "{Page";
+  padding-left: 9px;
+  width: 3.5em;
+}
+.proof .teiFragment .pb:after {
+  background-position: 100%;
+  content: "}";
+  padding-right: 15px;
+  width: 0.5em;
+}
+.proof .teiFragment .underline {
+  text-decoration: underline;
+}
+.proof .teiFragment div[type=docback] note[type=source] {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #606060;
+}
+.proof .teiFragment div[type=docback] note[type=source]:before {
+  font-family: var(--psc-font-main);
+  font-weight: bold;
+  top: 0;
+  padding: var(--psc-gutter) var(--psc-gutter) var(--psc-gutter) 0;
+  content: "<note type=source>";
+}
+.proof .teiFragment div[type=docback] note[type=doctype]:before {
+  content: "Document Type: ";
+  display: inline-block;
+  font-size: 14px;
+}
+.proof .teiFragment div[type=docback] note[type=repository]:before {
+  content: "Repository: ";
+  display: inline-block;
+  font-size: 14px;
+}
+.proof .teiFragment div[type=docback] note[type=Collection]:before {
+  content: "Collection: ";
+  display: inline-block;
+  font-size: 14px;
+}
+.proof .teiFragment div[type=docback] note[type=condition]:before {
+  content: "Condition: ";
+  display: inline-block;
+  font-size: 14px;
+}
+.proof .teiFragment div[type=docback] note[type=address]:before {
+  content: "Address: ";
+  display: inline-block;
+  font-size: 14px;
+}
+.proof .teiFragment div[type=docback] note[type=notation]:before {
+  content: "Notation: ";
+  display: inline-block;
+  font-size: 14px;
+}
+.proof .teiFragment div[type=docback] note[type=fn] {
+  margin-top: 0.75rem;
+}
+.proof .teiFragment div[type=docback] note b {
+  font-weight: normal;
+}
+.proof .teiFragment div[type=docback] note b:after {
+  content: ".";
+}
+.proof .teiFragment div[type=docback] note p {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=proof.css.map */

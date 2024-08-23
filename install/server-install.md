@@ -6,6 +6,8 @@ The setup assumes you are familiar with the Linux command line, as well as with 
 	
 	sudo apt remove apache2
 
+This guide takes you through each of the steps and shows the necessary terminal commands, hopefully providing all the necessary context. If you follow the setup as described here, everything should go well. The choice was made to do this instead of create an install script for several reasons: 1) creating an install script is tricky and needs to be maintained; 2) running through all the steps makes it clear what is going on, so that individual steps can be adjusted or adapted; 3) following from reason 2, if software or server environments change, having the steps laid out (rather than hidden behind a script and it's UI) will make future adjustments easier.
+
 The installation process involves the following main steps:
 
 1. Installing services that are provided by the OS distribution
@@ -45,15 +47,18 @@ Use your system's package manager to install nginx, PHP fpm, MYSQL, and Open JDK
 	sudo apt install php8.3-curl
 	sudo apt install mysql-server
 	sudo apt install default-jdk
+	sudo apt install unzip
 	sudo apt install nano
 
-Some notes: the default-jdk is the GNU version of JAVA, and is required by SOLR. We also added nano to the list, since it's handy to have a better command line text editor.
+Some notes: the default-jdk is the GNU version of JAVA, and is required by SOLR. Unzip will be needed for the Solr install process. We also added nano to the list, since it's handy to have a better command line text editor.
 
 
 
 ## Install the Coop Software Package
 
 The best way to get the software is to use git from the command line; you can checkout our software repository and keep your software up-to-date. 
+
+Our github repository is at: https://github.com/mhsdeveloper/psc-full
 
 You need to know your developer username; type "whoami" to see it. 
 
@@ -65,7 +70,7 @@ You need to know your developer username; type "whoami" to see it.
     sudo apt install git
 	```
 
-2. create the proper directory structure and ownership/permissions:
+2. create the proper directory structure and ownership/permissions; change your-user-name-here to reflect your actual username:
 
 	```
     sudo mkdir /psc
@@ -88,7 +93,7 @@ You need to know your developer username; type "whoami" to see it.
     cd /psc/www/html
     git init
 	git branch -m main
-    git checkout git@github.com/mhsdeveloper/coop.git
+    git checkout git@github.com/mhsdeveloper/psc-full.git
 	```
 
 
@@ -96,13 +101,15 @@ You need to know your developer username; type "whoami" to see it.
 
 ### Download and install
 
-Our setup was tested with Solr version 8.11.3. It is not the latest, but it is the most stable version of the 8 series. Download Apache SOLR from [SOLR's website](https://solr.apache.org/download) The procedure is to download the zip file to our install folder; then unpack a script "bin/install_solr_service.sh" from within the zip file, and use that script to unpack the rest of the archive and install. For convenience we've included the install script, just use the following commands to download and install:
+Our setup was tested with Solr version 8.11.3. It is not the latest, but it is the most stable version of the 8 series. Download Apache SOLR from [SOLR's website](https://solr.apache.org/download) The procedure is to download the zip file to our install folder; then unpack a script "bin/install_solr_service.sh" from within the zip file, and use that script to unpack the rest of the archive and install. For convenience we've included the install script for 8.11.3, so you can just use the following commands to download and install:
 
 	cd /psc/www/html/install
 	wget --trust-server-names https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.3/solr-8.11.3.zip?action=download
 	sudo bash ./install_solr_service.sh solr-8.11.3.zip
 
-Otherwise, please read SOLR's documentation for installing as a service; see their page "Taking Solr to Production".
+If Solr starts but fails it's ok, we're not done yet; just press CTRL-C and continue with these instructions.
+
+For reference and for different installation needs, read SOLR's documentation for installing as a service; see their page "Taking Solr to Production".
 
 ### Configure SOLR
 
@@ -112,11 +119,15 @@ Set the password for the solr user; choose a password and keep it somewhere safe
 
 Create the initial solr storage collection:
 
+	sudo whoami
 	su solr -c "/opt/solr/bin/solr create -c publications"
 
-Solr stores its config, index, and other data in /opt/solr/data/publications/. In that folder, remove the managed-schema:
+If asked, entered your main password for the sudo whoami command. Use the solr user password for the second command. For serious Linux users: we run the sudo whoami command to make sure the installer has recently "sudo'd". This effectively separates the two passwords, which can otherwise be very confusing.
 
-	sudo rm /opt/solr/data/publications/manage-schema.xml
+Solr stores its config, index, and other data in /var/solr/data/publications/. In that folder, we need to remove the managed-schema and copy over our own schema for better performance:
+
+	sudo rm /var/solr/data/publications/conf/managed-schema
+	sudo cp /psc/www/html/install/server-configs/schema.xml /var/solr/data/publications/conf/
 
 Adjust solrconfig.xml:
 search for "<updateRequestProcessorChain" and see that in this line, autoCreateFields is false:

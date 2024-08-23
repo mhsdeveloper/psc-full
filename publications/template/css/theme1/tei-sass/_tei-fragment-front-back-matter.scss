@@ -1,0 +1,72 @@
+
+//----- FRONTMATTER
+	*[type="colophon"] {
+		p {
+			text-align:center;
+		}
+	}
+
+	*[type="dedication"] {
+		p {
+			text-align: center;
+		}
+	}
+
+//----descriptive list of illustrations
+	*[type="illus"] {
+		header, th {
+			font-size: 120%;
+			text-transform: uppercase;
+		}
+
+		th {
+			padding-top: 2rem;
+		}
+
+		*[type="credit"] {
+			font-style: italic;
+		}
+	}
+
+
+
+
+//------ DOCBACK
+
+	*[type="docback"] {
+		font-family: $nonRoman;
+		font-size: 90%;
+		padding: 1rem;
+	}
+
+	// *[type="docback"]::before {
+	// 	content: "View Editorial Notes";
+	// 	display: block;
+	// 	font-weight: bold;
+	// 	font-size: var(--psc-font-size-medium);
+	// }
+
+
+	note {
+		display: block;
+		padding: .25rem 2rem;
+
+		bibl {
+			position: relative;
+			padding: 0;
+			margin: 0;
+			font-size: inherit;
+		}
+
+		.label {
+			float: left;
+			margin-left: -2rem;
+			margin-right: .25rem;
+		}
+
+		p {
+			text-indent: 0;
+			margin-bottom: 0;
+		}
+	}
+

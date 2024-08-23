@@ -1,0 +1,18 @@
+<template id="timePeriod">
+	<div class="timePeriod" :class="showTimePeriod ? '' : 'hidden'">
+		<h3 class="title">{{timePeriodTitle}}</h3>
+		<p class="dateRange">{{startDate}} - {{endDate}}</p>
+
+		<button :class="showPeriodDesc ? 'open' : ''" @click="toggleDesc">{{showPeriodDesc ? 'less' : 'more'}}<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+		  </svg>
+		  </button>
+		<div id="timePeriodDesc" :class="showPeriodDesc ? 'desc' : 'hidden'">
+			<button class="close" @click="showPeriodDesc = !showPeriodDesc">×</button>
+			<h3 class="title"></h3>
+			<p class="dateRange">{{timePeriodTitle}}</p>
+			<div v-html="periodDescription"></div>
+			<a v-if="extLink.length" v-bind:href="extLink">{{extLinkText}}</a>
+		</div>
+	</div>
+</template>

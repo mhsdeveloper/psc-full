@@ -1,0 +1,60 @@
+:root {
+  --psc-color-prime: #2e7e98;
+  --psc-color-second: #000000;
+  --psc-color-link: #2e7e98;
+  --psc-color-background: #ffffff;
+  --psc-color-background-soft: #dcedf3;
+  --psc-color-background-dark: #1e6178;
+  --psc-color-background-muted: #2e7e98;
+  --psc-color-background-vivid:#2e7e98;
+  --psc-color-text-dark: #000000;
+  --psc-color-text-light: #ffffff;
+  --psc-color-text-vivid: #2e7e98;
+  --psc-gutter: 1rem;
+  --psc-gutter-dbl: 2rem;
+  --psc-whitespace-flow: 4rem;
+  --psc-whitespace-flow-md: 1.5rem;
+  --psc-whitespace-flow-sm: 1rem;
+  --psc-tei-whitespace: 1.5rem;
+  --psc-whitespace: 3rem;
+  --psc-whitespace-less: 2rem;
+  --psc-whitespace-small: 1rem;
+  --psc-font-main: "Roboto", "Arial", sans-serif;
+  --psc-font-title: "Source Serif Pro", "Libre Baskerville", serif;
+  --psc-font-roman: "Libre Baskerville", serif;
+  --psc-font-headings: "Roboto", "Arial", sans-serif;
+  --psc-font-headings-small: "Roboto", "Arial", sans-serif;
+  --psc-font-doc-teaser: "Libre Baskerville", serif;
+  --psc-font-size: 14px;
+  --psc-font-size-medium: 18px;
+  --psc-font-size-large: 22px;
+  --psc-font-size-headline: 44px;
+  --psc-max-reading-width: 900px;
+  --psc-header-bg: #272318;
+  --psc-header-light-color: #ffffff;
+  --psc-tei-font: "Times New Roman", serif;
+}
+
+.hidden {
+  display: none;
+}
+
+a, a:link, a:active, a:visited, a:hover {
+  text-decoration: none;
+  color: var(--psc-color-link);
+  cursor: pointer;
+}
+
+a.persRef {
+  border-bottom: 3px solid rgba(62, 172, 207, 0.1490196078);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/*# sourceMappingURL=style.css.map */

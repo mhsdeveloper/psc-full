@@ -1,0 +1,21 @@
+
+{
+    "fields": [
+        {
+            "name": "person_keyword",
+			"value": "*",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        }
+    ],
+    "displayFields": ["person_keyword", "index"],
+    "facetFields": ["person_keyword"],
+    "sortFields": [
+        {
+            "name": "id",
+            "sort": "asc" 
+        }
+    ]
+}

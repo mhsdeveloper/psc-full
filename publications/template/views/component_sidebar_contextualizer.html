@@ -1,0 +1,23 @@
+
+	<template id="sidebarContextualizer">
+		<div class="sidebarContextualizer" ref="contextualizer">
+			<button class="closer" @click="hideCXT()">×</button>
+			<div v-for="name of sideNames"  class="name">
+				<div class="fullName">{{name.fullDisplayName}}</div>
+				<!-- <span class="displayName">{{name.displayName}}</span> -->
+				<span v-if="name.birthDate == '[date unknown]' && name.deathDate == '[date unknown]'" class="dates">[dates unknown]</span>
+				<span v-else-if="name.birthDate != '' || name.deathDate != ''" class="dates">{{name.birthDate}}-{{name.deathDate}}
+				</span>
+				<button class="expand" @click="name.showDetails = !name.showDetails">+</button>
+				<div v-if="name.showDetails" class="nameDetails">
+					<!-- <div class="fullName">{{name.fullDisplayName}}</div> -->
+					<div class="description">{{name.description}}</div>
+					<div v-if="name.unknown" class="description unknown">We have not been able to identify this individual. If you know who they are, please be in touch.</div>
+					<a class="fullRecordLink" :href="'/publications/' + Env.projectShortname + '/explore/person/' + name.name_key">see full record</a>
+				</div>
+			</div>
+
+			<template v-if="sideNote.text"><div v-html="sideNote.text"></div></template>
+		</div>
+	</template>
+

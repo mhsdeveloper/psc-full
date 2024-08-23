@@ -1,0 +1,29 @@
+	<script>
+		var defaultDatePickerDocList = function(doc){
+
+			let href = "/publications/" + Env.projectShortname + "/document/" + doc.id;
+
+			return `<div class="doc"><a href="${href}">${doc.doc_beginning}...</a></div>`;
+		}
+	</script>
+
+
+	<div id="datePicker" class="datePicker" v-scope @vue:mounted="mounted">
+		<div v-if="show" class="datePickerForm">
+			<button class="close" @click="togglePicker">×</button>
+			<label>Browse Dates</label>
+			<div class="years">
+				<button v-for="year in years" @click="getMonths">{{year}}</button>
+			</div>
+
+			<div class="months">
+				<button v-for="month in months" @click="getDocs(month, $event)">{{prettyMonth(month)}}</button>
+			</div>
+
+			<div class="days">
+				<div class="day" v-for="day in days" v-html="buildDocs(day)"></div>
+			</div>
+		</div>
+	</div>
+
+

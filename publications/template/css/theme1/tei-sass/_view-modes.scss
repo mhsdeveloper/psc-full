@@ -1,0 +1,343 @@
+
+/* css for display elements in support of tei, no the tagset itself.
+	for example: making pb block-level and full width when in page mode
+*/
+
+	.contextualTitle {
+		margin: 0 auto;
+		padding: .5rem 0;
+	}
+
+
+	.contextualTitle.stuck {
+		padding: .5rem;
+		background: white;
+		z-index: 100;
+	}
+
+	#displayConfig {
+		display: none;
+	}
+
+	.tooltip {
+		cursor: pointer;
+		position: absolute;
+		display: inline-block;
+		line-height: 0.5;
+		border: 1px solid #999999;
+		background: yellow;
+		padding: 4px;
+		font-size: 10px;
+		top: -1rem;
+		right: -.66rem;
+		color: black;
+		font-family: sans-serif;
+		font-style: normal;
+	}
+
+	.toolTipBox {
+		position: absolute;
+		z-index: 1000;
+		background: white;
+		font-size: 11px;
+		font-family: sans-serif;
+		color: black;
+		padding: 4px;
+		display: none;
+	    box-shadow: 0 0 14px rgba(0,0,0, .35);
+	}
+	.toolTipBox.open {
+		display: block;
+	}
+
+
+
+	.prevNextNav {
+
+		display: table;
+		width: 100%;
+
+		div {
+			width: 50%;
+			display: table-cell;
+
+			label {
+				font-size: 80%;
+				display: block;
+			}
+
+			a {
+				display: block;
+
+				h3 {
+					font-family: serif;
+					font-weight: normal;
+					margin: 0;
+				}
+
+				.date {
+					font-size: 80%;
+				}
+			}
+		}
+
+		div + div {
+			text-align: right;
+		}
+
+	}
+
+
+	.prevDocs, .nextDocs {
+		font-size: 14px;
+		background: white;
+		position: fixed;
+	    top: 41%;
+	    overflow: hidden;
+		width: 280px;
+	    box-shadow: 0 0 15px rgba(0,0,0,.35);
+
+		.arrow {
+			z-index: 1;
+			background: url(/publications/lib/images/next-arrow.svg) no-repeat;
+			font-size: 0;
+			position: absolute;
+			padding: 0 12px;
+			background-position: 50%;
+			height: 100%;
+		}
+		.arrow.leftArrow {
+			right: 5px;
+			transform: rotate(180deg);
+		}
+		.arrow.rightArrow {
+			left: 5px;
+		}
+
+		.docLink {
+			display: block;
+			padding: 1rem;
+			text-decoration: none;
+		}
+	}
+	.prevDocs:after, .nextDocs:after {
+		content: " ";
+		display: block;
+		height: 0;
+		line-height: 0;
+		clear: both;
+	}
+
+	.prevDocs {
+		padding-right: 32px;
+		left: -248px;
+		transition: left .35s ease;
+		border-top-right-radius: 20px;
+		border-bottom-right-radius: 20px;
+	}
+	.nextDocs {
+		padding-left: 32px;
+		right: -248px;
+		transition: right .35s ease;
+		text-align: right;
+		border-top-left-radius: 20px;
+	    border-bottom-left-radius: 20px;
+	}
+
+	.prevDocs.open {
+		left: 0;
+		transition: left .35s ease;
+	}
+	.nextDocs.open {
+		right: 0;
+		transition: right .35s ease;
+	}
+
+
+
+
+
+
+	/* some display in general for the way we like things, like readability issues,
+	 * not so specific to interpreting TEI
+	 */
+
+	.teiFragment {
+
+	}
+
+	.teiFragment:after {
+		content: "";
+		display: block;
+		height: 0;
+		clear: both;
+	}
+
+
+	a.scanPage {
+		font-size: 15px;
+	}
+
+
+	.unavailable {
+		cursor: default;
+		color: #a0a0a0;
+		font-size: 15px;
+	}
+
+
+
+
+	/*	PAGE-BASED VIEWING TWEAKS
+	 *
+	 */
+
+	.page {
+
+		// class for when we're scrolled imediately to a page: make the heading stick.
+		// NOTE use in conjunction with pubs/lib/js/display2015.js
+		.stuck {
+			display: block;
+			position: fixed;
+			width: 100%;
+			left: 0;
+			top: 0;
+			background: white;
+			box-shadow: 0 0 3px rgba(0, 0, 0, .5);
+		}
+
+
+		.teiFragment {
+
+			//make .pb block and full width to suggest page-based viewing of volume
+			.pb {
+				display: block;
+				background: black;
+				width: 110%;
+				margin: 1em -2em 1em -4em;
+				text-align: center;
+				color: white;
+			}
+		}
+	}
+
+
+
+	/* app-style doc display ca. 2017
+	 */
+	.teiFragment.panelMode {
+		position: relative;
+		box-sizing: border-box;
+		display: none;
+		width: 100%;
+		max-width: none;
+		overflow: hidden;
+		background: white;
+		box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+
+		div[type="entry"],
+		div[type="doc"],
+		doc {
+			max-width: 650px;
+			padding: 2rem;
+			margin: 0 auto;
+		}
+
+		.close {
+			cursor: pointer;
+			position: absolute;
+			right: 0;
+			top: 0;
+			padding: .5rem 1rem;
+			font-size: 32px;
+			color: #777777;
+			z-index: 10;
+		}
+	}
+
+	.teiFragment.panelMode.reading {
+		display: block;
+	}
+
+
+	//side-by-side text and images, but only for screens wider than 768 (iPad)
+
+@media(min-width: 1px){
+	.dual {
+		.wrapper {
+			display: flex;
+			align-items: flex-start;
+			background: black;
+		}
+
+		article {
+			width: 64%;
+			margin: 0 auto 0 0;
+			border-right: 10px solid #a0a0a0;
+			padding: 0;
+		}
+
+		article.resizable {
+			cursor: col-resize;
+		}
+
+		.teiFragment {
+			.page {
+				background: white;
+				padding: 2rem;
+			}
+
+			.page + .page {
+				margin-top: 1rem;
+			}
+
+			div[type="entry"], div[type="doc"] {
+				//max-height: 0;
+				//overflow: hidden;
+				font-size: 75%;
+				color: #707070;
+				margin: 0;
+			}
+
+			div[type=doc] + div[type=doc],
+			div[type=entry] + div[type=entry],
+			doc + doc {
+				margin-top: 0;
+			}
+
+			div[type="entry"].selected,
+			div[type="doc"].selected {
+				max-height: none;
+
+				font-size: 100%;
+				color: #000000;
+			}
+		}
+
+
+		.pageImages {
+			-webkit-user-select: none;  /* Chrome all / Safari all */
+			-moz-user-select: none;     /* Firefox all */
+			-ms-user-select: none;      /* IE 10+ */
+			user-select: none;  
+
+			width: 36%;
+			background: #e9e9e9;
+
+			img {
+				max-width: 100%;
+			}
+		}
+
+	}
+
+	.dual .dragging {
+		cursor: col-resize;
+		article {
+			-webkit-user-select: none;  /* Chrome all / Safari all */
+			-moz-user-select: none;     /* Firefox all */
+			-ms-user-select: none;      /* IE 10+ */
+			user-select: none;  
+		}
+	}
+}

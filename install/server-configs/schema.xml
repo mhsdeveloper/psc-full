@@ -566,7 +566,8 @@
   <field name="date_year" type="plong" indexed="true" stored="true" multiValued="true" />   
   <field name="date_month" type="string" indexed="true" stored="true" multiValued="true" />   
   <field name="date_label" type="string" indexed="false" stored="true" multiValued="false" />   
-  
+
+	  
   <!-- FIELDS FOR EDITORS IN BACKEND -->
   <field name="upload_date" type="plong" indexed="true" stored="true" multiValued="false" />
   <field name="date_published" type="plong" indexed="true" stored="true" multiValued="false" />

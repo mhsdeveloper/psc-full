@@ -1,0 +1,76 @@
+{
+	"fields": [
+		{
+			"name": "text_merge",
+			"param": "terms",
+			"type": "text",
+			"phraseLike": true,
+			"required": true,
+			"highlight": true
+		},
+		{
+			"type": "intDateRange",
+			"startParam": "sd",
+			"endParam": "ed",
+			"startName": "date_when",
+			"endName": "date_to",
+			"required": true,
+			"phraseLike": false,
+			"highlight": false
+		},
+		{
+            "name": "person_keyword",
+			"param": "p",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "subject",
+			"param": "s",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "author",
+			"param": "a",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "recipient",
+			"param": "r",
+            "type": "text",
+            "phraseLike": true,
+            "required": true,
+            "highlight": false
+        },
+		{
+            "name": "date_year",
+			"param": "y",
+            "type": "text",
+            "phraseLike": false,
+            "required": true,
+            "highlight": false
+        },
+		{
+			"name": "status",
+			"type": "text",
+			"value": "published",
+			"required": true
+		}
+	],
+	"displayFields": ["date_when", "index", "upload_date", "filename", "title", "date_to", "date_year", "author", "recipient", "person_keyword", "subject", "resource_uri_start", "doc_beginning", "status", "volume"],
+	"facetFields": ["person_keyword", "subject", "date_year", "author", "recipient", "index"],
+	"sortFields": [
+		{
+			"name": "date_when",
+			"sort": "asc" 
+		}
+	]
+}

@@ -1,0 +1,218 @@
+
+
+a, a:link, a:active, a:visited, a:hover {
+	text-decoration: none;
+	color: var(--psc-color-link);
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+
+body {
+	font-family: var(--psc-font-main);
+	font-size: 100%;
+	line-height: 1;
+}
+
+
+h1 {
+	font-size: 48px;
+	font-weight: 600;
+	font-family: var(--psc-font-title);
+	margin-bottom: var(--psc-whitespace-flow);
+	line-height: 1.25;
+
+	a, a:link, a:visited, a:active {
+		color: var(--psc-color-text-dark);
+	}
+
+	@media(max-width: 1000px){
+		font-size: 40px;
+	}
+}
+
+h2 {
+	font-size: 38px;
+	font-weight: 600;
+	font-family: var(--psc-font-title);
+	margin-top: var(--psc-whitespace-flow);
+	margin-bottom: var(--psc-whitespace-flow-sm);
+	line-height: 1.25;
+
+	a, a:link, a:visited, a:active {
+		color: var(--psc-color-text-dark);
+	}
+
+	@media(max-width: 1000px){
+		font-size: 32px;
+	}
+
+}
+
+h3 {
+	font-size: 28px;
+	font-weight: 600;
+	font-family: var(--psc-font-title);
+}
+
+h4, h5 {
+    font-size: 24px;
+	font-family: var(--psc-font-sans);
+}
+
+h2:first-child, h3:first-child, h4:first-child,
+p:first-child {
+	margin-top: 0;
+}
+
+h3 + p, h4 + p, h5 + p {
+	margin-top: 0;
+}
+
+p {
+	line-height: 1.4;
+	margin-top: var(--psc-whitespace-flow-md);
+}
+
+
+ul {
+	margin-top: var(--psc-whitespace-flow-md);
+	list-style-position: outside;
+}
+
+ol {
+	margin-top: var(--psc-whitespace-flow-md);
+	list-style-position: outside;
+}
+
+li {
+	margin-left: var(--psc-gutter-dbl);
+}
+
+blockquote {
+	margin-top: var(--psc-whitespace-flow-md);
+}
+
+
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+em, i {
+	font-style: italic;
+}
+
+strong, b {
+	font-weight: bold;
+}
+
+mark {
+	font-size: 135%;
+	background: none !important;
+	color: inherit !important;
+}
+
+//we're using this for sending commands from within html,
+// so we hide it
+code {
+	display: none !important;
+}
+
+
+
+
+blockquote {
+	font-family: var(--psc-font-roman);
+	font-size: 20px;
+
+
+	cite {
+		font-family: var(--psc-font-main);
+		display: block;
+		margin-top: 1.5rem;
+		font-size: 16px;
+	}
+}
+
+
+
+
+
+form {
+
+}
+
+
+input {
+	font-size: 20px;
+	padding: 14px;
+}
+
+
+
+.betamark {
+	position: fixed;
+	font-size: 188px;
+	opacity: 0.11;
+	transform: rotate(45deg);
+	top: 50%;
+	left: 36%;
+	z-index: 0;
+	text-align: center;
+}
+
+
+a.coopHome:after {
+    content: "BETA";
+    position: absolute;
+    font-size: 28px;
+    top: 76px;
+    color: #00c3ff;
+    left: 343px;
+}
+
+
+
+
+.hidden {
+	display: none !important;
+}
+
+
+
+
+
+
+.importantlink {
+
+	a:link, a:active, a:visited {
+		background: var(--psc-color-prime);
+		color: white;
+		padding: 14px;
+		border-radius: 35px;
+		font-size: 24px;
+		text-transform: uppercase;
+		font-weight: bold;
+		display: block;
+		text-align: center;
+	}
+}
+
+
+.lineBelow {
+	font-size: 23px;
+    text-transform: uppercase;
+    box-shadow: inset 0 -9px 0 rgb(247 201 43);
+    padding-bottom: 0px;
+}
+
+.lineBeside {
+	@include linkLineLeft;
+}

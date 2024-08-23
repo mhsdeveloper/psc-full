@@ -1,0 +1,33 @@
+
+
+
+
+.site-content {
+	@include outerWrapper;
+
+	z-index: 1;
+
+	.content-area {
+		@include container;
+	}
+
+}
+
+
+aside {
+	@include outerWrapper;
+
+	section {
+		@include container;
+	}
+}
+
+
+.homepage {
+	
+	.entry-content {
+		// display: flex;
+		// flex-direction: row;
+	}
+
+}

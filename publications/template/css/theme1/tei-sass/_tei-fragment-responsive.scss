@@ -1,0 +1,20 @@
+
+@media(max-width: 700px){
+
+	.teiFragment {
+
+		lg {
+			margin: 2rem 0;
+			width: auto;
+		}
+
+		l {
+			text-indent: 0;
+		}
+
+		l.indent {
+			text-indent: 2rem;
+		}
+
+	}
+}

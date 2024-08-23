@@ -17,12 +17,6 @@ projects/
 
 publications/pub/schema
 
-publications/template/configs
-publications/template/images
-publications/template/views
-publications/template/css
-
-
 #wordpress stuff
 wp-admin
 wp-content

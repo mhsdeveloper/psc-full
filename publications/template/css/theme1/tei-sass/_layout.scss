@@ -1,0 +1,12 @@
+
+
+tei {
+	display: flex;
+	flex-direction: column;
+
+	[type="docbody"] {
+		@include maxReadingWidth;
+		margin: auto;
+	}
+
+}
