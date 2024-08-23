@@ -6,7 +6,7 @@ The setup assumes you are familiar with the Linux command line, as well as with 
 	
 	sudo apt remove apache2
 
-This guide takes you through each of the steps and shows the necessary terminal commands, hopefully providing all the necessary context. If you follow the setup as described here, everything should go well. The choice was made to do this instead of create an install script for several reasons: 1) creating an install script is tricky and needs to be maintained; 2) running through all the steps makes it clear what is going on, so that individual steps can be adjusted or adapted; 3) following from reason 2, if software or server environments change, having the steps laid out (rather than hidden behind a script and it's UI) will make future adjustments easier.
+This guide takes you through each of the steps and shows the necessary terminal commands, hopefully providing all the necessary context. If you follow the setup as described here, everything should go well. The choice was made to do this instead of create an install script for several reasons: 1) creating an install script is tricky and needs to be maintained; 2) running through all the steps makes it clear what is going on, so that individual steps can be adjusted or adapted; 3) following from reason 2, if software or server environments change, having the steps laid out (rather than hidden behind a script and it's UI) will make future adjustments easier. However, for some of the trickier steps, we've created individual scripts for appending or editing config files, so that in all, only simple command line .. uh ... commands are needed.
 
 The installation process involves the following main steps:
 
@@ -22,7 +22,7 @@ Linux server. The install instructions were tested with the following specs, but
 
 * 4 core CPU, 4GB ram, and 80GB disk
 * Ubuntu Server 24.04 LTS
-* nginx (version that ships with Ubuntu)
+* nginx 1.24.0 (version that ships with Ubuntu)
 * PHP 8.3 fpm (version that ships with Ubuntu)
 * MYSQL (version that ships with Ubuntu)
 * Open JDK (version that ships with Ubuntu)
