@@ -30,7 +30,7 @@ Linux server. The install instructions were tested with the following specs, but
 As you can see, really all you need is Ubuntu 24.04 LTS, and the rest are all provided by the distribution.
 
 
-## 1: Install services provided by the OS distribution
+## Install services provided by the OS distribution
 
 Login to your server using your main login, especially a login you use for managing website files. Needless to say, do not login as root directly.
 
@@ -183,7 +183,7 @@ First, find the file install/server-configs/wpmu.conf. Change the line after the
 
 	server_name  mydomain.org www.mydomain.org;
 
-Change each occurance of "mydomain.org" to your actuall domain name. Note there is a version with and without the leading "www." If you are just using an IP, don't use the www. version.
+Change each occurance of "mydomain.org" to your actuall domain name. Note there is a version with and without the leading "www." If you are just using an IP or localhost, don't use the www. version.
 
 Run our configuration script, which assumes you're using php 8.3-fpm, as in the above. If you're using a different version, edit the nginx/sites-available/wpmu.conf to reflect which php (you'll see php8.3 mentioned, change that. You can discover which php you're running with: sudo apt list --installed php* )
 
