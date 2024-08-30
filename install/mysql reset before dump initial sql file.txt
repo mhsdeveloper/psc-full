@@ -1,0 +1,26 @@
+#mysql reset before dump initial sql files 
+
+USE docmanager;
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE document_step;
+TRUNCATE steps;
+TRUNCATE documents;
+SET FOREIGN_KEY_CHECKS = 1;
+
+
+USE psccore;
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE links;
+TRUNCATE listables;
+TRUNCATE lists;
+TRUNCATE name_project;
+TRUNCATE names;
+TRUNCATE notes;
+TRUNCATE project_metadata;
+TRUNCATE project_subject;
+TRUNCATE project_topic_data;
+TRUNCATE projects;
+TRUNCATE topic_relationships;
+TRUNCATE topics;
+SET FOREIGN_KEY_CHECKS = 1;
+

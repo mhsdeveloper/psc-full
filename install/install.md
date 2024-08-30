@@ -81,13 +81,7 @@ You need to know your developer username; type "whoami" to see it.
 	sudo chmod -R g+w /psc
 	```
 
-3. We'll add the various web-servers to your user group. Nginx and PHP-fpm both run as the user www-data, so we add them to your user group:
-
-	```
-    sudo usermod -a -G your-user-name-here www-data
-	```
-
-4. Download the software: change to the correct directory, setup git, and then checkout our package with these commands:
+3. Download the software: change to the correct directory, setup git, and then checkout our package with these commands:
 
 	```
     cd /psc/www/html
@@ -100,6 +94,8 @@ You need to know your developer username; type "whoami" to see it.
 ## SOLR
 
 ### Download and install
+
+Apache Solr is an open-source search engine that we use for searching documents and browsing metadata. It is probably the best sofware these is for these features, which is why we chose to integrate it with our system despite the added complexity of installation.
 
 Our setup was tested with Solr version 8.11.3. It is not the latest, but it is the most stable version of the 8 series. Download Apache SOLR from [SOLR's website](https://solr.apache.org/download) The procedure is to download the zip file to our install folder; then unpack a script "bin/install_solr_service.sh" from within the zip file, and use that script to unpack the rest of the archive and install. For convenience we've included the install script for 8.11.3, so you can just use the following commands to download and install:
 
@@ -129,7 +125,7 @@ Solr stores its config, index, and other data in /var/solr/data/publications/. I
 	sudo rm /var/solr/data/publications/conf/managed-schema
 	sudo cp /psc/www/html/install/server-configs/schema.xml /var/solr/data/publications/conf/
 
-Adjust solrconfig.xml with our script:
+Run our configuration script, which which take care of some trickier changes to solrconfig.xml:
 
 	cd /psc/www/html/install
 	sudo bash ./scripts/configure-solr.sh
@@ -144,7 +140,7 @@ You should make sure your host/network is blocking external access to port 8983,
 
 To see if you're host is blocking that port, try to connect by using your browser to go to your server's url on port 8983. For example, if you server's domain name is mywebsite.org, you would enter this url: http://www.mywebsite.org:8983 If you see the Solr Admin interface, then the port is not being blocked, and you need to configure your firewall.
 
-The following is optional, if your host does not block port 8983. For that, we can use ufw:
+The following is optional, use these if your host does not block port 8983. We can use ufw to create a firewall in software:
 
 	sudo apt install ufw
 	sudo ufw enable
@@ -154,17 +150,15 @@ Then, to block access to Solr from the outside world:
 	sudo ufw deny 8983
 
 
-
-
-
-
-
-
 ## Install Wordpress
 
-### Download Wordpress
+We use Wordpress to manage user login, and to serve the static pages, like the homepage and about pages, things like that. See separate documentation for using a different CMS as your frontend.
 
-We've included the most recent version of Wordpress to be tested with the Coop software.
+We've included the most recent version of Wordpress to be tested with the Coop software. Unpack Wordpress, and move it to the main server html directory:
+
+	cd /psc/www/html/install
+	unzip wordpress-6.6.1.zip
+	mv wordpress/* ../
 
 ### Install the Coop theme and plugin
 
@@ -181,7 +175,25 @@ We've included the most recent version of Wordpress to be tested with the Coop s
 Lastly, we need to configure all the parts of the system.
 
 
-### MYSQL
+### Configure Nginx
+
+The main web service is Nginx, which listens to all incoming traffic. We configure it to connect to each of the components of the system. 
+
+First, find the file install/server-configs/wpmu.conf. Change the line after the comment "EDIT HERE", the line reads:
+
+	server_name  mydomain.org www.mydomain.org;
+
+Change each occurance of "mydomain.org" to your actuall domain name. Note there is a version with and without the leading "www." If you are just using an IP, don't use the www. version.
+
+Run our configuration script, which assumes you're using php 8.3-fpm, as in the above. If you're using a different version, edit the nginx/sites-available/wpmu.conf to reflect which php (you'll see php8.3 mentioned, change that. You can discover which php you're running with: sudo apt list --installed php* )
+
+	cd /psc/www/html/install/scripts
+	sudo bash ./configure-nginx.sh
+
+If you are using SSL, please read ssl-in-nginx.md for further require steps.
+
+
+### Configure MYSQL
 
 Run the mysql install script and follow our recommended answers to the install questions:
 
@@ -195,7 +207,19 @@ Answer the question as follows:
 	Remove test database: Yes
 	Reload privileges: Yes
 
+Run our mysql configuration script to create the required databases, tables, and user permissions.
 
+
+	mysqldump and import these dbs: psccore, docmanager, pscfront
+
+	create user
+	grant all privileges on psccore.* to user@localhost;
+	grant all privileges on pscfront.* to user@localhost;
+	grant all privileges on docmanager.* to user@localhost;
+	flush privileges;
+
+
+###
 
 
 
@@ -208,18 +232,13 @@ Answer the question as follows:
 
 
 
-	mysqldump and import these dbs: psccore, docmanager, pscfront
+3. We'll add the various web-services users to your user group. Nginx and PHP-fpm both run as the user www-data, so we add them to your user group:
 
-	create user
-	grant all privileges on psccore.* to user@localhost;
-	grant all privileges on pscfront.* to user@localhost;
-	grant all privileges on docmanager.* to user@localhost;
-	flush privileges;
+	```
+    sudo usermod -a -G your-user-name-here www-data
+	```
 
 
-
-configure /etc/nginx/nginx.conf
-configure /etc/nginx/sites-available/wpmu.conf
 
 Edit .env file for Laravel in html/mhs-api/.env
 
@@ -232,3 +251,6 @@ set php.ini settings:
 
 
 
+
+
+## Quick Content Tutorial

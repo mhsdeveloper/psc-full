@@ -1,0 +1,23 @@
+server {
+    listen   80;
+    listen   [::]:80;
+
+    location /publications/pub/schema {
+        try_files $uri $uri/ /publications/pub/schema/$uri;
+    }
+
+    location / {
+        return 301 https://www.mydomain.org$request_uri;
+    }
+}
+
+
+server {
+    listen 443 ssl default_server;
+    listen [::]:443 ssl default_server;
+
+	# the line below points to the file you created from your key and your authority's ssl chain
+    ssl_certificate /etc/nginx/mydomain-YEAR.pem;
+
+	# the line below points to the key that your received from your ssl authority
+    ssl_certificate_key /etc/nginx/mydomain-YEAR.key;
