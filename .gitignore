@@ -28,7 +28,7 @@ wp-content
 wp-includes
 wp*.php
 xmlrpc.php
-index.php
+./index.php
 
 
 #legacy development stuff
