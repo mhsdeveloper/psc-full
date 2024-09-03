@@ -1,5 +1,7 @@
 # Setting up SSL for your nginx site
 
+These instructions assume you've create a SSL key, submitted it to a signing authority, and received a SSL certificate and chain in return.
+
 # Required SSL Certificate Files
 
 Private key: this is the key you gave to your signing authority. Name this file mydomain-YEAR.key

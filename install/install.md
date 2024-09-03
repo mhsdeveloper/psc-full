@@ -105,7 +105,7 @@ Our setup was tested with Solr version 8.11.3. It is not the latest, but it is t
 
 If Solr starts but fails it's ok, we're not done yet; just press CTRL-C and continue with these instructions.
 
-For reference and for different installation needs, read SOLR's documentation for installing as a service; see their page "Taking Solr to Production".
+If you have different installation needs, read SOLR's documentation for installing as a service; see their page "Taking Solr to Production".
 
 ### Configure SOLR
 
@@ -160,19 +160,22 @@ We've included the most recent version of Wordpress to be tested with the Coop s
 	unzip wordpress-6.6.1.zip
 	mv wordpress/* ../
 
-### Install the Coop theme and plugin
-
-	-adjust wp-config.php : make sure server address and mysql user info are correct.
 
 
 
-
-
-
-
-## Final Setup steps
+## Connecting all the pieces
 
 Lastly, we need to configure all the parts of the system.
+
+
+
+### Setup web server user
+
+We'll add the various web-services users to your user group. Nginx and PHP-fpm both run as the user www-data, so we add them to your user group:
+
+    sudo usermod -a -G your-user-name-here www-data
+
+
 
 
 ### Configure Nginx
@@ -192,6 +195,11 @@ Run our configuration script, which assumes you're using php 8.3-fpm, as in the 
 
 If you are using SSL, please read ssl-in-nginx.md for further require steps.
 
+Restart Nginx:
+
+	sudo service nginx restart
+
+
 
 ### Configure MYSQL
 
@@ -206,21 +214,49 @@ Answer the question as follows:
 	Disallow remote root login: Yes
 	Remove test database: Yes
 	Reload privileges: Yes
+	
+Setup a mysql user for Coop database tables. Here are the commands replace "someUser" with a better username and also change the password; a full explanation is beyond the scope of these instructions:
 
-Run our mysql configuration script to create the required databases, tables, and user permissions.
+	sudo mysql -uroot
+	CREATE USER someUser@localhost;
+	ALTER USER someUser@localhost IDENTIFIED BY 'guudPa$$wordH3R3!';
+	GRANT ALL PRIVILEGES ON psccore.* TO someUser@localhost;
+	GRANT ALL PRIVILEGES ON docmanager.* TO someUser@localhost;
 
+Next, create a database for Wordpress, and grant permissions to your user:
 
-	mysqldump and import these dbs: psccore, docmanager, pscfront
-
-	create user
-	grant all privileges on psccore.* to user@localhost;
-	grant all privileges on pscfront.* to user@localhost;
-	grant all privileges on docmanager.* to user@localhost;
+	CREATE DATABASE frontend;
+	GRANT ALL PRIVILEGES ON frontend.* TO someUser@localhost;
 	flush privileges;
 
 
-###
 
+### Configure Wordpress
+
+Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you setup in the previous step. 
+
+After following the instructions from Wordpress, open up the wp-config.php file that was create, and add these lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
+
+	/* Multisite */
+	define( 'WP_ALLOW_MULTISITE', true );
+	/* more code here */
+
+
+Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to and a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
+
+Logout, and login to see the changes.
+
+
+### Install the Coop theme and plugin
+
+The Coop theme and plugin can now be installed.
+
+-copy files
+
+-enable network-wide
+
+
+	-adjust wp-config.php : make sure server address and mysql user info are correct.
 
 
 	configuration.sh
@@ -232,11 +268,27 @@ Run our mysql configuration script to create the required databases, tables, and
 
 
 
-3. We'll add the various web-services users to your user group. Nginx and PHP-fpm both run as the user www-data, so we add them to your user group:
+### Copy and edit environment files
 
-	```
-    sudo usermod -a -G your-user-name-here www-data
-	```
+Copy server-env.php and environment.php to /psc/www
+
+	cp /psc/www/html/install/server-env.php /psc/www/
+	cp /psc/www/html/install/environment.php /psc/www/
+
+Next, you need to open server-env.php and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
+
+	MYSQL_USER, MYSQL_USER_PASSWORD, COOP_LIVE_DOMAIN, COOP_LIVE_IP
+
+If you use a testing server and/or a virtualbox for a local testing installation, also change these constants:
+
+	COOP_TEST_IP, LOCAL_TEST_IP
+
+If you only have a live server, then set COOP_SINGLE_INSTALL to true.
+
+Lastly in server-env.php, you can enter your Google tracking ID with GA_ACCOUNT_NO
+
+
+
 
 
 
