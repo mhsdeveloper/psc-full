@@ -157,13 +157,13 @@ file_put_contents($fullpath . "-vac-prewet.xml", $this->text);
 
 		private function setXMLID(){
 			$idMatches = [];
-			preg_match("/\{\{XMLID\}\}\s*([A-Z]{3}[0-9]{5})/", $this->text, $idMatches);
+			preg_match("/\{\{XMLID\}\}\s*([A-Z]{3}[0-9]{5,6})/", $this->text, $idMatches);
 
 			if(!isset($idMatches[1])){
 				return $this->ajaxError("Make sure the id after your {{XMLID}} marker is formatted: LLLNNNNN (that's 3 uppercase letters and 5 numerals, no spaces)");
 			}
 			//remove the XML ID line
-			$this->text = preg_replace("/\{\{XMLID\}\}\s*([A-Z]{3}[0-9]{5})/", "", $this->text);
+			$this->text = preg_replace("/\{\{XMLID\}\}\s*([A-Z]{3}[0-9]{5,6})/", "", $this->text);
 
 			//set the tei-id that was placeholdered in the first XSLT pass
 			$this->text = str_replace("XMLIDPLACEHOLDER", $idMatches[1], $this->text);

@@ -231,49 +231,13 @@ Next, create a database for Wordpress, and grant permissions to your user:
 
 
 
-### Configure Wordpress
-
-Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you setup in the previous step. 
-
-After following the instructions from Wordpress, open up the wp-config.php file that was create, and add these lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
-
-	/* Multisite */
-	define( 'WP_ALLOW_MULTISITE', true );
-	/* more code here */
-
-
-Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to and a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
-
-Logout, and login to see the changes.
-
-
-### Install the Coop theme and plugin
-
-The Coop theme and plugin can now be installed.
-
--copy files
-
--enable network-wide
-
-
-	-adjust wp-config.php : make sure server address and mysql user info are correct.
-
-
-	configuration.sh
-
-		move psc wp theme from install into wp-content/themes
-		add php configs to end of php.ini
-
-
-
-
-
 ### Copy and edit environment files
 
 Copy server-env.php and environment.php to /psc/www
 
 	cp /psc/www/html/install/server-env.php /psc/www/
 	cp /psc/www/html/install/environment.php /psc/www/
+	cp /psc/www/html/install/apikeys.php /psc/www/
 
 Next, you need to open server-env.php and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
 
@@ -289,16 +253,53 @@ Lastly in server-env.php, you can enter your Google tracking ID with GA_ACCOUNT_
 
 
 
+### Configure PHP
+
+Run our configuration script to append the necessary settings to the php.ini file:
+
+	cd /psc/www/html/install/scripts
+	sudo bash ./configure-php.sh
+
+Restart php:
+
+	sudo service php8.3-fpm restart
+
+
+### Configure Wordpress
+
+Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you setup in the previous step. Wordpress may ask you to create a wp-config.php file that should go at the root of your website, sibling to the wp-admin and wp-content folders.
+
+Next, let's move our Coop-specific Wordpress plugin and theme into place:
+
+	cd /psc/www/html/install
+	cp -r wpfiles/* /psc/www/html/wp-content/
+
+Next we need to enable the Multisite feature of Wordpress. This allows you to have a central site for your entire publishing system, and separate individual sites for each project or publication. Open up the wp-config.php file that was create, and add these lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
+
+	/* Multisite */
+	define( 'WP_ALLOW_MULTISITE', true );
+	/* more code here */
+
+
+Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to and a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
+
+Logout, and login to see the changes.
+
+Lastly, we need to enable our plugin and theme to be available to all sites in the Wordpress multisite install. Login to Wordpress, and at top corner under "My Sites", find "Network Admin" and "Themes". In the page that loads, make sure the "psc1" theme is enable for the network.
+
+![alt text](images/image.png)
+
+Do the same for the psc plugin un the "Plugins" menu.
+
+
+
+
+
+
 
 
 
 Edit .env file for Laravel in html/mhs-api/.env
-
-Edit the server-env.php file
-
-set php.ini settings:
-	auto_prepend_file = [path to]server-env.php
-	The server-env.php file is at the root level of the main Coop package. It is recommended to place the server-env.php outside of the html directory.
 
 
 

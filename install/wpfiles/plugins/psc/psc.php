@@ -93,15 +93,20 @@ class PSCoopPluginMomma {
 
 
 	static function LoadProjectSettings(){
-		$prune = ["www.", "http://", "https://", "localhost:8000/", "localhost/", 
-		"104.130.211.96/", "104.130.211.96", 
-		"192.168.56.57", "192.168.56.57",
-		"primarysourcecoop.org/", "primarysourcecoop.org", 
-		"/"];
 
-		$projectSite = str_replace($prune, "", get_site_url());
+		//with no autoloader, include the env file's dependencies first
+		require(SERVER_WWW_ROOT . "/environment.php");
 
-		$pubsPath = "/psc/www/html/publications/";
+		$url = get_site_url();
+
+		preg_match("/https?\:\/\/.+\/(.*)$/U", $url, $matches);
+
+		if(isset($matches[1])) $url = $matches[1];
+
+		if(strpos($url, "/")) $url = explode("/", $url)[0];
+
+		$projectSite = $url;
+
 		if(empty($projectSite)){
 			$projectSite = "coop";
 		}
@@ -112,8 +117,7 @@ class PSCoopPluginMomma {
 //			error_log("Error in wp psc plugin: can determine project env file, none at: " . $env);
 			return false;
 		}
-		//with no autoloader, include the env file's dependencies first
-		require(SERVER_WWW_ROOT . "/environment.php");
+
 		include_once($env);
 		PSCoopPluginMomma::GrabLogin($projectSite);
 	}
