@@ -81,7 +81,7 @@ const DocumentEnhancements = {
 			edhead.className = "docbackHeading";
 			docback.id = "docback";
 			edhead.setAttribute("tabindex", "0");
-			edhead.innerHTML = "Editor's Notes";
+			edhead.innerHTML = "Notes";
 			docback.before(edhead);
 			// edhead.addEventListener("click", toggleEdNotes);
 			// edhead.addEventListener("keyup", (e)=>{

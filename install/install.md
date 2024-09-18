@@ -215,7 +215,7 @@ Answer the question as follows:
 	Remove test database: Yes
 	Reload privileges: Yes
 	
-Setup a mysql user for Coop database tables. Here are the commands replace "someUser" with a better username and also change the password; a full explanation is beyond the scope of these instructions:
+Setup a mysql user for Coop database tables. Here are the commands: replace "someUser" with a better username and also change the password; a full explanation is beyond the scope of these instructions:
 
 	sudo mysql -uroot
 	CREATE USER someUser@localhost;
@@ -239,7 +239,7 @@ Copy server-env.php and environment.php to /psc/www
 	cp /psc/www/html/install/environment.php /psc/www/
 	cp /psc/www/html/install/apikeys.php /psc/www/
 
-Next, you need to open server-env.php and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
+Next, you need to open server-env.php ( in /psc/www ) and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
 
 	MYSQL_USER, MYSQL_USER_PASSWORD, COOP_LIVE_DOMAIN, COOP_LIVE_IP
 
@@ -249,7 +249,7 @@ If you use a testing server and/or a virtualbox for a local testing installation
 
 If you only have a live server, then set COOP_SINGLE_INSTALL to true.
 
-Lastly in server-env.php, you can enter your Google tracking ID with GA_ACCOUNT_NO
+Lastly, you can enter your Google Analytics tracking ID by changing GA_ACCOUNT_NO to that ID.
 
 
 
@@ -283,7 +283,7 @@ Next we need to enable the Multisite feature of Wordpress. This allows you to ha
 
 Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to and a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
 
-Logout, and login to see the changes.
+Logout and login to see the changes.
 
 Lastly, we need to enable our plugin and theme to be available to all sites in the Wordpress multisite install. Login to Wordpress, and at top corner under "My Sites", find "Network Admin" and "Themes". In the page that loads, make sure the "psc1" theme is enable for the network.
 
@@ -291,8 +291,15 @@ Lastly, we need to enable our plugin and theme to be available to all sites in t
 
 Do the same for the psc plugin un the "Plugins" menu.
 
+#### Some other recommended steps
+
+We recommend disabling most of the dashboard items in Wordpress. From the dashboard, click on "Screen options" near the top right. Uncheck everything except "Coop Tools"; leave that checked as it provides links to Coop-specific features.
 
 
+
+### Setup initial projects/editions direction and sample project/edition
+
+EXAMPLE NAMING!!!
 
 
 

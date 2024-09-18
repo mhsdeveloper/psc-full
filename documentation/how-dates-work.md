@@ -1,4 +1,4 @@
-#HOW DATES WORK
+# HOW DATES WORK
 
 Our TEI allows these date attributes:
 
@@ -10,10 +10,15 @@ Our TEI allows these date attributes:
 These get transform into just two fields in SOLR, date_when & date_to, to make search results consistent and sortable. 
 
 @when >>BECOMES SOLR FIELD>> date_when & date_to
+
 @from >>BECOMES SOLR FIELD>> date_when
+
 @to   >>BECOMES SOLR FIELD>> date_to
+
 @notBefore >>BECOMES SOLR FIELD>> date_when
+
 @notAfter >>BECOMES SOLR FIELD>> date_to
+
 
 Additionally, when dates are incomplete, 0s and 9s get added so that SOLR get's a complete integer: 0s to starting dates, 9s to ending dates. 
 

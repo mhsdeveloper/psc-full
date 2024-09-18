@@ -57,7 +57,7 @@ function buildNameLookup(){
 			url += "project=" + Env.projectID + "&";
 		}
 		
-		Yodude.send(url +  "per_page=25&page=1&name=" + name).then((resp) => {
+		Yodude.send(url +  "per_page=200&page=1&name=" + name).then((resp) => {
 			if(resp.errors && resp.errors.length){
 				this.logError(resp.errors);
 				return;

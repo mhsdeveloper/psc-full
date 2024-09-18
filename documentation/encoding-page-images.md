@@ -1,4 +1,4 @@
-#Encoding to Provided Page Images
+# Encoding to Provided Page Images
 
 If a document has page images that you want to appear in the document display, add an attribute "facs" to the page breaks of your document: 
 

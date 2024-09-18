@@ -44,6 +44,9 @@
 		</div>
 	</article>
 
+	<div id="metadataSection">
+	</div>
+
 	<?php include(SERVER_WWW_ROOT . "html/publications/template/views/component_author_recipient.html");?>
 	<?php include(SERVER_WWW_ROOT . "html/publications/template/views/component_sidebar_contextualizer.html");?>
 	<?php include(SERVER_WWW_ROOT . "html/publications/template/views/component_page_images.html");?>

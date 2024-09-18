@@ -1,47 +1,48 @@
-#URL Conventions
+# URL Conventions
 
 The urls for all of the automatically generated pages, such as a document view or an overview of a person, are based on predictable patterns. This document explains those patterns.
 
 
-##Some definitions
+## Some definitions
 
-###Project shortname
+### Project shortname
 
-This is basically the abbreviation of the project. The shortname shouldbe all lower case letters only.
-examples: 
+This is basically the abbreviation of the project. The shortname shouldbe all lower case letters only. Some examples: 
+
 	jqa
 	cms
 	rbt
 
-	DEVELOPER:  this is referenced in code as 
+For the web developer: this is referenced in code as 
+
 		PHP: \MHS\Env::PROJECT_SHORTNAME
 		JS: Env.projectShortname
 
 _NOTE_ do not use "coop" for any abbreviation, this is reserved.
 
 
-##Link Formats for Automatically Generated Pages
+## Link Formats for Automatically Generated Pages
 
-###Persons
+### Persons
 
 	/publications/[project abbreviation]/explore/person/[HUSC]
 
 To see a generic view outside of any specific project, use "coop" as the project abbreviation
 
 
-###Home pages
+### Home pages
 
 	/[project shortname]
 
 
-###Document Views
+### Document Views
 
 	/publications/[project shortname]/document/[document xml:id]
 
-###Read page
+### Read page
 
 	/publications/[project shortname]/read
 
-###Search page
+### Search page
 
 	/publications/[project shortname]/search

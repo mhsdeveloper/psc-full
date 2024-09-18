@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-model href="http://www.primarysourcecoop.org/publications/pub/schema/primarysourcecoop_rev2.2.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?> <?xml-stylesheet type="text/css" href="https://www.primarysourcecoop.org/publications/pub/css/authorview_rev2.css"?> 
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+   xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:id="EDI00001" published="no">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Samuel Writesalot to Kate Readsalot</title>
+            <respStmt>
+               <resp>Transcribed by</resp>
+               <name>A. Transcriber</name>
+               <note>Transcribed on <date when="2021-08-01"/>
+               </note>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <publisher>Our Publishing Cooperative</publisher>
+            <date when="2022">2022</date>
+            <availability>
+               <p>Online version 1.</p>
+               <licence
+                  target="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  Available under the Creative Commons
+                  Attribution-NonCommercial-ShareAlike 4.0 International (CC
+                  BY-NC-SA 4.0) license.</licence>
+            </availability>
+         </publicationStmt>
+         <seriesStmt>
+            <title>Our Edition's Name</title>
+            <editor>Editor One, Editor Two</editor>
+         </seriesStmt>
+         <sourceDesc>
+            <bibl>
+               <date type="creation" when="1813-04-01">1 April 1813</date>
+               <author>writesalot-samuel</author>
+               <recipient>readsalot-kate</recipient>
+               <title>Samuel Writesalot to Kate Readsalot</title>
+            </bibl>
+            <msDesc>
+               <msIdentifier>
+                  <repository>Ye keeper of old documents</repository>
+                  <collection>John Mister</collection>
+                  <idno/>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <encodingDesc>
+         <editorialDecl>
+            <p>Hold this space for succinct statements about editorial
+               principles here and/or link to the website with more detailed
+               editorial descriptions.</p>
+         </editorialDecl>
+      </encodingDesc>
+      <profileDesc>
+         <textClass>
+            <keywords scheme="primarysource-keywords">
+               <list>
+                  <item>Some subject here</item>
+                  <item>Another subject here</item>
+               </list>
+            </keywords>
+         </textClass>
+      </profileDesc>
+      <revisionDesc>
+         <listChange type="editorialMilestones">
+            <change type="Transcription" status="complete" who="DG"
+               when="2023-12-01">
+               <seg type="initial-transcription" status="done"/>
+               <seg type="verification1" status="done"/>
+               <seg type="verification2" status="done"/>
+            </change>
+            <change type="persRef" status="complete" who="DG" when="2023-12-01">
+               <seg type="all-persRefs-added" status="done"/>
+               <seg type="accuracy-confirmed" status="done"/>
+               <seg type="HUSCs-verified" status="done"/>
+            </change>
+            <change type="Subjects" status="in-progress" who="DG"
+               when="2023-12-01">
+               <seg type="all-Subjects-added" status="done"/>
+               <seg type="all-approved" status="done"/>
+               <seg type="all-confirmed-with-Database" status="underway"/>
+            </change>
+            <change type="Annotation" status="complete" who="DG"
+               when="2023-12-01">
+               <seg type="source-note-complete" status="information-confirmed"/>
+               <seg type="all-drafted" status="done"/>
+               <seg type="all-edited" status="done"/>
+               <seg type="all-approved" status="done"/>
+            </change>
+            <change type="xmlReview" status="complete" who="DG"
+               when="2023-12-01"/>
+            <change type="OK-to-Publish" status="yes" who="DG" when="2023-12-01"
+            />
+         </listChange>
+         <listChange type="programmaticUpdates">
+            <change type="" status="" who="" when="1000-10-10"/>
+         </listChange>
+      </revisionDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <div type="docbody">
+            <opener>
+               <dateline>Cambridge April 1<hi rend="superscript">st</hi>
+                  <hi rend="underline">1813</hi>
+               </dateline>
+            </opener>
+            <p>
+               <persRef ref="brown-unknown">M<hi rend="superscript">r</hi>
+                  Brown</persRef> leaves here soon, et. et Nunc viverra
+               imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque
+               habitant morbi tristique senectus et netus et malesuada fames ac
+               turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
+               Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
+               Suspendisse dui purus, scelerisque at, vulputate vitae, pretium
+               mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut
+               nonummy. </p>
+            <p>
+               <persRef ref="sedgwick-theodore2">Theodore</persRef> and <persRef
+                  ref="sedgwick-robert">Robert</persRef> Nunc viverra imperdiet
+               enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi
+               tristique senectus et netus et malesuada fames ac turpis egestas.
+               Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In
+               porttitor. Donec laoreet nonummy augue. Suspendisse dui purus,
+               scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris
+               eget neque at sem venenatis eleifend. Ut nonummy. how soon in <hi
+                  rend="underline">perfect</hi> food.</p>
+            
+            <closer>
+               <salute>your aff<hi rend="superscript">te</hi> Friend </salute>
+               <signed>Sam Wr.</signed>
+            </closer>
+            <postscript>
+               <p>Other things I wish I'd said are here.</p>
+            </postscript>
+         </div>
+         <div type="docback">
+            <note type="source">
+               <note type="doctype">
+                  <p>Letter</p>
+               </note>
+               <note type="condition">
+                  <p>Wax blot and tear; shopping list appears at the bottom.</p>
+               </note>
+            </note>
+         </div>
+      </body>
+   </text>
+</TEI>

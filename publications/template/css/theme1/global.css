@@ -583,26 +583,6 @@ input {
   padding: 14px;
 }
 
-.betamark {
-  position: fixed;
-  font-size: 188px;
-  opacity: 0.11;
-  transform: rotate(45deg);
-  top: 50%;
-  left: 36%;
-  z-index: 0;
-  text-align: center;
-}
-
-a.coopHome:after {
-  content: "BETA";
-  position: absolute;
-  font-size: 28px;
-  top: 76px;
-  color: #00c3ff;
-  left: 343px;
-}
-
 .hidden {
   display: none !important;
 }
@@ -3342,7 +3322,6 @@ select {
 .document .navTools .previous h4, .document .navTools .next h4 {
   font-size: 20px;
   margin-bottom: 0.5rem;
-  cursor: pointer;
 }
 .document .navTools .previous h4 p, .document .navTools .next h4 p {
   text-transform: uppercase;

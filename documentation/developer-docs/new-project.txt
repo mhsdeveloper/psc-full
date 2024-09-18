@@ -1,5 +1,7 @@
-#Adding a new edition
+# Adding a new edition
 
+
+## 
 -add them to the db: psccore.projects with a mysql insert statement such as:
 
 	INSERT INTO projects SET name="Papers of Joe Smith";
@@ -15,10 +17,12 @@
 	- make sure the project short name is the same as the folder name
 
 -make sure the folowing folders are owned by www-data
+
+	[projectdir]/images
 	[projectdir]/includes
-	[projectdir]/xml
 	[projectdir]/solrtemp 
 	[projectdir]/support-files
+	[projectdir]/xml
 
 the projects/[project shortname]/customize folder needs:
 	name-metadata-template.html
