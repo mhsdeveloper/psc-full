@@ -112,7 +112,7 @@ button {
 
 article {
   position: relative;
-  padding-bottom: 4rem;
+  padding-bottom: 0;
   clear: both;
 }
 
@@ -1358,7 +1358,38 @@ button.expand {
   color: #808080;
 }
 
-.docSection .docbackHeading {
+.metadataSection {
+  background: #dbdbdb;
+}
+.metadataSection .mdWrapper {
+  box-sizing: border-box;
+  justify-content: space-around;
+  max-width: 1400px;
+  padding: 2rem;
+  margin: auto;
+}
+.metadataSection .metadataTopics {
+  min-width: 350px;
+}
+.metadataSection .metadataTopics .topics {
+  margin: 0;
+  padding-top: 1rem;
+}
+.metadataSection .metadataTopics .topics a, .metadataSection .metadataTopics .topics a:link, .metadataSection .metadataTopics .topics a:visited {
+  display: inline-block;
+  font-family: var(--psc-font-main);
+  background: #007f98;
+  color: white;
+  font-size: 17px;
+  padding: 10px 20px;
+  margin: 0 1rem 1rem 0;
+  border-radius: 14px;
+}
+.metadataSection .metadataTopics .topics a:hover {
+  color: white;
+  text-decoration: none;
+}
+.metadataSection .docbackHeading {
   display: block;
   padding: 6rem 0 1rem 0;
   padding-bottom: 0;
@@ -1366,17 +1397,78 @@ button.expand {
   font-family: var(--psc-font-main);
   font-size: 18px;
   font-weight: bold;
-  color: var(--psc-color-link);
-  display: inline-block;
-  border-bottom: 3px solid #3e9ac7;
+  color: black;
+  border-bottom: 1px solid black;
   text-transform: uppercase;
 }
-.docSection #docback {
-  display: none;
-  padding: var(--psc-tei-whitespace);
+.metadataSection div[type=docback] note {
+  padding: 0 0 1rem 0;
 }
-.docSection #docback.open {
+.metadataSection div[type=docback] note[type=source] {
+  padding-top: 1rem;
   display: block;
+  column-count: 2;
+}
+.metadataSection div[type=docback] note[type=source] note {
+  display: block;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.metadataSection div[type=docback] note[type=doctype]::before {
+  content: "Document type";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=repository]::before {
+  content: "Repository";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=collection]::before {
+  content: "Collection";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=condition]::before {
+  content: "Condition";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=address]::before {
+  content: "Address";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=endorsement]::before {
+  content: "Endorsement";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=notation]::before {
+  content: "Notation";
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #007f98;
+  font-weight: bold;
+}
+.metadataSection div[type=docback] note[type=fn] label {
+  float: left;
+  padding: 3px 0 0 3px;
+}
+.metadataSection div[type=docback] note[type=fn] p {
+  margin: 0 0 1rem 2rem;
 }
 
 .sidebarContextualizer {
@@ -1732,7 +1824,7 @@ aside section {
   }
 }
 footer {
-  background: #dbdbdb;
+  background: #a7a7a7;
   padding: 4rem;
   display: flex;
   flex-wrap: wrap;
@@ -3348,10 +3440,13 @@ select {
 }
 .document .navTools .previous p:first-child, .document .navTools .next p:first-child {
   position: relative;
-  left: -30px;
 }
 .document .navTools .previous h4 {
   margin-left: -29px;
+}
+.document .navTools .previous p:first-child {
+  position: relative;
+  left: 0;
 }
 .document .navTools .next {
   text-align: right;
@@ -3360,8 +3455,7 @@ select {
   margin-right: -29px;
 }
 .document .navTools .next p:first-child {
-  left: auto;
-  right: -30px;
+  right: 0;
 }
 .document .navTools .docTitle {
   font-size: 24px;
@@ -3455,24 +3549,6 @@ select {
 }
 .document .col3 {
   position: relative;
-}
-
-.topics {
-  margin: var(--psc-tei-whitespace);
-}
-.topics a, .topics a:link, .topics a:visited {
-  display: inline-block;
-  font-family: var(--psc-font-main);
-  background: var(--psc-color-link);
-  color: white;
-  font-size: 17px;
-  padding: 4px 16px;
-  margin: 8px;
-  border-radius: 14px;
-}
-.topics a:hover {
-  color: white;
-  text-decoration: none;
 }
 
 a.persRef {

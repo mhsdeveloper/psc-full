@@ -44,7 +44,11 @@
 		</div>
 	</article>
 
-	<div id="metadataSection">
+	<div class="metadataSection">
+		<div class="mdWrapper">
+			<div id="metadataTopics" class="metadataTopics"></div>
+			<div id="metadata" class="metadata"></div>
+		</div>
 	</div>
 
 	<?php include(SERVER_WWW_ROOT . "html/publications/template/views/component_author_recipient.html");?>
@@ -81,9 +85,10 @@
 			},
 
 			postMount(app){
-				app.moveTopics();
-				app.addNotesToggle();
-				app.moveInsertions();
+				app.moveTopics(document.getElementById("metadataTopics"));
+				let placementEl = document.getElementById("metadata");
+				app.moveDocback(placementEl);
+				app.moveInsertions(placementEl);
 			}
 		}
 

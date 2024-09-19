@@ -24,7 +24,7 @@ const DocumentEnhancements = {
 
 
 
-	moveTopics(){
+	moveTopics(el){
 		//first store outside of DOM, else the xp will break
 		let topics = [];
 		function insertTopic(topic){
@@ -49,50 +49,26 @@ const DocumentEnhancements = {
 		h.className = "docbackHeading";
 		h.innerHTML = "Topics";
 
-		let back = document.querySelector("div[type='docback']");
-		if(back){
-			back.before(h);
-			back.before(topicsC);
-
-		//no docback try end of docbody
-		} else {
-			back = document.querySelectorAll("div[type='docbody']");
-			if(back.length){
-				let last = back[back.length -1];
-				last.after(h);
-				h.after(topicsC);
-			}
-		}
+		el.appendChild(h);
+		el.appendChild(topicsC);
 	},
 
 
-	addNotesToggle(){
-		let docback = document.querySelector("div[type='docback']");
-		docback.classList.add("open");
-		
+	moveDocback(el){
+		let docback = document.querySelector("div[type=docback]");
+		if(!docback) return;
 
-		let toggleEdNotes = function(){
-			if(docback.classList.contains("open")) docback.classList.remove("open");
-			else docback.classList.add("open");;
-		}
-
-		if(docback){
-			let edhead = document.createElement("h2");
-			edhead.className = "docbackHeading";
-			docback.id = "docback";
-			edhead.setAttribute("tabindex", "0");
-			edhead.innerHTML = "Notes";
-			docback.before(edhead);
-			// edhead.addEventListener("click", toggleEdNotes);
-			// edhead.addEventListener("keyup", (e)=>{
-			// 	if(e.key != "Enter") return;
-			// 	toggleEdNotes();
-			// });
-		}
+		let edhead = document.createElement("h2");
+		edhead.className = "docbackHeading";
+		docback.id = "docback";
+		edhead.setAttribute("tabindex", "0");
+		edhead.innerHTML = "Notes";
+		el.appendChild(edhead);
+		el.appendChild(docback);
 	},
 
 
-	moveInsertions(){
+	moveInsertions(el){
 		let insRefs = document.getElementsByClassName("insRef");
 		for(let ref of insRefs){
 			let id = ref.getAttribute("data-insid");

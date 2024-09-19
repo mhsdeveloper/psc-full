@@ -259,30 +259,139 @@
 
 
 
-	.docSection {
+	@mixin noteLabel {
+		text-transform: uppercase;
+		font-size: 14px;
+		color: #007f98;
+		font-weight: bold;
+	}
+	
+	.metadataSection {
+
+		background: #dbdbdb;
+
+		.mdWrapper {
+			box-sizing: border-box;
+//			display: flex;
+			justify-content: space-around;
+			max-width: 1400px;
+			padding: 2rem;
+			margin: auto;
+		}
+
+		.metadataTopics {
+			min-width: 350px;
+
+			.topics {
+				margin: 0;
+				padding-top: 1rem;
+			
+				a,a:link, a:visited {
+					display: inline-block;
+					font-family: var(--psc-font-main);
+					background: #007f98;
+					color: white;
+					font-size: 17px;
+					padding: 10px 20px;
+					margin: 0 1rem 1rem 0;
+					border-radius: 14px;
+				}
+			
+				a:hover {
+					color: white;
+					text-decoration: none;
+				}
+			}
+			
+		}
+
 
 
 		.docbackHeading {
 			display: block;
-			padding: 6rem 0 1rem 0;
+			padding: 4rem 0 1rem 0;
 			padding-bottom: 0;
 			margin: 0;
 			font-family: var(--psc-font-main);
 			font-size: 18px;
 			font-weight: bold;
-			color: var(--psc-color-link);
-			display: inline-block;
-		    border-bottom: 3px solid #3e9ac7;
+			color: black;
+			border-bottom: 1px solid black;
+			// color: #007f98;
+			// display: inline-block;
+		    // border-bottom: 3px solid #3e9ac7;
 			text-transform: uppercase;
 		}
 
-		#docback {
-			display: none;
-			padding: var(--psc-tei-whitespace);
+
+		.metadata {
+//			margin-left: 1rem;
 		}
 
-		#docback.open {
-			display: block;
+		div[type='docback'] {
+			// background: #f0f0f0;
+			// width: calc(100% + 2rem);
+			// margin-left: -1rem;
+			// margin-bottom: -1rem;
+
+			note {
+				padding: 0 0 1rem 0;
+			}
+
+			note[type='source'] {
+				padding-top: 1rem;
+				// display: flex;
+				// flex-wrap: wrap;
+				display: block;
+				column-count: 2;
+	
+				note {
+					display: block;
+					margin-right: 1rem;
+					margin-bottom: 1rem;
+				}
+			}
+
+			note[type='doctype']::before {
+				content: "Document type";
+				@include noteLabel;
+			}
+			note[type='repository']::before {
+				content: "Repository";
+				@include noteLabel;
+			}
+			note[type='collection']::before {
+				content: "Collection";
+				@include noteLabel;
+			}
+			note[type='condition']::before {
+				content: "Condition";
+				@include noteLabel;
+			}
+			note[type='address']::before {
+				content: "Address";
+				@include noteLabel;
+			}
+			note[type='endorsement']::before {
+				content: "Endorsement";
+				@include noteLabel;
+			}
+			note[type='notation']::before {
+				content: "Notation";
+				@include noteLabel;
+			}
+
+			note[type='fn'] {
+				label {
+					float:left;
+					padding: 3px 0 0 3px;
+				}
+
+				p {
+					margin: 0 0 1rem 2rem;
+				}
+			}
+
 		}
 
 	}

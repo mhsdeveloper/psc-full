@@ -170,13 +170,18 @@
 
 			p:first-child {
 				position: relative;
-				left: -30px;
 			}
 		}
 
-		.previous h4 {
-			margin-left: -29px;
-		}	
+		.previous {
+			h4 {
+				margin-left: -29px;
+			}	
+			p:first-child {
+				position: relative;
+				left: 0;
+			}
+		}
 
 		.next {
 			text-align: right;
@@ -186,8 +191,7 @@
 			}
 
 			p:first-child {
-				left: auto;
-				right: -30px;
+				right: 0;
 			}
 		}
 
@@ -316,27 +320,6 @@
 		position: relative; //important that no children are pos rel, will mess up contextualizer
 	}
 
-}
-
-
-.topics {
-	margin: var(--psc-tei-whitespace);
-
-	a,a:link, a:visited {
-		display: inline-block;
-		font-family: var(--psc-font-main);
-		background: var(--psc-color-link);
-		color: white;
-		font-size: 17px;
-		padding: 4px 16px;
-		margin: 8px;
-		border-radius: 14px;
-	}
-
-	a:hover {
-		color: white;
-		text-decoration: none;
-	}
 }
 
 
