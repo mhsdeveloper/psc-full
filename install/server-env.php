@@ -17,10 +17,11 @@ define("PSC_PROJECTS_PATH", SERVER_HTML_ROOT . "/" . PROJECTS_FOLDER . "/");
 
 
 //this is the user for all the databases
-define("MYSQL_USER", "yourMysqlUser");
-define("MYSQL_USER_PASSWORD", "SomeCrazyUniquePasswordGoesHere");
+define("MYSQL_USER", "[[EDIT-THIS-MYSQL-USER]]");
+define("MYSQL_USER_PASSWORD", "[[EDIT-THIS-MYSQL-PASSWORD]]");
 
 //this is the id for your Google Analytics account
+// make the acct # empty to skip using google Analytics
 define("GA_ACCOUNT_NO", "G-LCZ123456");
 
 

@@ -55,14 +55,16 @@
 
 	</script>
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=<? echo GA_ACCOUNT_NO;?>"></script>
-	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+	<?php if(!empty($GA_ACCOUNT_NO)){ ?>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<? echo GA_ACCOUNT_NO;?>"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	gtag('config', "<? echo GA_ACCOUNT_NO;?>");
-	</script>
+		gtag('config', "<? echo GA_ACCOUNT_NO;?>");
+		</script>
+		<?php } ?>
 	<link href="/publications/template/css/theme1/global.css?v=<?=$FRONTEND_VERSION;?>" rel="stylesheet"/>
 	<link href="/projects/<? echo PROJECT_SHORT_NAME;?>/customize/style.css" rel="stylesheet"/>
 	<script src="/projects/<? echo PROJECT_SHORT_NAME;?>/customize/custom.js?v=<?=$FRONTEND_VERSION;?>"></script>

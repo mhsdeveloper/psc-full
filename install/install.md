@@ -215,19 +215,6 @@ Answer the question as follows:
 	Remove test database: Yes
 	Reload privileges: Yes
 	
-Setup a mysql user for Coop database tables. Here are the commands: replace "someUser" with a better username and also change the password:
-
-	sudo mysql -uroot
-	CREATE USER someUser@localhost;
-	ALTER USER someUser@localhost IDENTIFIED BY 'guudPa$$wordH3R3!';
-	GRANT ALL PRIVILEGES ON psccore.* TO someUser@localhost;
-	GRANT ALL PRIVILEGES ON docmanager.* TO someUser@localhost;
-
-Next, create a database for Wordpress, and grant permissions to your user:
-
-	CREATE DATABASE frontend;
-	GRANT ALL PRIVILEGES ON frontend.* TO someUser@localhost;
-	flush privileges;
 
 
 
@@ -238,6 +225,9 @@ Copy server-env.php and environment.php to /psc/www
 	cp /psc/www/html/install/server-env.php /psc/www/
 	cp /psc/www/html/install/environment.php /psc/www/
 	cp /psc/www/html/install/apikeys.php /psc/www/
+
+
+
 
 Next, you need to open server-env.php ( in /psc/www ) and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
 
@@ -267,7 +257,7 @@ Restart php:
 
 ### Configure Wordpress
 
-Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you setup in the previous step. Wordpress may ask you to create a wp-config.php file that should go at the root of your website, sibling to the wp-admin and wp-content folders.
+Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you created above. Wordpress may ask you to create a wp-config.php file that should go at the root of your website, sibling to the wp-admin and wp-content folders.
 
 Next, let's move our Coop-specific Wordpress plugin and theme into place:
 
@@ -297,9 +287,8 @@ We recommend disabling most of the dashboard items in Wordpress. From the dashbo
 
 
 
-### Setup initial projects/editions direction and sample project/edition
+### Setup initial projects/editions directory and sample project/edition
 
-EXAMPLE NAMING!!!
 
 
 

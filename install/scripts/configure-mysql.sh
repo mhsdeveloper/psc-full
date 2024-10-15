@@ -21,8 +21,10 @@ if [ "$password" != "$password2" ]; then
 
 fi
 
+echo "\nCreating databases and permissions...\n"
+
 sudo mysql -e "CREATE USER $user@localhost"
-sudo mysql -e "ALTER USER $user@localhost identified by $password"
+sudo mysql -e "ALTER USER $user@localhost identified by '$password'"
 
 sudo mysql -e "CREATE DATABASE frontend; CREATE DATABASE psccore; CREATE DATABASE docmanager;"
 
@@ -32,3 +34,11 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON frontend.* TO $user@localhost;"
 sudo mysql -e "flush privileges;"
 
 
+echo "\nAdjusting server-env.php file...\n"
+
+sed -i "s_[[EDIT-THIS-MYSQL-USER]]_$user_g" /psc/www/server-env.php
+sed -i "s_[[EDIT-THIS-MYSQL-PASSWORD]]_$password_g" /psc/www/server-env.php
+
+
+
+echo "\nAll set!.\n\n"
