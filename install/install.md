@@ -215,7 +215,7 @@ Answer the question as follows:
 	Remove test database: Yes
 	Reload privileges: Yes
 	
-Setup a mysql user for Coop database tables. Here are the commands: replace "someUser" with a better username and also change the password; a full explanation is beyond the scope of these instructions:
+Setup a mysql user for Coop database tables. Here are the commands: replace "someUser" with a better username and also change the password:
 
 	sudo mysql -uroot
 	CREATE USER someUser@localhost;
