@@ -8,6 +8,8 @@ define("MAINTENANCE_DOCMANAGER", false);
 define("MAINTENANCE_TOOLS", false); //for wetvac and anything in html/tools
 
 
+
+define("COOP_NAME", "YOUR COOP NAME HERE");
 define("SERVER_WWW_ROOT", "/psc/www/");
 define("SERVER_HTML_ROOT", "/psc/www/html/");
 define("PROJECTS_FOLDER", "projects");

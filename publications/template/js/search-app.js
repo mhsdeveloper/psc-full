@@ -250,11 +250,30 @@ export default {
 
 
 		buildLink(doc, project, index){
-			let url = "/publications/" + project + "/document/"  + doc.id;
-		
-			index = parseInt(this.Searcher.start) + parseInt(index);
+			let searchString = null;
 
-			return url + '?navmode=searchresults&doci=' + index;// + '&from=' + this.mode;
+			if(this.highlighting[doc.id]){
+				let set = [];
+				//take highlighting and make a temp element to parse for the <em>
+				let el = document.createElement("div");
+				el.innerHTML = this.highlighting[doc.id].text_merge;
+
+				//get text content of ems
+				let ems = el.getElementsByTagName("em");
+				for(let em of ems){
+					set.push(em.textContent);
+				}
+				searchString = set.join("|");
+			}
+
+			let url = "/publications/" + project + "/document/"  + doc.id;
+			index = parseInt(this.Searcher.start) + parseInt(index);
+			url += '?navmode=searchresults&doci=' + index;// + '&from=' + this.mode;
+
+			if(searchString){
+				url += "&ss=" + searchString;
+			}
+			return url;
 		},
 
 		reset(){

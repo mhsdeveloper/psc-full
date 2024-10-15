@@ -45,11 +45,15 @@
 
 	//routes used in both public and backend
 	$mvc->get("/getumbrellaterms", "\SubjectsManager\Controllers\TopicsController@getAllUmbrellas");
+	$mvc->get("/getsubtopics", "\SubjectsManager\Controllers\TopicsController@getSubTopics");
+
+
 
 	//NOTE: change this variable to enable or disable security
-	const enableSecurity = true;
+	$enableSecurity = true;
 
-	if(!enableSecurity || \Publications\StaffUser::isLoggedin()){
+	//backend routes
+	if(!$enableSecurity || \Publications\StaffUser::isLoggedin()){
 
 		//load settings
 		if(\Publications\StaffUser::isLoggedin()){
@@ -65,6 +69,7 @@
 		
 		}
 		
+
 		//these routes for backend
 		
 		$mvc->get("/getproject", "\SubjectsManager\Controllers\TopicsController@getProject");
@@ -95,15 +100,7 @@
 		$mvc->post("/updateprojecttopicrelationship", "\SubjectsManager\Controllers\ProjectTopicDataController@putProjectTopicRelationship");
 		$mvc->delete("/deleteprojecttopicrelationship", "\SubjectsManager\Controllers\ProjectTopicDataController@delTopicRelationship");
 
-		//$mvc->route("/csv", "\SubjectsManager\Controllers\TopicsController@csvtodb");
-
-		// //use this to route to a method to answer the prefetch
-		// $mvc->options("/some/route", "\SubjectsManager\Controllers\SubjectsManagerController@dealWithPrefetch");
-
-		// //asnwer a route only for POST
-		// $mvc->post("/some/route2", "\etc etcetc");
-		// // also these: ->get ->delete ->put ->patch
 	}
 
-
+	$mvc->remap("/", "views/noaccess.php");
 	$mvc->run();

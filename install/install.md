@@ -241,7 +241,7 @@ Copy server-env.php and environment.php to /psc/www
 
 Next, you need to open server-env.php ( in /psc/www ) and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
 
-	MYSQL_USER, MYSQL_USER_PASSWORD, COOP_LIVE_DOMAIN, COOP_LIVE_IP
+	COOP_NAME, MYSQL_USER, MYSQL_USER_PASSWORD, COOP_LIVE_DOMAIN, COOP_LIVE_IP
 
 If you use a testing server and/or a virtualbox for a local testing installation, also change these constants:
 

@@ -428,6 +428,15 @@ teiheader list item {
   content: "?]";
 }
 .teiFragment .pb {
+  /* display: none; */
+  color: #8d8d8d;
+  font-family: var(--psc-font-main);
+  font-size: 14px;
+  border: 1px solid #b0b0b0;
+  padding: 6px 2px;
+  margin: 0 6px;
+}
+.teiFragment .pb:first-child {
   display: none;
 }
 .teiFragment .pb[type=ms] {
@@ -448,6 +457,13 @@ teiheader list item {
   vertical-align: top;
   margin: 0 0.1rem 0.5rem 0.1rem;
   text-indent: 0;
+  transition: all 0.8s ease;
+}
+.teiFragment .noteRef.reveal {
+  background: #34aed1;
+  color: white;
+  padding: 1px 8px 4px 5px;
+  border-radius: 5px;
 }
 .teiFragment .center {
   text-align: center;

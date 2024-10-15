@@ -18,34 +18,6 @@
 		}
 
 
-
-		// function test(){
-
-		// 	$this->_mvc->segment(1) ;// url segments: 1 is first in route
-
-		// 	try {
-		// 		$query = "SELECT * FROM topics WHERE name LIKE :term";
-
-		// 		$this->DB = new \MHS\Needle(self::DATABASE, self::USER, self::PASSWORD);		
-		// 		$this->DB->prepQuery($query);
-		// 		$this->DB->setParam(":term", $term);
-		// 		// $this->DB->setParam(":project_id", \MHS\Env::PROJECT_ID);
-
-		// 		$this->DB->runQuery();
-		// 		$rows = $this->DB->getAllRows();
-		// 		print_r($rows);
-		// 		return $rows;
-
-		// 	} catch(\Exception $e){
-		// 		$errors[] = $e->getMessage();
-		// 		if(count($errors)){
-		// 			\MHS\Sniff::print_r($errors);
-		// 		}
-		// 		return false;
-		// 	}
-
-		// }
-
 		function validateTopicName($inputString) {
 			$uncapitalizedArr = array("and", "as", "as if", "as long as", "at", "but", "by", "even if", "for", "from", "if", "if only", "in", "into", "like", "near", "now that", "nor", "of", "off", "on", "on top of", "once", "onto", "or", "out of", "over", "past", "so", "so that", "than", "that", "the", "till", "to", "up", "upon", "v.", "with", "when", "yet");
 		
@@ -284,13 +256,19 @@
 				return false;
 			}
 
-			$query = "UPDATE topics SET see_id=':see', consensusDefinition=':consensusDefinition', topic_name=':topicName' WHERE id=':topicId'";
+			$seeClause = "";
+
+			if($see != ""){
+				$seeClause = "see_id=:see,";
+			}
+
+			$query = "UPDATE topics SET {$seeClause} consensusDefinition=:consensusDefinition, topic_name=:topicName WHERE id=:topicId";
 
 			try{
 				$this->DB->prepQuery($query);
-				if (strlen($topicName) > 0) $this->DB->setParam(":topicName", $topicName);
-				if (strlen($see) > 0) $this->DB->setParam(":see", $see);
-				if (strlen($consensusDefinition) > 0) $this->DB->setParam(":consensusDefinition", $consensusDefinition);
+				$this->DB->setParam(":topicName", $topicName);
+				if(!empty($seeClause)) $this->DB->setParam(":see", $see);
+				$this->DB->setParam(":consensusDefinition", $consensusDefinition);
 				$this->DB->setParam(":topicId", $topicId);
 
 

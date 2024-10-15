@@ -5,7 +5,6 @@
 	require_once(SERVER_WWW_ROOT . "html/publications/template/views/head.php");
 ?>
 	<script src="/publications/template/js/persrefhunter.js?v=<?=$FRONTEND_VERSION;?>"></script>
-	<script src="/publications/template/js/highlighter.js?v=<?=$FRONTEND_VERSION;?>"></script>
 	<script src="/solr/solr-direct.js?v=<?=$FRONTEND_VERSION;?>"></script>
 	<link rel="stylesheet" href="/publications/template/css/theme1/tei.css?v=<?=$FRONTEND_VERSION;?>" />
 </head>
@@ -70,6 +69,7 @@
 
 	<script src="/lib/openseadragon4.1/openseadragon.min.js"></script>
 	<script src="/lib/dragster.js?v=<?=$FRONTEND_VERSION;?>"></script>
+	<script src="/lib/Highlighter.js?v=<?=$FRONTEND_VERSION;?>"></script>
 	<script type="module">
 		import { createApp } from '/lib/petite-vue.es.js?v=<?=$FRONTEND_VERSION;?>';
 		import { DocumentEnhancements} from "/publications/template/js/document-vue.js?v=<?=$FRONTEND_VERSION;?>";
@@ -89,6 +89,7 @@
 				let placementEl = document.getElementById("metadata");
 				app.moveDocback(placementEl);
 				app.moveInsertions(placementEl);
+				//app.highlight();
 			}
 		}
 

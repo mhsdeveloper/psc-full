@@ -12,3 +12,5 @@
 	$mvc->route("/document/checkrevdesc", "Customize\CoopDocChecks@checkRevDesc");
 
 	$mvc->route("/document/getsubjects", "Customize\CoopDocChecks@getSubjects");
+
+	$mvc->route("/document/addimageattrs", "Customize\CoopImageTools@addPBAttrs");

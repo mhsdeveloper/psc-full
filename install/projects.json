@@ -2,6 +2,9 @@
 	"0": {
 		"name": "All Editions", "abbr": "coop", "docListShowDate": 1
 	},
+	"1": {
+		"name": "Example Project", "aabr": "exa", "docListShowDate": 1
+	},
 
 	"nameToID": {
 		"coop": 0

@@ -55,16 +55,49 @@ const DocumentEnhancements = {
 
 
 	moveDocback(el){
+		//first is there a source note?
+		let source = document.querySelector("note[type=source]");
+		if(source){
+			let edhead = document.createElement("h2");
+			edhead.className = "docbackHeading";
+			edhead.innerHTML = "Source Notes";
+			el.appendChild(edhead);
+			el.appendChild(source);
+		}
+
 		let docback = document.querySelector("div[type=docback]");
 		if(!docback) return;
 
-		let edhead = document.createElement("h2");
-		edhead.className = "docbackHeading";
-		docback.id = "docback";
-		edhead.setAttribute("tabindex", "0");
-		edhead.innerHTML = "Notes";
-		el.appendChild(edhead);
-		el.appendChild(docback);
+		let othernotes = docback.querySelectorAll("note");
+
+		if(othernotes && othernotes.length){
+			let edhead = document.createElement("h2");
+			edhead.className = "docbackHeading";
+			edhead.innerHTML = "Editor's Notes";
+			el.appendChild(edhead);
+
+			for(let note of othernotes){
+				el.appendChild(note);
+				let type = note.getAttribute("type");
+				if(type == "fn"){
+					note.classList.add("jumpback");
+
+					el.addEventListener("click", function(e){
+						e.stopPropagation();
+						let el = e.target;
+						while(el && el.nodeName != "NOTE") el = el.parentNode;
+						let selector = "a.noteRef[data-fnid='" + el.id + "']";
+						let ref = document.querySelector(selector);
+						if (ref){
+							let rect = ref.getBoundingClientRect();
+							window.scrollTo(0, rect.y + window.scrollY - 100);
+							setTimeout(() => {ref.classList.add("reveal");}, 700);
+							setTimeout(() =>{ref.classList.remove("reveal")}, 8000);
+						}
+					});
+				}
+			}
+		}
 	},
 
 
@@ -80,6 +113,28 @@ const DocumentEnhancements = {
 					if(ref.classList.contains("open")) ref.classList.remove("open");
 					else ref.classList.add("open");
 				})
+			}
+		}
+	},
+
+	highlight(){
+		
+		const searchParams = new URLSearchParams(location.href);
+		// Iterating the search parameters
+		for (const p of searchParams) {
+			if(p[0] == "ss"){
+				let words = p[1].split("|");
+				let hilite = null;
+
+				for(let i=0;i<words.length; i++){
+					if(i==0) hilite = new Highlighter("document", "div");
+					else hilite.reset();
+
+					hilite.highlight(words[i]);
+				}
+
+				hilite.apply();
+				break;
 			}
 		}
 	},

@@ -74,8 +74,14 @@ function PageImages(props) {
 			let teiID = "";
 			const doc = document.getElementById('document');
 			if(doc){
-				let div = doc.getElementsByTagName('div')[0];
-				teiID = div.id;
+				//for most single doc per xml setups
+				let div = doc.getElementsByTagName('tei');
+				if(!div || div.length == 0){
+					//this is for multi doc per xml setups; find's first div type="entry" etc.
+					div = doc.getElementsByTagName('div');
+				}
+				let el = div[0];
+				teiID = el.id;
 			}
 
 

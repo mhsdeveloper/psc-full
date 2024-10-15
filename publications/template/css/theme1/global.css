@@ -1391,7 +1391,7 @@ button.expand {
 }
 .metadataSection .docbackHeading {
   display: block;
-  padding: 6rem 0 1rem 0;
+  padding: 2rem 0 1rem 0;
   padding-bottom: 0;
   margin: 0;
   font-family: var(--psc-font-main);
@@ -1401,74 +1401,82 @@ button.expand {
   border-bottom: 1px solid black;
   text-transform: uppercase;
 }
-.metadataSection div[type=docback] note {
-  padding: 0 0 1rem 0;
+.metadataSection .metadata note {
+  padding: 0;
 }
-.metadataSection div[type=docback] note[type=source] {
+.metadataSection .metadata note[type=source] {
   padding-top: 1rem;
   display: block;
   column-count: 2;
 }
-.metadataSection div[type=docback] note[type=source] note {
+.metadataSection .metadata note[type=source] note {
   display: block;
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
-.metadataSection div[type=docback] note[type=doctype]::before {
+.metadataSection .metadata note[type=doctype]::before {
   content: "Document type";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=repository]::before {
+.metadataSection .metadata note[type=repository]::before {
   content: "Repository";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=collection]::before {
+.metadataSection .metadata note[type=collection]::before {
   content: "Collection";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=condition]::before {
+.metadataSection .metadata note[type=condition]::before {
   content: "Condition";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=address]::before {
+.metadataSection .metadata note[type=address]::before {
   content: "Address";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=endorsement]::before {
+.metadataSection .metadata note[type=endorsement]::before {
   content: "Endorsement";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=notation]::before {
+.metadataSection .metadata note[type=notation]::before {
   content: "Notation";
   text-transform: uppercase;
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
 }
-.metadataSection div[type=docback] note[type=fn] label {
+.metadataSection .metadata note[type=fn] label {
   float: left;
   padding: 3px 0 0 3px;
 }
-.metadataSection div[type=docback] note[type=fn] p {
+.metadataSection .metadata note[type=fn] p {
   margin: 0 0 1rem 2rem;
+}
+.metadataSection .metadata note.jumpback label {
+  padding-right: 16px;
+  background: url(/publications/template/images/scroll-arrow.svg) no-repeat 100% 50%;
+  font-size: 20px;
+  color: var(--psc-color-link);
+  background-size: 17px;
+  margin-right: 0.5rem;
 }
 
 .sidebarContextualizer {
@@ -1485,6 +1493,15 @@ button.expand {
   padding: 1rem;
   margin-bottom: 0;
   line-height: 1.3;
+}
+.sidebarContextualizer label {
+  padding: 8px;
+  position: relative;
+  top: 10px;
+}
+.sidebarContextualizer p {
+  padding: 0 1rem 1rem 2rem;
+  margin: 0;
 }
 .sidebarContextualizer .nameDetails {
   padding-top: 1rem;

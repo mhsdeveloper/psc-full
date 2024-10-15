@@ -319,6 +319,31 @@
 
 
 
+	App.methods.addImageAttrs = function(doc) {
+		this.auditTitle = "Adding pb attributes for images for " + doc.filename;
+		this.auditText = "";
+		this.clearLog();
+
+		if(doc.checked_out == "1"){
+			this.auditText = "Can't edit elements for a document that is checked out.";
+			this.showStatus = true;
+			return;
+		}
+
+		Yodude.send(Env.baseURL + "document/addimageattrs?f=" + doc.filename).then((resp) => {
+			if(resp.errors && resp.errors.length){
+				this.logError(resp.errors);
+				return false;
+			}
+
+			this.auditText = resp.data.messages;
+			this.showStatus = true;
+		});
+	}
+
+
+
+	
 	/******************************************************************
 		This function get's call by the vue app at the mounted 
 		lifecycle	 

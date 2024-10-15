@@ -18,6 +18,7 @@ sniffout.txt
 
 mhs-api/.env
 
+customizations/
 projects/
 
 publications/pub/schema

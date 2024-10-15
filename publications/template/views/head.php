@@ -5,7 +5,7 @@
  */
 
 	//website cache buster
-	$FRONTEND_VERSION = 1955;
+	$FRONTEND_VERSION = 1966;
 
 ?>
 	<?php 
