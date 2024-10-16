@@ -55,7 +55,7 @@
 
 	</script>
 	<!-- Google tag (gtag.js) -->
-	<?php if(!empty($GA_ACCOUNT_NO)){ ?>
+	<?php if(!empty(GA_ACCOUNT_NO) && (GA_ACCOUNT_NO != "[[EDIT-THIS-GANO]")){ ?>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=<? echo GA_ACCOUNT_NO;?>"></script>
 		<script>
 		window.dataLayer = window.dataLayer || [];

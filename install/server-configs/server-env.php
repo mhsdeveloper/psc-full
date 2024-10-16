@@ -9,7 +9,7 @@ define("MAINTENANCE_TOOLS", false); //for wetvac and anything in html/tools
 
 
 
-define("COOP_NAME", "YOUR COOP NAME HERE");
+define("COOP_NAME", "[[EDIT-THIS-COOP-NAME]]");
 define("SERVER_WWW_ROOT", "/psc/www/");
 define("SERVER_HTML_ROOT", "/psc/www/html/");
 define("PROJECTS_FOLDER", "projects");
@@ -22,13 +22,13 @@ define("MYSQL_USER_PASSWORD", "[[EDIT-THIS-MYSQL-PASSWORD]]");
 
 //this is the id for your Google Analytics account
 // make the acct # empty to skip using google Analytics
-define("GA_ACCOUNT_NO", "G-LCZ123456");
+define("GA_ACCOUNT_NO", "[[EDIT-THIS-GANO]]");
 
 
 //the domain name of your public site
-define("COOP_LIVE_DOMAIN", "www.shinynewcoop.org");
+define("COOP_LIVE_DOMAIN", "[[EDIT-THIS-DOMAIN-NAME]]");
 //the ip address of your public site
-define("COOP_LIVE_IP", "12.34.56.78");
+define("COOP_LIVE_IP", "[[EDIT-THIS-IP]]");
 //the ip address of an external testing site, if you use it
 define("COOP_TEST_IP", "12.34.56.67");
 //the ip address of a local testing virtual box or other server on your local PC

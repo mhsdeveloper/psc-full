@@ -176,6 +176,16 @@ We'll add the various web-services users to your user group. Nginx and PHP-fpm b
     sudo usermod -a -G your-user-name-here www-data
 
 
+### Configure PHP
+
+Run our configuration script to append the necessary settings to the php.ini file:
+
+	cd /psc/www/html/install/scripts
+	sudo bash ./configure-php.sh
+
+Restart php:
+
+	sudo service php8.3-fpm restart
 
 
 ### Configure Nginx
@@ -222,9 +232,10 @@ Answer the question as follows:
 
 Copy server-env.php and environment.php to /psc/www
 
-	cp /psc/www/html/install/server-env.php /psc/www/
-	cp /psc/www/html/install/environment.php /psc/www/
-	cp /psc/www/html/install/apikeys.php /psc/www/
+	cp /psc/www/html/install/server-configs/server-env.php /psc/www/
+	cp /psc/www/html/install/server-configs/environment.php /psc/www/
+	cp /psc/www/html/install/server-configs/apikeys.php /psc/www/
+	cp /psc/www/html/install/server-configs/wp-config.php /psc/www/html/
 
 
 
@@ -242,17 +253,6 @@ If you only have a live server, then set COOP_SINGLE_INSTALL to true.
 Lastly, you can enter your Google Analytics tracking ID by changing GA_ACCOUNT_NO to that ID.
 
 
-
-### Configure PHP
-
-Run our configuration script to append the necessary settings to the php.ini file:
-
-	cd /psc/www/html/install/scripts
-	sudo bash ./configure-php.sh
-
-Restart php:
-
-	sudo service php8.3-fpm restart
 
 
 ### Configure Wordpress
