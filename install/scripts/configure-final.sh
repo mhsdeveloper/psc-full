@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "\n";
+echo "";
 
 echo "This configuration script helps configure MYSQL, Wordpress, and the"
 echo "settings for the PSC Coop Server software."
 echo "To use this successfully, you will need your site's domain name."
 
-echo "\n";
+echo "";
 
 scriptuser=`whoami`
 
@@ -24,12 +24,13 @@ read -p "Confirm the password: " password2
 
 if [ "$password" != "$password2" ]; then
 
-	echo "Sorry, passwords did not match; please run the script again.\n";
+	echo "Sorry, passwords did not match; please run the script again."
+	echo ""
 	exit
 
 fi
 
-echo "\nCreating databases and permissions...\n"
+echo "Creating databases and permissions..."
 
 sudo mysql -e "CREATE USER $user@localhost"
 sudo mysql -e "ALTER USER $user@localhost identified by '$password'"
@@ -42,12 +43,19 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON frontend.* TO $user@localhost;"
 sudo mysql -e "flush privileges;"
 
 
-echo "\nAdjusting server-env.php file...\n"
+echo ""
+echo "Adjusting server-env.php file..."
+echo ""
 
-sed -i "s_[[EDIT-THIS-MYSQL-USER]]_$user_g" /psc/www/server-env.php
+sed -i "s_\[\[EDIT-THIS-MYSQL-USER\]\]_$user_g" /psc/www/server-env.php
+
+exit
+
 sed -i "s_[[EDIT-THIS-MYSQL-PASSWORD]]_$password_g" /psc/www/server-env.php
 
-echo "\nAdjusting wp-config.php file...\n"
+echo ""
+echo "Adjusting wp-config.php file..."
+echo ""
 
 sed -i "s_[[EDIT-THIS-MYSQL-USER]]_$user_g" /psc/www/html/wp-config.php
 sed -i "s_[[EDIT-THIS-MYSQL-PASSWORD]]_$password_g" /psc/www/html/wp-config.php
