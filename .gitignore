@@ -31,6 +31,8 @@ wp*.php
 xmlrpc.php
 ./index.php
 
+!install/server-configs/wp-config.php
+
 
 #legacy development stuff
 syncwpfiles.sh

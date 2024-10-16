@@ -47,18 +47,15 @@ echo ""
 echo "Adjusting server-env.php file..."
 echo ""
 
-sed -i "s_\[\[EDIT-THIS-MYSQL-USER\]\]_$user_g" /psc/www/server-env.php
-
-exit
-
-sed -i "s_[[EDIT-THIS-MYSQL-PASSWORD]]_$password_g" /psc/www/server-env.php
+sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/server-env.php
+sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/server-env.php
 
 echo ""
 echo "Adjusting wp-config.php file..."
 echo ""
 
-sed -i "s_[[EDIT-THIS-MYSQL-USER]]_$user_g" /psc/www/html/wp-config.php
-sed -i "s_[[EDIT-THIS-MYSQL-PASSWORD]]_$password_g" /psc/www/html/wp-config.php
+sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/html/wp-config.php
+sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/html/wp-config.php
 
 
 read -p "What is the name of your organization? Enter the full name: " coopname
@@ -66,10 +63,10 @@ read -p "What is the URL for your server? Begin with www: " domainname
 read -p "If you are using Google Analytics, enter the Google ID, or leave blank to not use GA: " gano
 
 
-sed -i "s_[[EDIT-THIS-COOP-NAME]]_$coopname_g" /psc/www/server-env.php
-sed -i "s_[[EDIT-THIS-DOMAIN-NAME]]_$domainname_g" /psc/www/server-env.php
-sed -i "s_[[EDIT-THIS-DOMAIN-NAME]]_$domainname_g" /psc/www/html/wp-config.php
-sed -i "s_[[EDIT-THIS-GANO]]_$gano_g" /psc/www/server-env.php
+sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/server-env.php
+sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/server-env.php
+sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/wp-config.php
+sed -i "s|\[\[EDIT-THIS-GANO\]\]|$gano|g" /psc/www/server-env.php
 
 echo "\nAll set!.\n"
 
