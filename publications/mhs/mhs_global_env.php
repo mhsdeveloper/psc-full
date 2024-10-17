@@ -10,10 +10,6 @@
 
 
 
-	if(COOP_SINGLE_INSTALL) $serverAddr  = "SINGLE_INSTALL";
-	else $serverAddr = $_SERVER['SERVER_ADDR'];
-
-
 	if($serverAddr == COOP_TEST_IP){
 
 		//test server

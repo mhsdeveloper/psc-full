@@ -27,8 +27,6 @@ define("GA_ACCOUNT_NO", "[[EDIT-THIS-GANO]]");
 
 //the domain name of your public site
 define("COOP_LIVE_DOMAIN", "[[EDIT-THIS-DOMAIN-NAME]]");
-//the ip address of your public site
-define("COOP_LIVE_IP", "[[EDIT-THIS-IP]]");
 //the ip address of an external testing site, if you use it
 define("COOP_TEST_IP", "12.34.56.67");
 //the ip address of a local testing virtual box or other server on your local PC
@@ -37,10 +35,5 @@ define("LOCAL_TEST_IP", "192.168.56.1");
 
 //If Java is not in your system's path, specify it's path here
 define("ALT_JAVA_PATH", "/usr/bin/java");
-
-//set this to true if you only run a live site and don't need to test code on a testing server
-// OR if you don't know what your IP is.
-define("COOP_SINGLE_INSTALL", false);
-
 
 

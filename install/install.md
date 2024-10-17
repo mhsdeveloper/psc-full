@@ -16,6 +16,7 @@ The installation process involves the following main steps:
 4. Configuring the various software to work together.
 
 
+
 ## Server Requirements
 
 Linux server. The install instructions were tested with the following specs, but others may also work.
@@ -28,6 +29,7 @@ Linux server. The install instructions were tested with the following specs, but
 * Open JDK (version that ships with Ubuntu)
 
 As you can see, really all you need is Ubuntu 24.04 LTS, and the rest are all provided by the distribution.
+
 
 
 ## Install services provided by the OS distribution
@@ -62,6 +64,8 @@ Our github repository is at: https://github.com/mhsdeveloper/psc-full
 
 You need to know your developer username; type "whoami" to see it. 
 
+
+
 ### To Use git:
 
 1. use the command to install git:
@@ -93,6 +97,8 @@ You need to know your developer username; type "whoami" to see it.
 
 ## SOLR
 
+
+
 ### Download and install
 
 Apache Solr is an open-source search engine that we use for searching documents and browsing metadata. It is probably the best sofware these is for these features, which is why we chose to integrate it with our system despite the added complexity of installation.
@@ -106,6 +112,8 @@ Our setup was tested with Solr version 8.11.3. It is not the latest, but it is t
 If Solr starts but fails it's ok, we're not done yet; just press CTRL-C and continue with these instructions.
 
 If you have different installation needs, read SOLR's documentation for installing as a service; see their page "Taking Solr to Production".
+
+
 
 ### Configure SOLR
 
@@ -134,6 +142,8 @@ Restart SOLR:
 
 	sudo service solr restart
 
+
+
 ### IMPORTANT SECURITY NOTE, FIREWALL SETUP
 
 You should make sure your host/network is blocking external access to port 8983, which SOLR uses. That way, only the server itself (PHP) can access SOLR directly, but the outside world cannot. THIS IS A VITAL STEP: leaving the Solr Admin UI and API open means that anyone that happens upon your site could change or delete your data. It may also expose your server to vulnerabilities via Solr.  It is also possible to configure your OS to block that port if your host ISP does not offer this service.
@@ -150,6 +160,7 @@ Then, to block access to Solr from the outside world:
 	sudo ufw deny 8983
 
 
+
 ## Install Wordpress
 
 We use Wordpress to manage user login, and to serve the static pages, like the homepage and about pages, things like that. See separate documentation for using a different CMS as your frontend.
@@ -159,7 +170,6 @@ We've included the most recent version of Wordpress to be tested with the Coop s
 	cd /psc/www/html/install
 	unzip wordpress-6.6.1.zip
 	mv wordpress/* ../
-
 
 
 
@@ -176,6 +186,7 @@ We'll add the various web-services users to your user group. Nginx and PHP-fpm b
     sudo usermod -a -G your-user-name-here www-data
 
 
+
 ### Configure PHP
 
 Run our configuration script to append the necessary settings to the php.ini file:
@@ -186,6 +197,7 @@ Run our configuration script to append the necessary settings to the php.ini fil
 Restart php:
 
 	sudo service php8.3-fpm restart
+
 
 
 ### Configure Nginx
@@ -224,7 +236,6 @@ Answer the question as follows:
 	Disallow remote root login: Yes
 	Remove test database: Yes
 	Reload privileges: Yes
-	
 
 
 
@@ -237,21 +248,13 @@ Copy server-env.php and environment.php to /psc/www
 	cp /psc/www/html/install/server-configs/apikeys.php /psc/www/
 	cp /psc/www/html/install/server-configs/wp-config.php /psc/www/html/
 
+Run our script to configure the server environment.
 
+	bash /psc/www/html/install/scripts/configure-env.sh
 
-
-Next, you need to open server-env.php ( in /psc/www ) and change a number of the constants that define your setup. Specifically, you must change these definitions to match your setup:
-
-	COOP_NAME, MYSQL_USER, MYSQL_USER_PASSWORD, COOP_LIVE_DOMAIN, COOP_LIVE_IP
-
-If you use a testing server and/or a virtualbox for a local testing installation, also change these constants:
+If you use a testing server and/or a virtualbox for a local testing installation, also change these constants in the server-env.php file:
 
 	COOP_TEST_IP, LOCAL_TEST_IP
-
-If you only have a live server, then set COOP_SINGLE_INSTALL to true.
-
-Lastly, you can enter your Google Analytics tracking ID by changing GA_ACCOUNT_NO to that ID.
-
 
 
 
