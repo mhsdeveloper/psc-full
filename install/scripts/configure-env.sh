@@ -85,6 +85,10 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON frontend.* TO $user@localhost;"
 sudo mysql -e "flush privileges;"
 
 
+sudo mysql psccore < psccore-start.sql
+sudo mysql docmanager < docmanager-start.sql
+
+
 echo ""
 echo "Adjusting server-env.php file..."
 echo ""

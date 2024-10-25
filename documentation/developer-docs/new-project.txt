@@ -5,6 +5,7 @@
 -add them to the db: psccore.projects with a mysql insert statement such as:
 
 	INSERT INTO projects SET name="Papers of Joe Smith";
+	
 
 -add them the /html/publications/projects/projects.json; adjust any other properties there, including the id which will be assigned by MYSQL in the previous step. You can query MYSQL to find the id:
 
@@ -16,7 +17,7 @@
 	- set project_id from the id in mysql psccore.projects
 	- make sure the project short name is the same as the folder name
 
--make sure the folowing folders are owned by www-data
+-make sure the following folders are owned by www-data
 
 	[projectdir]/images
 	[projectdir]/includes

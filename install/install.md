@@ -191,8 +191,7 @@ We'll add the various web-services users to your user group. Nginx and PHP-fpm b
 
 Run our configuration script to append the necessary settings to the php.ini file:
 
-	cd /psc/www/html/install/scripts
-	sudo bash ./configure-php.sh
+	sudo bash /psc/www/html/install/scripts/configure-php.sh
 
 Restart php:
 
@@ -211,9 +210,8 @@ First, find the file install/server-configs/wpmu.conf. Change the line after the
 Change each occurance of "mydomain.org" to your actuall domain name. Note there is a version with and without the leading "www." If you are just using an IP or localhost, don't use the www. version.
 
 Run our configuration script, which assumes you're using php 8.3-fpm, as in the above. If you're using a different version, edit the nginx/sites-available/wpmu.conf to reflect which php (you'll see php8.3 mentioned, change that. You can discover which php you're running with: sudo apt list --installed php* )
-
-	cd /psc/www/html/install/scripts
-	sudo bash ./configure-nginx.sh
+ 
+	sudo bash /psc/www/html/install/scripts/configure-nginx.sh
 
 If you are using SSL, please read ssl-in-nginx.md for further require steps.
 
@@ -237,6 +235,7 @@ Answer the question as follows:
 	Remove test database: Yes
 	Reload privileges: Yes
 
+Install the
 
 
 ### Copy and edit environment files
@@ -246,11 +245,12 @@ Copy server-env.php and environment.php to /psc/www
 	cp /psc/www/html/install/server-configs/server-env.php /psc/www/
 	cp /psc/www/html/install/server-configs/environment.php /psc/www/
 	cp /psc/www/html/install/server-configs/apikeys.php /psc/www/
-	cp /psc/www/html/install/server-configs/wp-config.php /psc/www/html/
 
-Run our script to configure the server environment.
+Run our script to configure the server environment. This script also setups of the initial database structures.
 
 	bash /psc/www/html/install/scripts/configure-env.sh
+
+Keep a note of the mysql user and password you created; wordpress will need to know these.
 
 If you use a testing server and/or a virtualbox for a local testing installation, also change these constants in the server-env.php file:
 
@@ -260,14 +260,14 @@ If you use a testing server and/or a virtualbox for a local testing installation
 
 ### Configure Wordpress
 
-Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you created above. Wordpress may ask you to create a wp-config.php file that should go at the root of your website, sibling to the wp-admin and wp-content folders.
+Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you created above. The name of the database to use is "frontend". Wordpress may ask you to create a wp-config.php file that should go at the root of your website, sibling to the wp-admin and wp-content folders.
 
 Next, let's move our Coop-specific Wordpress plugin and theme into place:
 
 	cd /psc/www/html/install
 	cp -r wpfiles/* /psc/www/html/wp-content/
 
-Next we need to enable the Multisite feature of Wordpress. This allows you to have a central site for your entire publishing system, and separate individual sites for each project or publication. Open up the wp-config.php file that was create, and add these lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
+Next we need to enable the Multisite feature of Wordpress. This allows you to have a central site for your entire publishing system, and separate individual sites for each project or publication. Open up the wp-config.php file that was create in /psc/www/html/, and add the following lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
 
 	/* Multisite */
 	define( 'WP_ALLOW_MULTISITE', true );
@@ -276,7 +276,7 @@ Next we need to enable the Multisite feature of Wordpress. This allows you to ha
 
 Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to and a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
 
-Logout and login to see the changes.
+Logout and login to see the changes. Now, at the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" which is where you can add new WordPress sites for the projects in your cooperative. Note: you will also need to follow the instructions (further down on this document) for creating the XML and file structure.
 
 Lastly, we need to enable our plugin and theme to be available to all sites in the Wordpress multisite install. Login to Wordpress, and at top corner under "My Sites", find "Network Admin" and "Themes". In the page that loads, make sure the "psc1" theme is enable for the network.
 
@@ -293,6 +293,14 @@ We recommend disabling most of the dashboard items in Wordpress. From the dashbo
 ### Setup initial projects/editions directory and sample project/edition
 
 
+
+## Creating a new projects
+
+All projects are comprised of two parts: 1) a Wordpress "site" that is the home page and static pages of a project's website, and 2) the XML and file structures that hold the actual edition content. Each project in the Coop has a Wordpress site and a corresponding directory structure. The steps below are intended for your Coop's wev developer.
+
+### Prepare the Wordpress portion
+
+Login to Wordpress as the main admin account. At the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" to add new sub site of the Network. In the form shown, for the first field "Site Address (URL)" 
 
 
 
