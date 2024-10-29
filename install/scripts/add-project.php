@@ -21,15 +21,18 @@
 
 	for($i = 0; $i<10; $i++){
 		echo "\n";
-		echo "Choose an abbreviation for the new project. This will also be the subpath of the project's URL, for example a project with the abbreviation 'gma' will have a home page at 'www.mydomain.org/gma'\n";
-		echo "Use3-6 lowercase letters only, no spaces or other characters. The abbreviation must be unique. Currently the following are in use:\n";
+		echo "Choose an abbreviation for the new project. This will also be the subpath of the project's URL, for example:\n";
+		echo "a project with the abbreviation 'gma' will have a home page at 'www.mydomain.org/gma'\n";
+		echo "Use 3-6 lowercase letters only, no spaces or other characters.\n";
+		echo "The abbreviation must be unique. Currently the following are in use:\n";
 		echo implode(" | ", $dirs);
+		echo "\n";
 
 		$line = readline("Enter abbreviation: ");
 		readline_add_history($line);
 		$abbr = readline_list_history()[0];
 
-		if(!preg_match("/[a-z]{3,6}/")){
+		if(!preg_match("/[a-z]{3,6}/", $abbr)){
 			echo "\nThat abbreviation is not valid.\n";
 			continue;
 		}
