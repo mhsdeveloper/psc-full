@@ -18,8 +18,7 @@
 		const PROJECT_FULLNAME = "[[EDIT-THIS-COOP-NAME]]";
 		const PROJECT_HTML_TITLE = "[[EDIT-THIS-COOP-NAME]]";
 		const CSS_FILENAME = "example.css";
-		const GA_ACCOUNT = "UA-147994-1";
-		const GA_DOMAIN = "[[EDIT-THIS-DOMAIN-NAME]]";
+
 		/*::END-FROM-CONFIG */
 
 		const FILENAME_PATTERN = "/(CMS[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-zA-Z0-9\-]+\.xml)/";

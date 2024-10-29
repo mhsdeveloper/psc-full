@@ -4,6 +4,6 @@
 	$APIKEYS = [
 
 		//sample
-		"f7ebbddasaawsfadfsdfgsrdfhgwafas5f0ebac454e5" => ["docsPerRequest" => "100"]
+		"anylonguniquestringgoeshere192be9edfb389rfbn2938b3" => ["docsPerRequest" => "100"]
 
 	];

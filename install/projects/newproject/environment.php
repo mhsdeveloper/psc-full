@@ -16,10 +16,8 @@
 
 		/*::FROM-CONFIG */
 		const PROJECT_FULLNAME = "[[FULL-NAME-HERE]]";
-		const PROJECT_HTML_TITLE = "[[FULL-HTML-TITLE-HERE]]";
+		const PROJECT_HTML_TITLE = "[[FULL-NAME-HERE]]";
 		const CSS_FILENAME = "example.css";
-		const GA_ACCOUNT = "";
-		const GA_DOMAIN = "www.masshist.org";
 		/*::END-FROM-CONFIG */
 
 		const FILENAME_PATTERN = "/[a-zA-Z0-9\-]+\.xml/";

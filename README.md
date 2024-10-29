@@ -16,7 +16,7 @@ As presented here, the System integrates very loosely with WordPress which then 
 
 ## Installation 
 
-The System has been tested to run on Ubuntu Linux with nginx, php-fpm, mysql, and apache-solr. A complete and detailed guide to installation can be found in the server-install.md file, in the install directory.
+The System has been tested to run on Ubuntu Linux with nginx, php-fpm, mysql, and apache-solr. A complete and detailed guide to installation can be found in the install.md file, in the install directory.
 
 ## Contact
 

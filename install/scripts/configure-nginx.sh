@@ -18,7 +18,7 @@ fi
 
 echo ""
 echo "You entered $domainname for your website's domain name."
-echo "You entere $phpversion for your php version."
+echo "You entered $phpversion for your php version."
 echo ""
 read -n1 -rsp "If you wish to change anything, press CTRL-C to abort and run the script again. Press anything else to continue ... " key
 

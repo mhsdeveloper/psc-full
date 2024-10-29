@@ -13,11 +13,12 @@ tools/excel
 errors.txt
 sniff_out.txt
 sniffout.txt
+*.log
+*.cache
+
 
 #install specifics
-
 mhs-api/.env
-
 customizations/
 projects/
 publications/pub/schema
