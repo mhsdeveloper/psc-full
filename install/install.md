@@ -8,14 +8,6 @@ The setup assumes you are familiar with the Linux command line, as well as with 
 
 This guide takes you through each of the steps and shows the necessary terminal commands, hopefully providing all the necessary context. If you follow the setup as described here, everything should go well. The choice was made to do this instead of create an install script for several reasons: 1) creating an install script is tricky and needs to be maintained; 2) running through all the steps makes it clear what is going on, so that individual steps can be adjusted or adapted; 3) following from reason 2, if software or server environments change, having the steps laid out (rather than hidden behind a script and it's UI) will make future adjustments easier. However, for some of the trickier steps, we've created individual scripts for appending or editing config files, so that in all, only simple command line .. uh ... commands are needed.
 
-The installation process involves the following main steps:
-
-1. Installing services that are provided by the OS distribution
-2. Downloading the Coop Publications Software
-3. Downloading and installing runtime software applications: SOLR, Wordpress
-4. Configuring the various software to work together.
-
-
 
 ## Server Requirements
 
@@ -126,14 +118,14 @@ Create the initial solr storage collection:
 	sudo whoami
 	su solr -c "/opt/solr/bin/solr create -c publications"
 
-If asked, entered your main password for the sudo whoami command. Use the solr user password for the second command. For serious Linux users: we run the sudo whoami command to make sure the installer has recently "sudo'd". This effectively separates the two passwords, which can otherwise be very confusing.
+If asked, entered your main password for the sudo whoami command. Use the solr user password for the second command. Why sudo whoami? By running the sudo whoami command first we can make sure the installer has recently "sudo'd". This effectively separates the two passwords, which can otherwise be very confusing.
 
 Solr stores its config, index, and other data in /var/solr/data/publications/. In that folder, we need to remove the managed-schema and copy over our own schema for better performance:
 
 	sudo rm /var/solr/data/publications/conf/managed-schema
 	sudo cp /psc/www/html/install/server-configs/schema.xml /var/solr/data/publications/conf/
 
-Run our configuration script, which which take care of some trickier changes to solrconfig.xml:
+Run our configuration script, which will take care of some trickier changes to solrconfig.xml:
 
 	cd /psc/www/html/install
 	sudo bash ./scripts/configure-solr.sh
@@ -172,14 +164,7 @@ We've included the most recent version of Wordpress to be tested with the Coop s
 	mv wordpress/* ../
 
 
-
-## Connecting all the pieces
-
-Lastly, we need to configure all the parts of the system.
-
-
-
-### Setup web server user
+## Setup web server user
 
 We'll add the various web-services users to your user group. Nginx and PHP-fpm both run as the user www-data, so we add them to your user group:
 
@@ -187,7 +172,7 @@ We'll add the various web-services users to your user group. Nginx and PHP-fpm b
 
 
 
-### Configure PHP
+## Configure PHP
 
 Run our configuration script to append the necessary settings to the php.ini file:
 
@@ -199,17 +184,11 @@ Restart php:
 
 
 
-### Configure Nginx
+## Configure Nginx
 
 The main web service is Nginx, which listens to all incoming traffic. We configure it to connect to each of the components of the system. 
 
-First, find the file install/server-configs/wpmu.conf. Change the line after the comment "EDIT HERE", the line reads:
-
-	server_name  mydomain.org www.mydomain.org;
-
-Change each occurance of "mydomain.org" to your actuall domain name. Note there is a version with and without the leading "www." If you are just using an IP or localhost, don't use the www. version.
-
-Run our configuration script, which assumes you're using php 8.3-fpm, as in the above. If you're using a different version, edit the nginx/sites-available/wpmu.conf to reflect which php (you'll see php8.3 mentioned, change that. You can discover which php you're running with: sudo apt list --installed php* )
+Run our configuration script, which assumes you're using php 8.3-fpm, as in the above. You can discover which php you're running with: sudo apt list --installed php*
  
 	sudo bash /psc/www/html/install/scripts/configure-nginx.sh
 
@@ -235,18 +214,11 @@ Answer the question as follows:
 	Remove test database: Yes
 	Reload privileges: Yes
 
-Install the
 
 
-### Copy and edit environment files
+### Configure the server environment
 
-Copy server-env.php and environment.php to /psc/www
-
-	cp /psc/www/html/install/server-configs/server-env.php /psc/www/
-	cp /psc/www/html/install/server-configs/environment.php /psc/www/
-	cp /psc/www/html/install/server-configs/apikeys.php /psc/www/
-
-Run our script to configure the server environment. This script also setups of the initial database structures.
+Run our script to configure the server environment. This script also: creates the initial database structures; creates initial project folders.
 
 	bash /psc/www/html/install/scripts/configure-env.sh
 
@@ -274,7 +246,7 @@ Next we need to enable the Multisite feature of Wordpress. This allows you to ha
 	/* more code here */
 
 
-Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to and a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
+Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to add a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
 
 Logout and login to see the changes. Now, at the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" which is where you can add new WordPress sites for the projects in your cooperative. Note: you will also need to follow the instructions (further down on this document) for creating the XML and file structure.
 

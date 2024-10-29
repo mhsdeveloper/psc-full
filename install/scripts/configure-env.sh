@@ -25,9 +25,9 @@
 
 echo "";
 
-echo "This configuration script helps configure MYSQL, Wordpress, and the"
+echo "This configuration script helps configure MYSQL, Wordpress, and"
 echo "settings for the PSC Coop Server software."
-echo "To use this successfully, you will need your site's domain name."
+echo "To use this successfully, you will need to know your site's domain name."
 
 echo "";
 
@@ -37,6 +37,22 @@ echo "First confirm $scriptuser password."
 
 #we do this so that 'sudo mysql' doesn't ask for a password right after we just had user type in the  mysql user password. CONFUSING!!
 sudo echo " -- confirmed --"
+
+
+
+echo ""
+echo "Copying server config files to required locations..."
+echo ""
+
+sudo cp /psc/www/html/install/server-configs/server-env.php /psc/www/
+sudo cp /psc/www/html/install/server-configs/environment.php /psc/www/
+sudo cp /psc/www/html/install/server-configs/apikeys.php /psc/www/
+sudo cp /psc/www/html/install/server-configs/mhs-api.env /psc/www/html/mhs-api/.env
+sudo mkdir /psc/www/html/projects
+sudo cp -r /psc/www/html/install/projects/coop /psc/www/html/projects/
+
+
+
 
 echo "This will setup the initial database for the historical names manager and the document manager."
 
@@ -99,20 +115,20 @@ sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/server-env.php
 sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/server-env.php
 sed -i "s|\[\[EDIT-THIS-GANO\]\]|$gano|g" /psc/www/server-env.php
 
-# echo ""
-# echo "Adjusting wp-config.php file..."
-# echo ""
+echo ""
+echo "Adjusting mhs-api .env file ..."
+echo ""
+sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/html/mhs-api/.env
+sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/html/mhs-api/.env
 
-# sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/html/wp-config.php
-# sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/html/wp-config.php
-# sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/wp-config.php
+echo ""
+echo "Creating initial project and directories ..."
+echo ""
+sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/html/projects/coop/environment.php
+sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/projects/coop/environment.php
+sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/html/projects/coop/support-files/footer.html
 
-
-
-#replace in our ending wpconfig file
-#sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/wp-config-multi.php
-
-
+echo ""
 echo "All set!"
 echo ""
 echo "You can change many of these settings in the server-env.php file."

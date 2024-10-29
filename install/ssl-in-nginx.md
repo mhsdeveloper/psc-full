@@ -16,7 +16,7 @@ Put all these files in /etc/nginx or a subfolder of that directory.
 
 # Add the Intermediate Certificate to your SSL Certificate
 
-This step concatenates the intermediate certificate with your signed SSL certificate. The certificates have to be in a correct order: your signed SSL certificate first, afterwards the intermediate.
+This step concatenates the intermediate certificate with your signed SSL certificate. The certificates have to be in a correct order: your signed SSL certificate from your vendor goes first, then afterwards the intermediate chain.
 
     cat vendor-chain.crt >> mydomain-YEAR.pem  
 

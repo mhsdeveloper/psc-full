@@ -9,10 +9,3 @@ $SASS sass/global.scss:global.css
 $SASS tei-sass/tei.scss:tei.css
 
 
-#cd tei
-#$SASS tei.scss:tei.css
-
-
-#companion wordpress css
-#cd /space/psc/www/html/wp-content/themes/psc1/css/
-#$SASS style.scss:style.css
