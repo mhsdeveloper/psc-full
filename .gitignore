@@ -33,7 +33,7 @@ xmlrpc.php
 
 #this is our copy of it
 !install/server-configs/wp-config.php
-
+!install/projects
 
 #legacy development stuff
 syncwpfiles.sh

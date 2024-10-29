@@ -13,7 +13,7 @@ echo ""
 read -p "Enter your php version (or blank for 8.3): " phpversion
 
 if [ "$phpversion" = "" ]; then 
-	phpversion = "8.3"
+	phpversion="8.3"
 fi
 
 echo ""
@@ -30,3 +30,6 @@ sed -i "s|PHPVERSION|$phpversion|g"  /etc/nginx/sites-available/wpmu.conf
 
 ln -s /etc/nginx/sites-available/wpmu.conf /etc/nginx/sites-enabled/wpmu.conf
 cp ../server-configs/wpmu-nginx.conf /etc/nginx/conf.d/
+
+echo "\nChanges complete.\n"
+
