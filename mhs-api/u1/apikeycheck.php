@@ -2,6 +2,10 @@
 
 	function checkAPIKeys(){
 
+//we're not really using this, but keeping incase we want to reinstate it
+
+return true;
+
 		/*
 			enter domains without the scheme (drop the http:// or https://)
 		*/

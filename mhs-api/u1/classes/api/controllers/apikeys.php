@@ -49,7 +49,4 @@
 			$headers =  get_headers();
 
 		}
-
-
-//		if(!checkAPIKeys()) die("Your app does not have access.");
 	}
