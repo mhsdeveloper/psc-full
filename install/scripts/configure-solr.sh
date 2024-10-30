@@ -9,4 +9,6 @@ sed -i 's_update.autoCreateFields:true_update.autoCreateFields:false_g' /var/sol
 
 sed -i 's_</config>_<schemaFactory class="ClassicIndexSchemaFactory"/></config>_g' /var/solr/data/publications/conf/solrconfig.xml
 
-
+echo ""
+echo "Updated SOLR configuration"
+echo ""

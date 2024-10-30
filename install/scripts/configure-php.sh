@@ -16,3 +16,8 @@ max_file_uploads = 20
 echo 'auto_prepend_file = /psc/www/server-env.php 
 include_path = ".:/psc/www/html/publications/mhs/"
 ' >> /etc/php/8.3/cli/php.ini
+
+
+echo ""
+echo "Appended custom init settings to PHP."
+echo ""

@@ -52,6 +52,12 @@ sudo mkdir /psc/www/html/projects
 sudo cp -r /psc/www/html/install/projects/coop /psc/www/html/projects/
 
 
+echo ""
+echo "Updating file permissions..."
+echo ""
+
+sudo chmod -R g+w $scriptuser /psc/www/html
+
 
 
 echo "This will setup the initial database for the historical names manager and the document manager."
@@ -109,24 +115,26 @@ echo ""
 echo "Adjusting server-env.php file..."
 echo ""
 
-sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/server-env.php
-sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/server-env.php
-sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/server-env.php
-sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/server-env.php
-sed -i "s|\[\[EDIT-THIS-GANO\]\]|$gano|g" /psc/www/server-env.php
+sudo sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/server-env.php
+sudo sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/server-env.php
+sudo sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/server-env.php
+sudo sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/server-env.php
+sudo sed -i "s|\[\[EDIT-THIS-GANO\]\]|$gano|g" /psc/www/server-env.php
 
 echo ""
 echo "Adjusting mhs-api .env file ..."
 echo ""
-sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/html/mhs-api/.env
-sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/html/mhs-api/.env
+
+sudo sed -i "s|\[\[EDIT-THIS-MYSQL-USER\]\]|$user|g" /psc/www/html/mhs-api/.env
+sudo sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/html/mhs-api/.env
 
 echo ""
 echo "Creating initial project and directories ..."
 echo ""
-sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/html/projects/coop/environment.php
-sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/projects/coop/environment.php
-sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/html/projects/coop/support-files/footer.html
+
+sudo sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/html/projects/coop/environment.php
+sudo sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/projects/coop/environment.php
+sudo sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/html/projects/coop/support-files/footer.html
 
 echo ""
 echo "All set!"

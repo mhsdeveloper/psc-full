@@ -83,8 +83,8 @@ You need to know your developer username; type "whoami" to see it.
     cd /psc/www/html
 	git config --global init.defaultBranch main
     git init
-	git branch -m main
-    git checkout git@github.com/mhsdeveloper/psc-full.git
+	git remote add origin https://github.com/mhsdeveloper/psc-full.git
+    git pull origin main
 	```
 
 
@@ -100,7 +100,7 @@ Our setup was tested with Solr version 8.11.3. It is not the latest, but it is t
 
 	cd /psc/www/html/install
 	wget --trust-server-names https://www.apache.org/dyn/closer.lua/lucene/solr/8.11.3/solr-8.11.3.zip?action=download
-	sudo bash ./install_solr_service.sh solr-8.11.3.zip
+	sudo bash ./scripts/install_solr_service.sh solr-8.11.3.zip
 
 If Solr starts but fails it's ok, we're not done yet; just press CTRL-C and continue with these instructions.
 
@@ -128,8 +128,7 @@ Solr stores its config, index, and other data in /var/solr/data/publications/. I
 
 Run our configuration script, which will take care of some trickier changes to solrconfig.xml:
 
-	cd /psc/www/html/install
-	sudo bash ./scripts/configure-solr.sh
+	sudo bash /psc/www/html/install/scripts/configure-solr.sh
 
 Restart SOLR:
 
@@ -147,6 +146,9 @@ The following is optional, use these if your host does not block port 8983. We c
 
 	sudo apt install ufw
 	sudo ufw enable
+	sudo ufw allow 22
+	sudo ufw allow 80
+	sudo ufw allow 443
 
 Then, to block access to Solr from the outside world:
 
@@ -185,6 +187,22 @@ Restart php:
 
 
 
+
+### Configure the server environment
+
+Run our script to configure the server environment. This script also: creates the initial database structures; creates initial project folders.
+
+	bash /psc/www/html/install/scripts/configure-env.sh
+
+Keep a note of the mysql user and password you created; wordpress will need to know these.
+
+If you use a testing server and/or a virtualbox for a local testing installation, also change these constants in the server-env.php file:
+
+	COOP_TEST_IP, LOCAL_TEST_IP
+
+
+
+
 ## Configure Nginx
 
 The main web service is Nginx, which listens to all incoming traffic. We configure it to connect to each of the components of the system. 
@@ -214,20 +232,6 @@ Answer the question as follows:
 	Disallow remote root login: Yes
 	Remove test database: Yes
 	Reload privileges: Yes
-
-
-
-### Configure the server environment
-
-Run our script to configure the server environment. This script also: creates the initial database structures; creates initial project folders.
-
-	bash /psc/www/html/install/scripts/configure-env.sh
-
-Keep a note of the mysql user and password you created; wordpress will need to know these.
-
-If you use a testing server and/or a virtualbox for a local testing installation, also change these constants in the server-env.php file:
-
-	COOP_TEST_IP, LOCAL_TEST_IP
 
 
 
