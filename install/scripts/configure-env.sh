@@ -56,7 +56,7 @@ echo ""
 echo "Updating file permissions..."
 echo ""
 
-sudo chmod -R g+w $scriptuser /psc/www/html
+sudo chmod -R g+w /psc/www/html
 
 
 
@@ -90,7 +90,7 @@ echo "Google Analytics ID: $gano"
 
 echo ""
 read -n1 -rsp "If you wish to change anything, press CTRL-C to abort and run the script again. Press anything else to continue ... " key
-
+echo ""
 
 
 
