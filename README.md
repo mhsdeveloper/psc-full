@@ -1,5 +1,11 @@
 # Primary Source Cooperative Server Software
 
+
+## BETA TESTING
+
+	Currently, the software is only intended to be install by our beta testers as we work to refine the installation instructions. If you are not part of the beta testing team, please check back later.
+
+
 This is an open source server software system for online scholarly publication. It is the technical component of the Massachusetts Historical Society's implimentation of the ["Digital Edition Publishing Cooperatives"](https://www.archives.gov/nhprc/announcement/depc) grant, awarded by NHPRC-Mellon in 2019. This software (the "System") allows small teams of editors to create and deliver digital publications of primary source documents. It provides robust search capabilities with faceting on topics and historical names. It provides web-based tools for managing documents, topics, and a complete historical names managing system. Read more about the [Primary Source Cooperative at the Massachusetts Historical Society](https://www.primarysourcecoop.org) where you can find information about the human infrastructure of the project, such as editorial statements and approaches to governance.
 
 Editors may begin transcription in an MS Word .docx file using a template and set of guidelines or work directly in XML (see our specific customized TEI schema). The System includes tools for checking and converting the .docx templates to XML. XML file can then be uploaded to a document manager: the docmanager allows checking in/out, proof reading, and checking for metadata integrity. In addition to delivering source documents and supporting metadata, the System provides the ability to edit the navigation and home page, and create supporting pages. With the help of a web developer, each edition can use a different schema (or schemas), and indeed, the use of TEI is entirely optional. Custom xslt can be created to allow gathering search and browse metadata from any XML schema. There is a user interface for uploading a custom css file that an edition can user to override most of the visual display. 

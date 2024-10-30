@@ -155,18 +155,6 @@ Then, to block access to Solr from the outside world:
 	sudo ufw deny 8983
 
 
-
-## Install Wordpress
-
-We use Wordpress to manage user login, and to serve the static pages, like the homepage and about pages, things like that. See separate documentation for using a different CMS as your frontend.
-
-We've included the most recent version of Wordpress to be tested with the Coop software. Unpack Wordpress, and move it to the main server html directory:
-
-	cd /psc/www/html/install
-	unzip wordpress-6.6.1.zip
-	mv wordpress/* ../
-
-
 ## Setup web server user
 
 We'll add the various web-services users to your user group. Nginx and PHP-fpm both run as the user www-data, so we add them to your user group:
@@ -235,19 +223,36 @@ Answer the question as follows:
 
 
 
+
+## Install Wordpress
+
+We use Wordpress to manage user login, and to serve the static pages, like the homepage and about pages, things like that. See separate documentation for using a different CMS as your frontend.
+
+We've included the most recent version of Wordpress to be tested with the Coop software. Unpack Wordpress, and move it to the main server html directory:
+
+	cd /psc/www/html/install
+	unzip wordpress-6.6.1.zip
+	mv wordpress/* ../
+
+
+
 ### Configure Wordpress
 
 Open you browser and point it to your website. You should see a Welcome to Wordpress page, which will outline the information you need. This mostly amounts to the name of the database and user and password you created above. The name of the database to use is "frontend". Wordpress may ask you to create a wp-config.php file that should go at the root of your website, sibling to the wp-admin and wp-content folders.
 
-Next, let's move our Coop-specific Wordpress plugin and theme into place:
 
-	cd /psc/www/html/install
-	cp -r wpfiles/* /psc/www/html/wp-content/
+Next we need to enable the Multisite feature of Wordpress. This allows you to have a central site for your entire publishing system, and separate individual sites for each project or publication. Run this command:
 
-Next we need to enable the Multisite feature of Wordpress. This allows you to have a central site for your entire publishing system, and separate individual sites for each project or publication. Open up the wp-config.php file that was create in /psc/www/html/, and add the following lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
+	cd /psc/www/html/install/scripts
+	php ./configure-wp-step1.php
+
+
+
+Open up the wp-config.php file that was create in /psc/www/html/, and add the following lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
 
 	/* Multisite */
 	define( 'WP_ALLOW_MULTISITE', true );
+	define('FS_METHOD', 'direct');
 	/* more code here */
 
 
@@ -255,11 +260,57 @@ Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instr
 
 Logout and login to see the changes. Now, at the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" which is where you can add new WordPress sites for the projects in your cooperative. Note: you will also need to follow the instructions (further down on this document) for creating the XML and file structure.
 
-Lastly, we need to enable our plugin and theme to be available to all sites in the Wordpress multisite install. Login to Wordpress, and at top corner under "My Sites", find "Network Admin" and "Themes". In the page that loads, make sure the "psc1" theme is enable for the network.
+Next, let's move our Coop-specific Wordpress plugin and theme into place:
+
+	cp -r /psc/www/html/install/wpfiles/* /psc/www/html/wp-content/
+
+We need to enable our plugin and theme to be available to all sites in the Wordpress multisite install. Login to Wordpress, and at top corner under "My Sites", find "Network Admin" and "Themes". In the page that loads, make sure the "psc1" theme is enable for the network.
 
 ![alt text](images/image.png)
 
-Do the same for the psc plugin un the "Plugins" menu.
+Do the same for the psc plugin in the "Plugins" menu.
+
+
+
+
+Within Wordpress, go to the "Appearance" menu, and choice "Themes". Activate the theme "psc1".
+
+
+
+
+
+
+
+Within Wordpress, go to the "Tools" menu, and choose "Import". Install The "Wordpress" import tool. At the same place, the "install" will have changed to "run importer". Click this, and use the "choose file" button 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### Some other recommended steps
 
