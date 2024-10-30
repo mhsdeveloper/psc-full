@@ -247,16 +247,11 @@ Next we need to enable the Multisite feature of Wordpress. This allows you to ha
 	php ./configure-wp-step1.php
 
 
+Login to Wordpress and go to the "Tools" menu, "Network Setup". You can follow the instructions for creating a network OR run the this command, which will do it for you:
 
-Open up the wp-config.php file that was create in /psc/www/html/, and add the following lines ABOVE the comment /* That's all, stop editing! Happy publishing. */:
+	cd /psc/www/html/
+	php ./configure-wp-step2.php
 
-	/* Multisite */
-	define( 'WP_ALLOW_MULTISITE', true );
-	define('FS_METHOD', 'direct');
-	/* more code here */
-
-
-Login to Wordpress and go to the "Tools" menu, "Network Setup". Follow the instructions for creating a network; you will have to add a few more lines of code by the comment /* more code here */; Wordpress will instruct you. 
 
 Logout and login to see the changes. Now, at the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" which is where you can add new WordPress sites for the projects in your cooperative. Note: you will also need to follow the instructions (further down on this document) for creating the XML and file structure.
 
@@ -270,10 +265,13 @@ We need to enable our plugin and theme to be available to all sites in the Wordp
 
 Do the same for the psc plugin in the "Plugins" menu.
 
-
-
-
 Within Wordpress, go to the "Appearance" menu, and choice "Themes". Activate the theme "psc1".
+
+
+
+
+
+
 
 
 

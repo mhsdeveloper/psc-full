@@ -22,3 +22,7 @@ define("FS_METHOD", "direct");
 	$text = str_replace($find, $replace, $text);
 
 	file_put_contents($filename, $text);
+
+
+	echo "\n Initial multisite configuration done.\n";
+	echo "Login to Wordpress and continue the install steps.\n";
