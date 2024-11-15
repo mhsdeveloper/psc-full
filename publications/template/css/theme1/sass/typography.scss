@@ -91,6 +91,8 @@ ol {
 
 li {
 	margin-left: var(--psc-gutter-dbl);
+	margin-bottom: .5rem;
+	line-height: 1.325;
 }
 
 blockquote {
@@ -192,4 +194,30 @@ input {
 
 .lineBeside {
 	@include linkLineLeft;
+}
+
+
+.has-small-font-size {
+	font-size: 12px;
+}
+
+
+
+.basicPage {
+
+	.entry-content {
+		max-width: 60em;
+	}
+
+}
+
+
+
+
+@media(max-width: 650px){
+	h1 {
+		font-size: 34px;
+	}
+
+	
 }

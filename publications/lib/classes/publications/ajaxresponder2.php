@@ -5,6 +5,8 @@
 
 	class AjaxResponder2 {
 
+		protected $headers = [];
+
 		public $response = [
 			"data" => [],
 			"errors" => [],
@@ -141,9 +143,16 @@
 		}
 
 
+		public function addHeader($headerText){
+			$this->headers[] = $headerText;
+		}
+
 
 		public function respond($die = true){
 			header('Content-Type: application/json');
+			foreach($this->headers as $header){
+				header($header);
+			}
 			print json_encode($this->response);
 			if($die) die();
 		}

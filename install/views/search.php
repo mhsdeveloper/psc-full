@@ -1,5 +1,5 @@
 <?php ?><!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="override">
 <head>
 <?php
 	require_once("head.php");

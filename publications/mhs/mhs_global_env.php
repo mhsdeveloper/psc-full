@@ -9,8 +9,7 @@
 	*/
 
 
-
-	if($serverAddr == COOP_TEST_IP){
+	if($_SERVER['SERVER_ADDR'] == COOP_TEST_IP){
 
 		//test server
 		define("APP_DOMAIN", COOP_TEST_IP);
@@ -28,12 +27,12 @@
 	}
 			
 	//some sort of wii fi test setup!
-	else if(strpos($serverAddr, "192.168.") !== false){
+	else if(strpos($_SERVER['SERVER_ADDR'], "192.168.") !== false){
 
-		define("SOLR_BASEURL", 'http://' . $serverAddr . ':8983/solr/');
-		define("API_URL", '//' . $serverAddr .'/mhs-api/v1/');
-		define("ALTAPI_URL", '//'. $serverAddr .'/mhs-api/u1/');
-		define("SOLR_IP", $serverAddr);
+		define("SOLR_BASEURL", 'http://' . $_SERVER['SERVER_ADDR'] . ':8983/solr/');
+		define("API_URL", '//' . $_SERVER['SERVER_ADDR'] .'/mhs-api/v1/');
+		define("ALTAPI_URL", '//'. $_SERVER['SERVER_ADDR'] .'/mhs-api/u1/');
+		define("SOLR_IP", $_SERVER['SERVER_ADDR']);
 
 		define ("MHS_DEBUG", true);
 

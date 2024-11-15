@@ -107,7 +107,7 @@
                </dateline>
             </opener>
             <p>
-               <persRef ref="brown-unknown">M<hi rend="superscript">r</hi>
+               <persRef ref="brown-one">M<hi rend="superscript">r</hi>
                   Brown</persRef> leaves here soon, et. et Nunc viverra
                imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque
                habitant morbi tristique senectus et netus et malesuada fames ac
@@ -117,8 +117,8 @@
                mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut
                nonummy. </p>
             <p>
-               <persRef ref="sedgwick-theodore2">Theodore</persRef> and <persRef
-                  ref="sedgwick-robert">Robert</persRef> Nunc viverra imperdiet
+               <persRef ref="gloomsworthy-bob">Bob</persRef> and <persRef
+                  ref="gloomsworthy-mic">Mic</persRef> Nunc viverra imperdiet
                enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi
                tristique senectus et netus et malesuada fames ac turpis egestas.
                Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In
@@ -129,7 +129,7 @@
             
             <closer>
                <salute>your aff<hi rend="superscript">te</hi> Friend </salute>
-               <signed>Sam Wr.</signed>
+               <signed>[]</signed>
             </closer>
             <postscript>
                <p>Other things I wish I'd said are here.</p>

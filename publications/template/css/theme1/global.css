@@ -538,6 +538,8 @@ ol {
 
 li {
   margin-left: var(--psc-gutter-dbl);
+  margin-bottom: 0.5rem;
+  line-height: 1.325;
 }
 
 blockquote {
@@ -614,6 +616,19 @@ input {
   padding-left: 3px;
 }
 
+.has-small-font-size {
+  font-size: 12px;
+}
+
+.basicPage .entry-content {
+  max-width: 60em;
+}
+
+@media (max-width: 650px) {
+  h1 {
+    font-size: 34px;
+  }
+}
 /* WP FIXES, HACKS */
 .widget_meta {
   display: none;
@@ -1075,7 +1090,7 @@ nav ul {
 }
 .useHamburger .primary-navigation {
   position: fixed;
-  z-index: 5;
+  z-index: 500;
   height: 100vh;
   width: 100vw;
   max-width: 450px;
@@ -3311,14 +3326,28 @@ select {
   }
 }
 @media (max-width: 650px) {
+  .searchTypePage label {
+    font-size: 17px;
+  }
   .advancedSearch .fieldRow .field label {
     display: block;
     width: 100%;
     text-align: left;
-    margin-left: 0.5rem;
+    margin-left: 0;
+    font-size: 16px;
   }
   .advancedSearch .fieldRow .field input {
+    padding: 6px;
     width: calc(100% - 64px);
+    font-size: 17px;
+    margin-left: 0;
+  }
+  .advancedSearch .fieldRow select {
+    font-size: 17px;
+    padding: 6px 6px 7px 6px;
+  }
+  .advancedSearch .fieldRow select.andOr {
+    position: absolute;
   }
   .advancedSearch .fieldRow .date {
     display: block;
@@ -3328,6 +3357,64 @@ select {
   .advancedSearch .fieldRow .date input {
     width: 30%;
     margin: 0;
+  }
+  .advancedSearch .fieldRow button.close {
+    top: 0;
+    right: 0;
+    padding: 4px;
+  }
+  .advancedSearch .fieldRow button.close svg {
+    width: 20px;
+  }
+  .advancedSearch .lastRow .adder {
+    padding-left: 0;
+    height: auto;
+    border-radius: 0;
+  }
+  .advancedSearch .lastRow button {
+    margin-bottom: 0.5rem;
+    border-radius: 17px;
+    font-size: 15px;
+  }
+  .groupView .group {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  .groupView .group .editionSearch {
+    position: relative;
+    top: 0;
+  }
+  .groupView .group .editionSearch .button {
+    margin-top: 0.5rem;
+    display: block;
+    font-size: 18px;
+  }
+  .lookupTopic {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    display: block;
+  }
+  .lookupTopic .topics {
+    max-height: none;
+  }
+  .lookupTopic .topic {
+    width: 100%;
+  }
+  .lookupTopic .selectedTopic {
+    height: auto;
+    width: auto;
+  }
+  .lookupTopic .topicInfo {
+    display: block;
+  }
+  .lookupTopic .topicInfo .relationships.narrow {
+    display: block;
+  }
+  .lookupTopic .topicInfo .relationships.narrow .narrowsTo {
+    width: auto;
   }
 }
 /* DOCUMENT SPECIFIC */
@@ -3788,6 +3875,10 @@ a.insRef:hover {
 
 .coop .mostEditions {
   display: block;
+}
+
+.has-small-font-size {
+  font-size: 12px;
 }
 
 .coop-page header,

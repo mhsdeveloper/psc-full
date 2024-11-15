@@ -12,7 +12,6 @@
 	$find = "/* That's all, stop editing! Happy publishing. */";
 
 
-
 	$replace = '
 
 define( "MULTISITE", true );

@@ -247,7 +247,7 @@ Next we need to enable the Multisite feature of Wordpress. This allows you to ha
 	php ./configure-wp-step1.php
 
 
-Login to Wordpress and go to the "Tools" menu, "Network Setup". You can follow the instructions for creating a network OR run the this command, which will do it for you:
+Login to Wordpress and go to the "Tools" menu, "Network Setup". Enter the information and click "Install". After that, you can follow the instructions for creating a network that Wordpress provides OR run the this command, which will do it for you:
 
 	cd /psc/www/html/
 	php ./configure-wp-step2.php
@@ -257,7 +257,11 @@ Logout and login to see the changes. Now, at the top left, under the "My Sites" 
 
 Next, let's move our Coop-specific Wordpress plugin and theme into place:
 
-	cp -r /psc/www/html/install/wpfiles/* /psc/www/html/wp-content/
+	sudo cp -r /psc/www/html/install/wpfiles/* /psc/www/html/wp-content/
+
+Update the permissions using this command:
+
+	sudo chmod -R g+w /psc/www/html
 
 We need to enable our plugin and theme to be available to all sites in the Wordpress multisite install. Login to Wordpress, and at top corner under "My Sites", find "Network Admin" and "Themes". In the page that loads, make sure the "psc1" theme is enable for the network.
 
@@ -265,23 +269,16 @@ We need to enable our plugin and theme to be available to all sites in the Wordp
 
 Do the same for the psc plugin in the "Plugins" menu.
 
-Within Wordpress, go to the "Appearance" menu, and choice "Themes". Activate the theme "psc1".
+Next, using the "My Sites" menu, click on, not "Network Admin", but the option below, which should be the name of your site. This brings you the the hub page that is the parent of all the editions/projects you will create.
 
+Go to the "Appearance" menu, to "Themes", and enable the "psc1" theme.
 
+Within Wordpress, go to the "Tools" menu, and choose "Import". Install The "Wordpress" import tool.
 
+Lastly for Wordpress, run this final script:
 
-
-
-
-
-
-
-
-
-
-Within Wordpress, go to the "Tools" menu, and choose "Import". Install The "Wordpress" import tool. At the same place, the "install" will have changed to "run importer". Click this, and use the "choose file" button 
-
-
+	cd /psc/www/html/install/scripts
+	sudo bash ./configure-wp-step3.sh
 
 
 

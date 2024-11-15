@@ -722,6 +722,10 @@
 
 	@media(max-width: 650px){
 
+		.searchTypePage label {
+			font-size: 17px;
+		}
+
 		.advancedSearch {
 			.fieldRow {
 
@@ -730,13 +734,26 @@
 						display: block;
 						width: 100%;
 						text-align: left;
-						margin-left: .5rem;
+						margin-left: 0;
+						font-size: 16px;
 					}
 
 
 					input {
+						padding: 6px;
 						width: calc(100% - 64px);
+						font-size: 17px;
+						margin-left: 0;
 					}
+				}
+
+				select {
+					font-size: 17px;
+					padding: 6px 6px 7px 6px;
+				}
+	
+				select.andOr {
+					position: absolute;
 				}
 
 
@@ -748,6 +765,86 @@
 					input {
 						width: 30%;
 						margin: 0;
+					}
+				}
+
+
+				button.close {
+					top: 0;
+					right: 0;
+					padding: 4px;
+
+					svg {
+						width: 20px;
+					}
+				}
+			}
+
+
+			.lastRow {
+				.adder {
+					padding-left: 0;
+					height: auto;
+					border-radius: 0;
+				}
+
+				button {
+					margin-bottom: 0.5rem;
+					border-radius: 17px;
+					font-size: 15px;
+				}
+			}
+		}
+
+		.groupView {
+			.group {
+				width: 100%;
+				padding-bottom: 10px;
+
+				.editionSearch {
+					position: relative;
+					top:0;
+
+					.button {
+						margin-top: .5rem;
+						display: block;
+						font-size: 18px;
+					}
+				}
+			}
+		}
+
+
+		.lookupTopic {
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			left: 0;
+			top: 0;
+			display: block;
+
+			.topics {
+				max-height: none;
+			}
+
+			.topic {
+				width: 100%;
+			}
+
+			.selectedTopic {
+				height: auto;
+				width: auto;
+
+			}
+
+			.topicInfo {
+				display: block;
+
+				.relationships.narrow {
+					display: block;
+
+					.narrowsTo {
+						width: auto;
 					}
 				}
 			}

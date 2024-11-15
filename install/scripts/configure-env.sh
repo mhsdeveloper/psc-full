@@ -107,8 +107,8 @@ sudo mysql -e "GRANT ALL PRIVILEGES ON frontend.* TO $user@localhost;"
 sudo mysql -e "flush privileges;"
 
 
-sudo mysql psccore < psccore-start.sql
-sudo mysql docmanager < docmanager-start.sql
+sudo mysql psccore < /psc/www/html/install/scripts/psccore-start.sql
+sudo mysql docmanager < /psc/www/html/install/scripts/docmanager-start.sql
 
 
 echo ""

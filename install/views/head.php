@@ -5,7 +5,7 @@
  */
 
 	//website cache buster
-	$FRONTEND_VERSION = 1966;
+	$FRONTEND_VERSION = 1993;
 
 ?>
 	<?php 
@@ -21,6 +21,10 @@
 
 		if(!defined("PROJECT_SHORT_NAME")) define("PROJECT_SHORT_NAME", $projectShortName);
 
+		if(!isset($wp_title)) $wp_title = "";
+		else $wp_title .= ": ";
+		$wp_title .= $projects[$projects['nameToID'][$projectShortName]]['name'];
+
 		if(isset($WORDPRESS)) $autorunMetaCI = "true";
 		else $autorunMetaCI = "false";
 ?>
@@ -30,7 +34,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Roboto:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&display=swap" rel="stylesheet">
-	<title><?=$projects[$projects['nameToID'][$projectShortName]]['name'];?></title>
+	<title><?=$wp_title;?></title>
 	<? /* these should be last, to allow to override WP theme */?>
 	<script src="/publications/template/js/common.js?v=<?=$FRONTEND_VERSION;?>"></script>
 	<script src="/publications/template/js/layouter.js?v=<?=$FRONTEND_VERSION;?>"></script>

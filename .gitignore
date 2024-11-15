@@ -22,6 +22,8 @@ mhs-api/.env
 customizations/
 projects/
 publications/pub/schema
+publications/template/views
+
 
 
 #wordpress stuff
