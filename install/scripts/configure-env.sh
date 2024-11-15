@@ -51,6 +51,7 @@ sudo cp /psc/www/html/install/server-configs/mhs-api.env /psc/www/html/mhs-api/.
 sudo mkdir /psc/www/html/projects
 sudo cp -r /psc/www/html/install/projects/coop /psc/www/html/projects/
 sudo cp /psc/www/html/install/scripts/configure-wp-step2.php /psc/www/html/
+sudo cp -r /psc/www/html/install/views /psc/www/html/publications/template/
 
 echo ""
 echo "Updating file permissions..."
@@ -120,6 +121,7 @@ sudo sed -i "s|\[\[EDIT-THIS-MYSQL-PASSWORD\]\]|$password|g" /psc/www/server-env
 sudo sed -i "s|\[\[EDIT-THIS-COOP-NAME\]\]|$coopname|g" /psc/www/server-env.php
 sudo sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/server-env.php
 sudo sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/configure-wp-step2.php
+sudo sed -i "s|\[\[EDIT-THIS-DOMAIN-NAME\]\]|$domainname|g" /psc/www/html/configure-wp-step3.sh
 sudo sed -i "s|\[\[EDIT-THIS-GANO\]\]|$gano|g" /psc/www/server-env.php
 
 echo ""
