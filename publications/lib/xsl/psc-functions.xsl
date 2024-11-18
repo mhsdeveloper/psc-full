@@ -95,8 +95,9 @@
     <xsl:function name="mhs:onePersRef">
         <xsl:param name="val"></xsl:param>
         <xsl:choose>
+            <xsl:when test="$val = 'U'"></xsl:when>
             <xsl:when test="$val = 'u'"></xsl:when>
-            <xsl:when test="$val = 'unknown'"></xsl:when>
+            <xsl:when test="contains($val, 'unknown')"></xsl:when>
             <xsl:otherwise>
                 <field name="person_keyword"><xsl:value-of select="translate($val, ' ', '')"/></field>
             </xsl:otherwise>

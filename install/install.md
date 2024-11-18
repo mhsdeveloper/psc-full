@@ -281,32 +281,6 @@ Lastly for Wordpress, run this final script:
 	sudo bash ./configure-wp-step3.sh
 
 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### Some other recommended steps
 
 We recommend disabling most of the dashboard items in Wordpress. From the dashboard, click on "Screen options" near the top right. Uncheck everything except "Coop Tools"; leave that checked as it provides links to Coop-specific features.
@@ -320,20 +294,14 @@ We recommend disabling most of the dashboard items in Wordpress. From the dashbo
 
 All projects are comprised of two parts: 1) a Wordpress "site" that is the home page and static pages of a project's website, and 2) the XML and file structures that hold the actual edition content. Each project in the Coop has a Wordpress site and a corresponding directory structure. The steps below are intended for your Coop's wev developer.
 
+### Run the command line script to add a projects
+
+The script in the install >> scripts folder, "add-project.php", will guide you through the setup of a new editorial project. Pay special attention to the choice of the edition abbreviation, which also determines the site's URL, when you configure Wordpress in the next step.
+
+	php /psc/www/html/install/scripts/add-projects.php
+
 
 ### Prepare the Wordpress portion
 
-Login to Wordpress as the main admin account. At the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" to add new sub site of the Network. In the form shown, for the first field "Site Address (URL)" 
+Login to Wordpress as the main admin account. At the top left, under the "My Sites" menu, there is a section called "Network Admin". In that section, go to "Sites" to add new sub site of the Network. In the form shown, for the first field "Site Address (URL)", the url should be just the site abbreviation.
 
-
-
-
-
-Edit .env file for Laravel in html/mhs-api/.env
-
-
-
-
-
-
-## Quick Content Tutorial

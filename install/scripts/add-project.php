@@ -85,6 +85,7 @@
 	mkdir($destPath . "/images");
 	mkdir($destPath . "/includes");
 	mkdir($destPath . "/solrtemp");
+	mkdir($destPath . "/page-images");
 	mkdir($destPath . "/support-files");
 	mkdir($destPath . "/xml");
 
