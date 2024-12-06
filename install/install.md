@@ -290,9 +290,9 @@ We recommend disabling most of the dashboard items in Wordpress. From the dashbo
 # Setup initial projects/editions directory and sample project/edition
 
 
-## Creating a new projects
+## Creating a new project
 
-All projects are comprised of two parts: 1) a Wordpress "site" that is the home page and static pages of a project's website, and 2) the XML and file structures that hold the actual edition content. Each project in the Coop has a Wordpress site and a corresponding directory structure. The steps below are intended for your Coop's wev developer.
+All projects are comprised of two parts: 1) a Wordpress "site" that is the home page and static pages of a project's website, and 2) the XML and file structures that hold the actual edition content. Each project in the Coop has a Wordpress site and a corresponding directory structure. The steps below are intended for your Coop's web developer.
 
 ### Run the command line script to add a projects
 

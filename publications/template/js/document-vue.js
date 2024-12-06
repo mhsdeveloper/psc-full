@@ -1,9 +1,9 @@
 
-import { NextPrev } from "./nextprev-vue.js";
-import { SidebarContextualizer } from "./sidebarContextualizer-vue.js";
-import { AuthorRecipient } from "./author-recipient-vue.js";
-import { PageImages} from "./page-images-vue.js";
-import { TimePeriods} from "./timeperiods-vue.js";
+import { NextPrev } from "./nextprev-vue.js?v=100";
+import { SidebarContextualizer } from "./sidebarContextualizer-vue.js?v=100";
+import { AuthorRecipient } from "./author-recipient-vue.js?v=100";
+import { PageImages} from "./page-images-vue.js?v=100";
+import { TimePeriods} from "./timeperiods-vue.js?v=100";
 
 const DocumentEnhancements = {
 

@@ -21,6 +21,8 @@ function PageImages(props) {
 				zoomInButton:   "zoomIn",
 				zoomOutButton:  "zoomOut",
 				homeButton:     "osdReset",
+				rotateLeftButton: "rotateLeft",
+				rotateRightButton: "rotateRight",
 
 				showRotationControl: true,
 				tileSources: {

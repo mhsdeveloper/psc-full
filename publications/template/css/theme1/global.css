@@ -1435,6 +1435,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=repository]::before {
   content: "Repository";
@@ -1442,6 +1444,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=collection]::before {
   content: "Collection";
@@ -1449,6 +1453,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=condition]::before {
   content: "Condition";
@@ -1456,6 +1462,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=address]::before {
   content: "Address";
@@ -1463,6 +1471,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=endorsement]::before {
   content: "Endorsement";
@@ -1470,6 +1480,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=notation]::before {
   content: "Notation";
@@ -1477,6 +1489,8 @@ button.expand {
   font-size: 14px;
   color: #007f98;
   font-weight: bold;
+  display: block;
+  break-after: avoid;
 }
 .metadataSection .metadata note[type=fn] label {
   float: left;

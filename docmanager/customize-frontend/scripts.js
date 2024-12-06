@@ -46,6 +46,7 @@
 	
 	
 	App.methods.fileDate = function(document){
+		if(!document.date_when || !document.date_to) return "[not found in SOLR, reindex?]";
 		let d = document.date_when;
 		let t = document.date_to;
 		if(t != d) return d + " to " + t;
@@ -55,7 +56,8 @@
 
 	App.methods.buildDocTextPreview = function(document, length = 400){
 		if(Array.isArray(document.doc_beginning)) return document.doc_beginning[0].substring(0, length);
-		else return document.doc_beginning.substring(0, length);
+		if(document.doc_beginning) return document.doc_beginning.substring(0, length);
+		return "";
 	}
 	
 	
