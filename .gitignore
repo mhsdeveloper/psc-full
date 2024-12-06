@@ -23,7 +23,8 @@ customizations/
 projects/
 publications/pub/schema
 publications/template/views
-
+tools/wetvac/uploads/*.docx
+tools/wetvac/uploads/*.xml
 
 
 #wordpress stuff
